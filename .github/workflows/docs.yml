@@ -2,8 +2,12 @@ name: pygama
 
 on:
   push:
-    paths-ignore:
-      - '**.md'
+    branches:
+      - master
+      - dev
+      - 'releases/**'
+    tags: '*'
+  release:
 
 jobs:
 
