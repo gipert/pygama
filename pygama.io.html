@@ -56,7 +56,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.orca_digitizers">pygama.io.orca_digitizers module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.orcadaq">pygama.io.orcadaq module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.pollers">pygama.io.pollers module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pygama-io-raw-to-dsp-module">pygama.io.raw_to_dsp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.raw_to_dsp">pygama.io.raw_to_dsp module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.wfcompress">pygama.io.wfcompress module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io">Module contents</a></li>
 </ul>
@@ -65,7 +65,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.html#pygama-git-module">pygama.git module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.html#module-pygama.git">pygama.git module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.html#module-pygama.utils">pygama.utils module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.html#module-pygama">Module contents</a></li>
 </ul>
@@ -787,8 +787,15 @@ e.g: d[5] = ['P12345A','P12346B','', ... 'B8765']</p>
 </dd></dl>
 
 </section>
-<section id="pygama-io-raw-to-dsp-module">
-<h2>pygama.io.raw_to_dsp module<a class="headerlink" href="#pygama-io-raw-to-dsp-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.io.raw_to_dsp">
+<span id="pygama-io-raw-to-dsp-module"></span><h2>pygama.io.raw_to_dsp module<a class="headerlink" href="#module-pygama.io.raw_to_dsp" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.io.raw_to_dsp.raw_to_dsp">
+<span class="sig-prename descclassname"><span class="pre">pygama.io.raw_to_dsp.</span></span><span class="sig-name descname"><span class="pre">raw_to_dsp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_dsp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lh5_tables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/io/raw_to_dsp.html#raw_to_dsp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.io.raw_to_dsp.raw_to_dsp" title="Permalink to this definition"></a></dt>
+<dd><p>Uses the ProcessingChain class.
+The list of processors is specifed via a JSON file.</p>
+</dd></dl>
+
 </section>
 <section id="module-pygama.io.wfcompress">
 <span id="pygama-io-wfcompress-module"></span><h2>pygama.io.wfcompress module<a class="headerlink" href="#module-pygama.io.wfcompress" title="Permalink to this headline"></a></h2>
