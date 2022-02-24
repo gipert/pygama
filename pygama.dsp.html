@@ -289,46 +289,15 @@ output buffer.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.dsp.ProcessingChain.ProcessingChain.get_variable">
-<span class="sig-name descname"><span class="pre">get_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_names_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/ProcessingChain.html#ProcessingChain.get_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.ProcessingChain.ProcessingChain.get_variable" title="Permalink to this definition"></a></dt>
-<dd><p>Parse string expr into a numpy array or value, using the following
-syntax:</p>
+<span class="sig-name descname"><span class="pre">get_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/ProcessingChain.html#ProcessingChain.get_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.ProcessingChain.ProcessingChain.get_variable" title="Permalink to this definition"></a></dt>
+<dd><p>Get the numpy array holding the internal memory buffer used for a
+named variable. The varname has the format</p>
 <blockquote>
-<div><ul>
-<li><p>numeric values are parsed into ints or floats</p></li>
-<li><p>units found in the dsp.units module are parsed into floats</p></li>
-<li><p>other strings are parsed into variable names. If get_name_only is
-False, fetch the internal buffer (creating it as needed). Else,
-return a string of the name</p></li>
-<li><p>if a string is followed by (...), try parsing into one of the
-following expressions:</p>
-<blockquote>
-<div><p>len(expr): return the length of the array found with expr
-round(expr): return the value found with expr to the nearest int
-varname(shape, type): allocate a new buffer with the specified</p>
-<blockquote>
-<div><p>shape and type, using varname. This is used if the automatic
-type and shape deduction for allocating variables fails</p>
+<div><p>&quot;varname(length, type)[range]&quot;</p>
 </div></blockquote>
-</div></blockquote>
-</li>
-<li><dl class="simple">
-<dt>Unary and binary operators +, -, <a href="#id1"><span class="problematic" id="id2">*</span></a>, /, // are available. If</dt><dd><p>a variable name is included in the expression, a processor
-will be added to the ProcChain and a new buffer allocated
-to store the output</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>varname[slice]: return the variable with a slice applied. Slice</dt><dd><p>values can be floats, and will have round applied to them</p>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-<dl class="simple">
-<dt>If get_names_only is set to True, do not fetch or allocate new arrays,</dt><dd><p>instead return a list of variable names found in the expression</p>
-</dd>
-</dl>
+<p>The optional (length, type) field is used to initialize a new variable
+if necessary. The optional [range] field fetches only a subrange
+of the array to the function.</p>
 </dd></dl>
 
 </dd></dl>
@@ -338,7 +307,7 @@ to store the output</p>
 <span id="pygama-dsp-waveformbrowser-module"></span><h2>pygama.dsp.WaveformBrowser module<a class="headerlink" href="#module-pygama.dsp.WaveformBrowser" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygama.dsp.WaveformBrowser.WaveformBrowser">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.dsp.WaveformBrowser.</span></span><span class="sig-name descname"><span class="pre">WaveformBrowser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lh5_group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_drawn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ns'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_lim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waveforms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'waveform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wf_styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/WaveformBrowser.html#WaveformBrowser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.WaveformBrowser.WaveformBrowser" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.dsp.WaveformBrowser.</span></span><span class="sig-name descname"><span class="pre">WaveformBrowser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lh5_group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_drawn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ns'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waveforms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'waveform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wf_styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/WaveformBrowser.html#WaveformBrowser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.WaveformBrowser.WaveformBrowser" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The Waveform Browser is a tool meant for interacting with waveforms from
 LH5 files. This defines an interface for drawing waveforms from a file,
@@ -425,84 +394,75 @@ Can give a list/tuple to find multiple entries.</p>
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp.build_processing_chain.</span></span><span class="sig-name descname"><span class="pre">build_processing_chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lh5_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/build_processing_chain.html#build_processing_chain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.build_processing_chain.build_processing_chain" title="Permalink to this definition"></a></dt>
 <dd><p>Produces a ProcessingChain object and an lh5 table for output parameters
 from an input lh5 table and a json recipe.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lh5_in</strong> (<em>lgdo.Table</em>) -- HDF5 table from which raw data is read. At least one row of entries
-should be read in prior to calling this!</p></li>
-<li><p><strong>dsp_config</strong> (<em>dict</em><em> or </em><em>str</em>) -- <p>A dict or json filename containing the recipes for computing DSP
-parameter from raw parameters. The format is as follows:
-{</p>
+<p>Returns (proc_chain, lh5_out):
+- proc_chain: ProcessingChain object that is bound to lh5_in and lh5_out;</p>
+<blockquote>
+<div><p>all you need to do is handle file i/o for lh5_in/out and run execute</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>lh5_out: output LH5 table</p></li>
+</ul>
+<p>Required arguments:
+- lh5_in: input LH5 table
+- config: dict or name of json file containing a recipe for</p>
+<blockquote>
+<div><p>constructing the ProcessingChain object produced by this function.
+config is formated as a json dict with different processors. Config
+should have a dictionary called processors, containing dictionaries
+of the following format:</p>
 <blockquote>
 <div><dl>
-<dt>&quot;outputs&quot;<span class="classifier">[ &quot;parnames&quot;, ... ] -&gt; list of output parameters</span></dt><dd><p>to compute by default; see outputs parameter.</p>
+<dt>Key: parameter name: name of parameter produced by the processor.</dt><dd><p>can optionally provide multiple, separated by spaces</p>
 </dd>
-<dt>&quot;processors&quot;<span class="classifier">{</span></dt><dd><dl>
-<dt>&quot;name1, ...&quot;<span class="classifier">{ -&gt; names of parameters computed</span></dt><dd><dl class="simple">
-<dt>&quot;function&quot;<span class="classifier">str -&gt; name of function to call. Function</span></dt><dd><p>should implement the gufunc interface, a factory
-function returning a gufunc, or an arbitrary
-function that can be mapped onto a gufunc</p>
-</dd>
-</dl>
-<p>&quot;module&quot; : str -&gt; name of module containing function
-&quot;args&quot; : [ str or numeric, ... ] -&gt; list of names of</p>
+<dt>Values:</dt><dd><p>processor (req): name of gufunc
+module (req): name of module in which to find processor
+prereqs (req): name of parameters from other processors and from</p>
 <blockquote>
-<div><p>computed and input parameters or constant values
-used as inputs to function. Note that outputs
-should be fed by reference as args! Arguments read
-from the database are prepended with db.</p>
+<div><p>input that are required to exist to run this</p>
 </div></blockquote>
 <dl class="simple">
-<dt>&quot;kwargs&quot;<span class="classifier">dict -&gt; keyword arguments for</span></dt><dd><p>ProcesssingChain.add_processor.</p>
-</dd>
-<dt>&quot;init_args&quot;<span class="classifier">[ str or numeric, ... ] -&gt; list of names</span></dt><dd><p>of computed and input parameters or constant values
-used to initialize a gufunc via a factory function</p>
+<dt>args (req): list of arguments for processor, with variables passed</dt><dd><p>by name or value. Names should either be inputs from lh5_in, or
+parameter names for other processors. Names of the format db.name
+will look up the parameter in the metadata.</p>
 </dd>
 </dl>
-<p>&quot;unit&quot; : str or [ strs, ... ] -&gt; units for parameters
-&quot;defaults&quot; : dict -&gt; default value to be used for</p>
+<p>kwargs (opt): kwargs used when adding processors to proc_chain
+init_args (opt): args used when initializing a processor that has</p>
 <blockquote>
-<div><p>arguments read from the database</p>
+<div><p>static data (for factory functions)</p>
 </div></blockquote>
-<dl class="simple">
-<dt>&quot;prereqs&quot;<span class="classifier">DEPRECATED [ strs, ...] -&gt; list of parameters</span></dt><dd><p>that must be computed before these can</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p>}</p>
+<p>default (opt): default value for db parameters if not found
+unit (opt): unit to be used for attr in lh5 file.</p>
 </dd>
 </dl>
 </div></blockquote>
-</p></li>
-<li><p><strong>outputs</strong> (<em>[</em><em>str</em><em>, </em><em>...</em><em>] </em><em>(</em><em>optional</em><em>)</em>) -- List of parameters to put in the output lh5 table. If None,
-use the parameters in the 'outputs' list from config</p></li>
-<li><p><strong>db_dict</strong> (<em>dict</em><em> (</em><em>optional</em><em>)</em>) -- <p>A nested dict pointing to values for db args. e.g. if a processor
-uses arg db.trap.risetime, it will look up</p>
+<p>There may also be a list called 'outputs', containing a list of parameters
+to put into lh5_out.</p>
+</div></blockquote>
+<p>Optional keyword arguments:
+- outputs: list of parameters to put in the output lh5 table. If None,</p>
+<blockquote>
+<div><p>use the parameters in the 'outputs' list from config</p>
+</div></blockquote>
+<ul>
+<li><p>db_dict: a nested dict pointing to values for db args.
+e.g. if a processor uses arg db.trap.risetime, it will look up</p>
 <blockquote>
 <div><p>db_dict['trap']['risetime']</p>
 </div></blockquote>
-<p>and use the found value. If no value is found, use the default
-defined in the config file.</p>
-</p></li>
-<li><p><strong>verbosity</strong> (<em>int</em><em> (</em><em>optional</em><em>)</em>) -- 0: Print nothing (except errors...)
+<p>and use the found value. If no value is found, use the default defined
+in the config file.</p>
+</li>
+<li><dl class="simple">
+<dt>verbosity: verbosity level:</dt><dd><p>0: Print nothing (except errors...)
 1: Print basic warnings (default)
 2: Print basic debug info
-3: Print friggin' everything!</p></li>
-<li><p><strong>block_width</strong> (<em>int</em><em> (</em><em>optional</em><em>)</em>) -- number of entries to process at once. To optimize performance,
-a multiple of 16 is preferred, but if performance is not an issue
-any value can be used.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>(proc_chain, field_mask, lh5_out)</strong> -- proc_chain : ProcessingChain object that is executed
-field_mask : List of input fields that are used
-lh5_out : output lh5 table containing processed values</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>tuple</p>
+3: Print friggin' everything!</p>
 </dd>
 </dl>
+</li>
+<li><p>block_width: number of entries to process at once.</p></li>
+</ul>
 </dd></dl>
 
 </section>
@@ -515,15 +475,12 @@ lh5_out : output lh5 table containing processed values</p>
 <p>Parameter Grid class</p>
 <p>Each ParGrid entry corresponds to a dsp parameter to be varied.
 The ntuples must follow the pattern:
-( name, i_arg, value_strs, companions) : ( str, int, list of str, list, or None )
-where name is the name of the dsp routine in dsp_config whose to be
+( name, i_arg, value_strs companions) : ( str, int, list of str, list or None )
+where name is the name of the dsp routine in dsp_config whose  be
 optimized, i_arg is the index of the argument to be varied, value_strs is
 the array of strings to set the argument to, and companions is an optional
 list of ( name, i_arg, value_strs ) tuples for companion arguments that
 need to change along with this one</p>
-<p>Optionally, i_arg can be a list of the argument indices to be varied together,
-where value_strs is a list of lists correponding to the strings to set the
-arguments to in the same order.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.dsp.dsp_optimize.ParGrid.add_dimension">
 <span class="sig-name descname"><span class="pre">add_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_strs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">companions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/dsp_optimize.html#ParGrid.add_dimension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.dsp_optimize.ParGrid.add_dimension" title="Permalink to this definition"></a></dt>
@@ -622,7 +579,7 @@ the order appearin in dims (first dimension is first for loop, etc):</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp.dsp_optimize.run_grid">
-<span class="sig-prename descclassname"><span class="pre">pygama.dsp.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">run_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.float64'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_dict=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity=0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/dsp_optimize.html#run_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.dsp_optimize.run_grid" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygama.dsp.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">run_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/dsp_optimize.html#run_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.dsp_optimize.run_grid" title="Permalink to this definition"></a></dt>
 <dd><p>Extract a table of optimization values for a grid of DSP parameters</p>
 <p>The grid argument defines a list of parameters and values over which to run
 the DSP defined in dsp_config on tb_data. At each point, a scalar
@@ -643,12 +600,9 @@ list of output variables to appear in the output table for each grid point</p>
 must return a scalar figure-of-merit. Should accept verbosity as a
 second keyword argument</p>
 </dd>
-<dt>dtype<span class="classifier">dtype (optional)</span></dt><dd><p>The data type of the fom_function's return object. Should be np.ndarray if
-fom_function is set to None</p>
-</dd>
 <dt>db_dict<span class="classifier">dict (optional)</span></dt><dd><p>DSP parameters database. See build_processing_chain for formatting info</p>
 </dd>
-<dt>verbosity<span class="classifier">int (optional)</span></dt><dd><p>Verbosity for the processing chain and fom_function calls</p>
+<dt>verbosity<span class="classifier">int (optional)</span></dt><dd><p>verbosity for the processing chain and fom_function calls</p>
 </dd>
 </dl>
 <dl class="simple">
@@ -661,7 +615,7 @@ of the grid argument</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp.dsp_optimize.run_one_dsp">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">run_one_dsp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/dsp_optimize.html#run_one_dsp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.dsp_optimize.run_one_dsp" title="Permalink to this definition"></a></dt>
-<dd><p>Run one iteration of DSP on tb_data</p>
+<dd><p>run one iteration of DSP on tb_data</p>
 <p>Optionally returns a value for optimization</p>
 <dl class="simple">
 <dt>tb_data<span class="classifier">lh5 Table</span></dt><dd><p>An input table of lh5 data. Typically a selection is made prior to
@@ -697,8 +651,10 @@ using numba's guvectorize to implement numpy's ufunc interface. In other words,
 all of the functions are void functions whose outputs are given as parameters.
 The ufunc interface provides additional information about the function
 signatures that enables broadcasting the arrays and SIMD processing. Thanks to
-the ufunc interface, they can also be called to return a numpy array, but if
-this is done, memory will be allocated for this array, slowing things down.</p>
+the ufunc interface, they can also be called to return a numpy array, but if</p>
+<blockquote>
+<div><p>this is done, memory will be allocated for this array, slowing things down.</p>
+</div></blockquote>
 </section>
 <section id="module-pygama.dsp.units">
 <span id="pygama-dsp-units-module"></span><h2>pygama.dsp.units module<a class="headerlink" href="#module-pygama.dsp.units" title="Permalink to this headline"></a></h2>
