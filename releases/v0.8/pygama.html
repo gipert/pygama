@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pygama package &mdash; pygama v0.6 documentation</title>
+  <title>pygama package &mdash; pygama  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="pygama.analysis package" href="pygama.analysis.html" />
-    <link rel="prev" title="Installing pygama" href="install.html" /> 
+    <link rel="prev" title="Tutorials" href="tutorials.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,18 +40,21 @@
     
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing pygama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribution guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Package API reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pygama.analysis.html">pygama.analysis package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pygama.io.html">pygama.io package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pygama.lh5.html">pygama.lh5 package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.sandbox.html">pygama.sandbox package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pygama-git-module">pygama.git module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pygama-utils-module">pygama.utils module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pygama">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygama.version">pygama.version module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -59,14 +62,14 @@
     <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
       <span class="rst-current-version" data-toggle="rst-current-version">
         <span class="fa fa-book"> Other Versions</span>
-        v: refactor
+        v: releases/v0.8
         <span class="fa fa-caret-down"></span>
       </span>
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="pygama.html">refactor</a></dd>
-          <dd><a href="../releases/v0.8/pygama.html">releases/v0.8</a></dd>
+          <dd><a href="../../refactor/pygama.html">refactor</a></dd>
+          <dd><a href="pygama.html">releases/v0.8</a></dd>
         </dl>
       </div>
     </div>
@@ -110,7 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#pygama-analysis-metadata-module">pygama.analysis.metadata module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#pygama-analysis-peak-fitting-module">pygama.analysis.peak_fitting module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#pygama-analysis-pulse-shape-analysis-module">pygama.analysis.pulse_shape_analysis module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#module-pygama.analysis">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a><ul>
@@ -119,9 +122,10 @@
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-waveformbrowser-module">pygama.dsp.WaveformBrowser module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-build-processing-chain-module">pygama.dsp.build_processing_chain module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-dsp-optimize-module">pygama.dsp.dsp_optimize module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-errors-module">pygama.dsp.errors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-processors-module">pygama.dsp.processors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-units-module">pygama.dsp.units module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#module-pygama.dsp">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pygama.io.html">pygama.io package</a><ul>
@@ -135,6 +139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pygama.io.html#pygama-io-lh5-module">pygama.io.lh5 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.io.html#pygama-io-llamadaq-module">pygama.io.llamadaq module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.io.html#pygama-io-orca-digitizers-module">pygama.io.orca_digitizers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#pygama-io-orca-flashcam-module">pygama.io.orca_flashcam module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.io.html#pygama-io-orcadaq-module">pygama.io.orcadaq module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.io.html#pygama-io-pollers-module">pygama.io.pollers module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.io.html#pygama-io-raw-to-dsp-module">pygama.io.raw_to_dsp module</a></li>
@@ -156,43 +161,47 @@
 <li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-contents">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="pygama.sandbox.html">pygama.sandbox package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-base-module">pygama.sandbox.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-base-calculators-module">pygama.sandbox.base_calculators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-base-transforms-module">pygama.sandbox.base_transforms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-compass-header-module">pygama.sandbox.compass_header module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-compass-wfs-module">pygama.sandbox.compass_wfs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-database-module">pygama.sandbox.database module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-databases-module">pygama.sandbox.databases module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-h5parser-module">pygama.sandbox.h5parser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-multirun-module">pygama.sandbox.multirun module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-module">pygama.sandbox.test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-3302-module">pygama.sandbox.test_3302 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-lh5-buffered-read-module">pygama.sandbox.test_lh5_buffered_read module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-pygama-module">pygama.sandbox.test_pygama module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-tier-0-module">pygama.sandbox.test_tier_0 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-tier-1-module">pygama.sandbox.test_tier_1 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-wfc-module">pygama.sandbox.test_wfc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-tier1-base-module">pygama.sandbox.tier1_base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-tier1-vector-module">pygama.sandbox.tier1_vector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-uproot-mjd-module">pygama.sandbox.uproot_mjd module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-uproot-test-module">pygama.sandbox.uproot_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-vec1-module">pygama.sandbox.vec1 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-vector-module">pygama.sandbox.vector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-contents">Module contents</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
 </section>
-<section id="pygama-git-module">
-<h2>pygama.git module<a class="headerlink" href="#pygama-git-module" title="Permalink to this headline"></a></h2>
-</section>
 <section id="pygama-utils-module">
 <h2>pygama.utils module<a class="headerlink" href="#pygama-utils-module" title="Permalink to this headline"></a></h2>
 </section>
-<section id="module-pygama">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pygama" title="Permalink to this headline"></a></h2>
-<p>pygama init file.
-it might be better to declare more of the public functions here if it
-makes sphinx auto-generated documentation easier.</p>
-<p>There's a nice discussion about what to include in this file here:
-<a class="reference external" href="https://www.reddit.com/r/Python/comments/1bbbwk/whats_your_opinion_on_what_to_include_in_init_py/">https://www.reddit.com/r/Python/comments/1bbbwk/whats_your_opinion_on_what_to_include_in_init_py/</a></p>
-<p>Clint's fav answer:</p>
-<p>I like importing key functions and classes. Flat is better than nested, so
-as a user of a library, I prefer <cite>from library import ThingIWant</cite> or
-<cite>import library</cite> and then using <cite>library.ThingIWant</cite> rather than
-<cite>from library.things.thing_i_want import ThingIWant</cite>.</p>
-<dl class="simple">
-<dt>More specifically, I would often have the contents of __init__.py be:</dt><dd><p>&quot;Docstring explaining package&quot; (use triple quotes though)
-from thispackage.module_or_subpackage import *
-from thispackage.module_thats_next_alphabetically import *
-...</p>
-</dd>
-</dl>
-<p>And then have each module use __all__ to specify which names constitute
-its public API that should be exposed by the package.</p>
-<p>For something you are distributing publicly, I don't think your __init__.py
-should ever by &quot;blank&quot; as specified by option 1: you should at least include a
-docstring explaining what the package does. This will help users poking around
-in ipython, etc.</p>
+<section id="module-pygama.version">
+<span id="pygama-version-module"></span><h2>pygama.version module<a class="headerlink" href="#module-pygama.version" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
 </section>
 </section>
 
@@ -200,7 +209,7 @@ in ipython, etc.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="install.html" class="btn btn-neutral float-left" title="Installing pygama" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="pygama.analysis.html" class="btn btn-neutral float-right" title="pygama.analysis package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
