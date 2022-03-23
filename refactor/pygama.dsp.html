@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pygama.dsp package &mdash; pygama v0.6 documentation</title>
+  <title>pygama.dsp package &mdash; pygama  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pygama.io package" href="pygama.io.html" />
-    <link rel="prev" title="pygama.analysis package" href="pygama.analysis.html" /> 
+    <link rel="next" title="pygama.hit package" href="pygama.hit.html" />
+    <link rel="prev" title="pygama package" href="pygama.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,27 +40,29 @@
     
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing pygama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribution guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="pygama.html">Package API reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="pygama.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="pygama.analysis.html">pygama.analysis package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">pygama.dsp package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-processingchain-module">pygama.dsp.ProcessingChain module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-waveformbrowser-module">pygama.dsp.WaveformBrowser module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-build-dsp-module">pygama.dsp.build_dsp module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-build-processing-chain-module">pygama.dsp.build_processing_chain module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-dsp-optimize-module">pygama.dsp.dsp_optimize module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-pygama.dsp.errors">pygama.dsp.errors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-processing-chain-module">pygama.dsp.processing_chain module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-processors-module">pygama.dsp.processors module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-units-module">pygama.dsp.units module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.dsp">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="pygama.io.html">pygama.io package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygama.lh5.html">pygama.lh5 package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.hit.html">pygama.hit package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.lgdo.html">pygama.lgdo package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.raw.html">pygama.raw package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.html#pygama-git-module">pygama.git module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.html#pygama-utils-module">pygama.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.html#module-pygama.version">pygama.version module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.html#module-pygama">Module contents</a></li>
 </ul>
 </li>
@@ -75,8 +77,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../main/pygama.dsp.html">main</a></dd>
           <dd><a href="pygama.dsp.html">refactor</a></dd>
+          <dd><a href="../main/pygama.dsp.html">main</a></dd>
           <dd><a href="../releases/v0.8/pygama.dsp.html">releases/v0.8</a></dd>
         </dl>
       </div>
@@ -118,20 +120,65 @@
 <section id="pygama-dsp-waveformbrowser-module">
 <h2>pygama.dsp.WaveformBrowser module<a class="headerlink" href="#pygama-dsp-waveformbrowser-module" title="Permalink to this headline"></a></h2>
 </section>
+<section id="pygama-dsp-build-dsp-module">
+<h2>pygama.dsp.build_dsp module<a class="headerlink" href="#pygama-dsp-build-dsp-module" title="Permalink to this headline"></a></h2>
+</section>
 <section id="pygama-dsp-build-processing-chain-module">
 <h2>pygama.dsp.build_processing_chain module<a class="headerlink" href="#pygama-dsp-build-processing-chain-module" title="Permalink to this headline"></a></h2>
 </section>
-<section id="pygama-dsp-dsp-optimize-module">
-<h2>pygama.dsp.dsp_optimize module<a class="headerlink" href="#pygama-dsp-dsp-optimize-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.dsp.errors">
+<span id="pygama-dsp-errors-module"></span><h2>pygama.dsp.errors module<a class="headerlink" href="#module-pygama.dsp.errors" title="Permalink to this headline"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pygama.dsp.errors.DSPError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.dsp.errors.</span></span><span class="sig-name descname"><span class="pre">DSPError</span></span><a class="reference internal" href="_modules/pygama/dsp/errors.html#DSPError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.errors.DSPError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Base class for signal processors</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pygama.dsp.errors.DSPFatal">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.dsp.errors.</span></span><span class="sig-name descname"><span class="pre">DSPFatal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pygama/dsp/errors.html#DSPFatal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.errors.DSPFatal" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygama.dsp.errors.DSPError" title="pygama.dsp.errors.DSPError"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.dsp.errors.DSPError</span></code></a></p>
+<p>Fatal error thrown by DSP processors that halts production
+Attributes:
+wf_range: range of wf indices. This will be set after the exception</p>
+<blockquote>
+<div><p>is caught, and appended to the error message</p>
+</div></blockquote>
+<dl class="simple">
+<dt>processor: string of processor and arguments. This will be set after</dt><dd><p>the exception is caught, and appended to the error message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pygama.dsp.errors.ProcessingChainError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.dsp.errors.</span></span><span class="sig-name descname"><span class="pre">ProcessingChainError</span></span><a class="reference internal" href="_modules/pygama/dsp/errors.html#ProcessingChainError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygama.dsp.errors.ProcessingChainError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygama.dsp.errors.DSPError" title="pygama.dsp.errors.DSPError"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.dsp.errors.DSPError</span></code></a></p>
+<p>Error thrown when there is a problem setting up a processing chain</p>
+</dd></dl>
+
+</section>
+<section id="pygama-dsp-processing-chain-module">
+<h2>pygama.dsp.processing_chain module<a class="headerlink" href="#pygama-dsp-processing-chain-module" title="Permalink to this headline"></a></h2>
 </section>
 <section id="pygama-dsp-processors-module">
 <h2>pygama.dsp.processors module<a class="headerlink" href="#pygama-dsp-processors-module" title="Permalink to this headline"></a></h2>
 </section>
-<section id="pygama-dsp-units-module">
-<h2>pygama.dsp.units module<a class="headerlink" href="#pygama-dsp-units-module" title="Permalink to this headline"></a></h2>
-</section>
 <section id="module-pygama.dsp">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pygama.dsp" title="Permalink to this headline"></a></h2>
+<p>The pygama signal processing framework is contained in the <a class="reference internal" href="#module-pygama.dsp" title="pygama.dsp"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama.dsp</span></code></a>
+submodule. This code is responsible for running a variety of discrete signal
+processors on data, producing tier 2 (dsp) files from tier 1 (raw) files. The
+main contents of this submodule are:</p>
+<ul class="simple">
+<li><p>processors: A collection of numba functions that perform individual DSP
+transforms and reductions on our data. Individual processors are held in the
+<cite>_processors</cite> directory, which is where contributors will write new
+processors for inclusion in the analysis.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessingChain</span></code>: A class that manages and efficiently
+runs a list of DSP processors</p></li>
+</ul>
 </section>
 </section>
 
@@ -139,8 +186,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pygama.analysis.html" class="btn btn-neutral float-left" title="pygama.analysis package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pygama.io.html" class="btn btn-neutral float-right" title="pygama.io package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pygama.html" class="btn btn-neutral float-left" title="pygama package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pygama.hit.html" class="btn btn-neutral float-right" title="pygama.hit package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -20,6 +20,14 @@ pygama.dsp.WaveformBrowser module
    :undoc-members:
    :show-inheritance:
 
+pygama.dsp.build\_dsp module
+----------------------------
+
+.. automodule:: pygama.dsp.build_dsp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pygama.dsp.build\_processing\_chain module
 ------------------------------------------
 
@@ -28,10 +36,18 @@ pygama.dsp.build\_processing\_chain module
    :undoc-members:
    :show-inheritance:
 
-pygama.dsp.dsp\_optimize module
--------------------------------
+pygama.dsp.errors module
+------------------------
 
-.. automodule:: pygama.dsp.dsp_optimize
+.. automodule:: pygama.dsp.errors
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pygama.dsp.processing\_chain module
+-----------------------------------
+
+.. automodule:: pygama.dsp.processing_chain
    :members:
    :undoc-members:
    :show-inheritance:
@@ -40,14 +56,6 @@ pygama.dsp.processors module
 ----------------------------
 
 .. automodule:: pygama.dsp.processors
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pygama.dsp.units module
------------------------
-
-.. automodule:: pygama.dsp.units
    :members:
    :undoc-members:
    :show-inheritance:

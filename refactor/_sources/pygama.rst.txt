@@ -7,26 +7,18 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   pygama.analysis
    pygama.dsp
-   pygama.io
-   pygama.lh5
+   pygama.hit
+   pygama.lgdo
+   pygama.raw
 
 Submodules
 ----------
 
-pygama.git module
------------------
+pygama.version module
+---------------------
 
-.. automodule:: pygama.git
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pygama.utils module
--------------------
-
-.. automodule:: pygama.utils
+.. automodule:: pygama.version
    :members:
    :undoc-members:
    :show-inheritance:
