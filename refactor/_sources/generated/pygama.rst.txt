@@ -1,0 +1,18 @@
+pygama package
+==============
+
+.. automodule:: pygama
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pygama.dsp
+   pygama.hit
+   pygama.lgdo
+   pygama.raw
