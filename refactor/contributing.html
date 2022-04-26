@@ -101,11 +101,24 @@ development and are enforced throughout the entire code base. Merge requests
 that do not comply to the following directives will be rejected.</p>
 <section id="code-style">
 <h2>Code style<a class="headerlink" href="#code-style" title="Permalink to this headline"></a></h2>
-<p><em>In progress...</em></p>
+<p>A set of <a class="reference external" href="https://pre-commit.com">pre-commit</a> hooks is configured to make
+sure that <em>pygama</em> coherently follows standard coding style conventions. The
+pre-commit tool is able to identify common style problems and automatically fix
+them, wherever possible. Configured hooks are listed in the
+<code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file at the project root folder. They are run
+remotely on the GitHub repository through the <a class="reference external" href="https://pre-commit.ci">pre-commit bot</a>, but can also be run locally before submitting a
+pull request (recommended):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install pre-commit      <span class="c1"># required</span>
+<span class="gp">$ </span>pre-commit run --all-files  <span class="c1"># analyse the source code and fix it wherever possible</span>
+<span class="gp">$ </span>pre-commit install          <span class="c1"># install a Git pre-commit hook (optional)</span>
+</pre></div>
+</div>
+<p>For a more comprehensive guide, check out the <a class="reference external" href="https://scikit-hep.org/developer/style">Scikit-HEP documentation about
+code style</a>.</p>
 </section>
 <section id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline"></a></h2>
-<ul class="simple">
+<ul>
 <li><p>The <em>pygama</em> test suite is available below <code class="docutils literal notranslate"><span class="pre">tests/</span></code>. We use <a class="reference external" href="https://docs.pytest.org">pytest</a> to run tests and analyze their output. As
 a starting point to learn how to write good tests, reading of <a class="reference external" href="https://scikit-hep.org/developer/pytest">the
 Scikit-HEP Intro to testing</a> is
@@ -113,12 +126,12 @@ recommended. Refer to <a class="reference external" href="https://docs.pytest.or
 overview.</p></li>
 <li><p><em>pygama</em> tests belong to three categories:</p>
 <dl class="field-list simple">
-<dt class="field-odd">micro-tests</dt>
+<dt class="field-odd">unit tests</dt>
 <dd class="field-odd"><p>Should ensure the correct behaviour of each function
 independently, possibly without relying on other <em>pygama</em> methods. The
-existence of these microscopic tests makes it possible to promptly
-identify and fix the source of a bug. An example of this are tests for
-each single DSP processor</p>
+existence of these micro-tests makes it possible to promptly identify and
+fix the source of a bug. An example of this are tests for each single DSP
+processor</p>
 </dd>
 <dt class="field-even">integration tests</dt>
 <dd class="field-even"><p>Should ensure that independent parts of the code base
@@ -136,10 +149,19 @@ consistent output parameters</p>
 <li><p>Unit tests are automatically run for every push event and pull request to the
 remote Git repository on a remote server (currently handled by GitHub
 actions). Every pull request must pass all tests before being approved for
-merging</p></li>
+merging.</p></li>
 <li><p>Additionally, pull request authors are required to provide tests with
 sufficient code coverage for every proposed change or addition. If necessary,
-high-level functional tests should be updated.</p></li>
+high-level functional tests should be updated. We currently rely on
+<a class="reference external" href="https://app.codecov.io/gh/legend-exp/pygama">codecov.io</a> to keep track of
+the test coverage. To generate a local coverage report (recommended before
+submitting pull requests), the <code class="docutils literal notranslate"><span class="pre">coverage</span></code> Python package is needed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install coverage
+<span class="gp">$ </span>coverage run -m pytest
+<span class="gp">$ </span>coverage report
+</pre></div>
+</div>
+</li>
 </ul>
 </section>
 <section id="documentation">
