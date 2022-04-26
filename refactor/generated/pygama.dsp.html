@@ -50,7 +50,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-build-dsp-module">pygama.dsp.build_dsp module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.dsp.errors">pygama.dsp.errors module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.dsp.processing_chain">pygama.dsp.processing_chain module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-pygama.dsp.processors">pygama.dsp.processors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygama-dsp-processors-module">pygama.dsp.processors module</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pygama.flow.html">pygama.flow package</a></li>
@@ -115,7 +115,7 @@ submodule. This code is responsible for running a variety of discrete signal
 processors on data, producing tier 2 (dsp) files from tier 1 (raw) files. The
 main contents of this submodule are:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#module-pygama.dsp.processors" title="pygama.dsp.processors"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama.dsp.processors</span></code></a>: A collection of Numba functions that perform
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama.dsp.processors</span></code>: A collection of Numba functions that perform
 individual DSP transforms and reductions on our data. Individual processors are
 held in the <code class="docutils literal notranslate"><span class="pre">_processors</span></code> directory, which is where contributors will write
 new processors for inclusion in the analysis. Available processors include all
@@ -131,6 +131,7 @@ runs a list of DSP processors</p></li>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pygama.dsp._processors.html">pygama.dsp._processors package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#pygama-dsp-processors-wiener-filter-module">pygama.dsp._processors.Wiener_filter module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.bl_subtract">pygama.dsp._processors.bl_subtract module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.convolutions">pygama.dsp._processors.convolutions module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.fftw">pygama.dsp._processors.fftw module</a></li>
@@ -147,6 +148,7 @@ runs a list of DSP processors</p></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.param_lookup">pygama.dsp._processors.param_lookup module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.pole_zero">pygama.dsp._processors.pole_zero module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.presum">pygama.dsp._processors.presum module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.pulse_injector">pygama.dsp._processors.pulse_injector module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.saturation">pygama.dsp._processors.saturation module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.soft_pileup_corr">pygama.dsp._processors.soft_pileup_corr module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.template">pygama.dsp._processors.template module</a></li>
@@ -709,62 +711,8 @@ lh5_out : output lh5 table containing processed values</p>
 </dd></dl>
 
 </section>
-<section id="module-pygama.dsp.processors">
-<span id="pygama-dsp-processors-module"></span><h2>pygama.dsp.processors module<a class="headerlink" href="#module-pygama.dsp.processors" title="Permalink to this headline"></a></h2>
-<p>Contains a list of DSP processors, implemented using Numba's
-<a class="reference external" href="https://numba.readthedocs.io/en/stable/reference/jit-compilation.html#numba.guvectorize" title="(in Numba v0.55)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numba.guvectorize()</span></code></a> to implement NumPy's <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ufunc</span></code></a> interface.
-In other words, all of the functions are void functions whose outputs are given
-as parameters.  The <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code> interface provides additional information
-about the function signatures that enables broadcasting the arrays and SIMD
-processing. Thanks to the <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code> interface, they can also be called to
-return a NumPy array, but if this is done, memory will be allocated for this
-array, slowing things down.</p>
-<p>The pygama processors use the <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code> framework, which is designed to
-encourage highly performant python practices. These functions have several
-advantages:</p>
-<ol class="arabic">
-<li><p>They work with <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.array</span></code>. NumPy arrays are arrays of same-typed
-objects that are stored adjacently in memory (equivalent to a dynamically
-allocated C-array or a C++ vector). Compared to standard Python lists, they
-perform computations much faster. They are ideal for representing waveforms
-and transformed waveforms.</p></li>
-<li><p>They perform vectorized operations. Vectorization causes commands to
-perform the same operation on all components of an array. For example, the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code> <code class="docutils literal notranslate"><span class="pre">np.add(a,</span> <span class="pre">b,</span> <span class="pre">out=c)</span></code> (equivalently <code class="docutils literal notranslate"><span class="pre">c=a+b</span></code>) is
-equivalent to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)):</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Loops are slow in python since it is an interpreted language; vectorized
-commands remove the loop and only call the Python interpreter once.</p>
-<p>Furthermore, <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>s are capable of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html#broadcasting">broadcasting</a>
-their dimensions. This involves a safety check to ensure the dimensions of
-<code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are compatible sizes. It also will automatically replicate a
-<code class="docutils literal notranslate"><span class="pre">size-1</span></code> dimension over another one, enabling the addition of a scalar to
-a vector quantity. This is useful, as it allows us to process multiple
-waveforms at once.</p>
-<p>One of the biggest advantages of vectorized <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>s is that many of
-them will take advantage of SIMD (same input-multiple data) vectorization on
-a vector-CPU. Modern CPUs typically have 256- or 512-bit wide processing
-units, which can accommodate multiple 32- or 64-bit numbers. Programming
-with these, however, is quite difficult and requires specialized commands to
-be called.  Luckily for us, many NumPy :class`ufunc`s will automatically use
-these for us, speeding up our code!</p>
-</li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>s are capable of calculating their output in place, meaning
-they can place calculated values in pre-allocated memory rather than
-allocating and returning new values. This is important because memory
-allocation is one of the slowest processes computers can perform, and should
-be avoided. With <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>s, this can be done using the out keyword in
-arguments (ex <code class="docutils literal notranslate"><span class="pre">numpy.add(a,</span> <span class="pre">b,</span> <span class="pre">out=c)</span></code>, or more succinctly, <code class="docutils literal notranslate"><span class="pre">numpy.add(a,</span>
-<span class="pre">b,</span> <span class="pre">c)</span></code>).  While this may seem counterintuitive at first, the alternative
-(<code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">np.add(a,b)</span></code> or <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a+b</span></code>) causes an entirely new array to be
-allocated, with c pointing at that. These array allocations can add up very
-quickly: <code class="docutils literal notranslate"><span class="pre">e</span> <span class="pre">=</span> <span class="pre">a*b</span> <span class="pre">+</span> <span class="pre">c*d</span></code>, for example, would allocate 3 different arrays:
-one for <code class="docutils literal notranslate"><span class="pre">a*b</span></code>, one for <code class="docutils literal notranslate"><span class="pre">c*d</span></code>, and one for the sum of those two. As we
-write <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>s, it is important that we try to use functions that
-operate in place as much as possible!</p></li>
-</ol>
+<section id="pygama-dsp-processors-module">
+<h2>pygama.dsp.processors module<a class="headerlink" href="#pygama-dsp-processors-module" title="Permalink to this headline"></a></h2>
 </section>
 </section>
 

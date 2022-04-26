@@ -50,7 +50,7 @@
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-build-dsp-module">pygama.dsp.build_dsp module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html#module-pygama.dsp.errors">pygama.dsp.errors module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html#module-pygama.dsp.processing_chain">pygama.dsp.processing_chain module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html#module-pygama.dsp.processors">pygama.dsp.processors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-processors-module">pygama.dsp.processors module</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pygama.flow.html">pygama.flow package</a></li>
@@ -113,6 +113,9 @@
 <span id="pygama-dsp-processors-package"></span><h1>pygama.dsp._processors package<a class="headerlink" href="#module-pygama.dsp._processors" title="Permalink to this headline"></a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="pygama-dsp-processors-wiener-filter-module">
+<h2>pygama.dsp._processors.Wiener_filter module<a class="headerlink" href="#pygama-dsp-processors-wiener-filter-module" title="Permalink to this headline"></a></h2>
 </section>
 <section id="module-pygama.dsp._processors.bl_subtract">
 <span id="pygama-dsp-processors-bl-subtract-module"></span><h2>pygama.dsp._processors.bl_subtract module<a class="headerlink" href="#module-pygama.dsp._processors.bl_subtract" title="Permalink to this headline"></a></h2>
@@ -845,6 +848,21 @@ will be omitted.</p>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+</section>
+<section id="module-pygama.dsp._processors.pulse_injector">
+<span id="pygama-dsp-processors-pulse-injector-module"></span><h2>pygama.dsp._processors.pulse_injector module<a class="headerlink" href="#module-pygama.dsp._processors.pulse_injector" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.dsp._processors.pulse_injector.inject_exp_pulse">
+<span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.pulse_injector.</span></span><span class="sig-name descname"><span class="pre">inject_exp_pulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wf_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wf_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.pulse_injector.inject_exp_pulse" title="Permalink to this definition"></a></dt>
+<dd><p>Inject exponential pulse into existing waveform to simulate pileup</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.dsp._processors.pulse_injector.inject_sig_pulse">
+<span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.pulse_injector.</span></span><span class="sig-name descname"><span class="pre">inject_sig_pulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wf_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wf_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.pulse_injector.inject_sig_pulse" title="Permalink to this definition"></a></dt>
+<dd><p>Inject sigmoid pulse into existing waveform to simulate pileup</p>
 </dd></dl>
 
 </section>
