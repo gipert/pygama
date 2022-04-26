@@ -132,8 +132,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ch_groups</strong> (<em>dict</em>) -- </p></li>
-<li><p><strong>buffer_size</strong> (<em>int</em>) -- </p></li>
+<li><p><strong>ch_groups</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) -- </p></li>
+<li><p><strong>buffer_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- </p></li>
 <li><p><strong>init_obj</strong> (<em>object with initialize_lh5_table</em><em>(</em><em>) </em><em>function</em>) -- </p></li>
 </ul>
 </dd>
@@ -142,7 +142,7 @@
 dummy group (no group name), return the one table made.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict or <a class="reference internal" href="pygama.lh5.html#pygama.lh5.table.Table" title="pygama.lh5.table.Table">Table</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a> or <a class="reference internal" href="pygama.lh5.html#pygama.lh5.table.Table" title="pygama.lh5.table.Table">Table</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -238,11 +238,11 @@ example, this will return the list [ 'geds', 'spms', 'auxs' ]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>out_file_template</strong> (<em>str</em><em> or </em><em>dict</em>) -- Value(s) for attribute &quot;out_file&quot; when not provided explicitly by the user.
+<li><p><strong>out_file_template</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) -- Value(s) for attribute &quot;out_file&quot; when not provided explicitly by the user.
 If a string, use it for the out_file attribute for all ch groups
 If a dict, the out_file must be keyed by the ch_group's &quot;system&quot;
 You can use {system} in the template and the system name will be added.</p></li>
-<li><p><strong>group_path_template</strong> (<em>str</em><em> or </em><em>dict</em><em> (</em><em>optional</em><em>)</em>) -- If attribute &quot;group_path&quot; is not provided explicitly by the user,
+<li><p><strong>group_path_template</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> (</em><em>optional</em><em>)</em>) -- If attribute &quot;group_path&quot; is not provided explicitly by the user,
 ch_groups are stored by default in path {group_name} inside their output
 files. You can use {group_name} as well as {system} and the
 corresponding group info will be filled in for you.  If a dict, the
@@ -402,7 +402,7 @@ and the FlashCam DataTaker to save the results and write to output.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygama.io.io_base.DataDecoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.io.io_base.</span></span><span class="sig-name descname"><span class="pre">DataDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">garbage_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_size_guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.io.io_base.DataDecoder" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
 <p>Decodes DAQ stream data packets.</p>
 <p>The values that get decoded need to be described by a dict called
 'decoded_values' that helps determine how to set up the buffers and write
@@ -457,7 +457,7 @@ channel is the channel according to ch_group</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="pygama.io.llamadaq.BinaryReadException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.io.llamadaq.</span></span><span class="sig-name descname"><span class="pre">BinaryReadException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requestedNrOfBytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gotNrOfBytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.io.llamadaq.BinaryReadException" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.io.llamadaq.BinaryReadException.printMessage">
 <span class="sig-name descname"><span class="pre">printMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.io.llamadaq.BinaryReadException.printMessage" title="Permalink to this definition"></a></dt>
@@ -498,7 +498,7 @@ Method has to be called before the actual decoding work starts !</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygama.io.llamadaq.llama_3316">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.io.llamadaq.</span></span><span class="sig-name descname"><span class="pre">llama_3316</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_binary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.io.llamadaq.llama_3316" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A parser file for the sis3316 able to decode header and events.
 The inputs are files produced by the llamaDAQ sis3316 readout program
 magic bytes: &quot;LArU&quot;</p>
@@ -1001,7 +1001,7 @@ e.g: d[5] = ['P12345A','P12346B','', ... 'B8765']</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, LEGEND Collaboration.</p>
+    <p>&#169; Copyright 2020, the LEGEND Collaboration.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

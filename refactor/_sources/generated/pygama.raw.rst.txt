@@ -5,6 +5,16 @@ pygama.raw package
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pygama.raw.fc
+   pygama.raw.orca
 
 Submodules
 ----------
@@ -16,6 +26,7 @@ pygama.raw.build\_raw module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.raw.data\_decoder module
 -------------------------------
@@ -24,6 +35,7 @@ pygama.raw.data\_decoder module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.raw.data\_streamer module
 --------------------------------
@@ -32,6 +44,7 @@ pygama.raw.data\_streamer module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.raw.raw\_buffer module
 -----------------------------
@@ -40,3 +53,4 @@ pygama.raw.raw\_buffer module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:

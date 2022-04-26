@@ -1,0 +1,47 @@
+pygama.raw.orca package
+=======================
+
+.. automodule:: pygama.raw.orca
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+pygama.raw.orca.orca\_digitizers module
+---------------------------------------
+
+.. automodule:: pygama.raw.orca.orca_digitizers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+pygama.raw.orca.orca\_flashcam module
+-------------------------------------
+
+.. automodule:: pygama.raw.orca.orca_flashcam
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+pygama.raw.orca.orca\_pollers module
+------------------------------------
+
+.. automodule:: pygama.raw.orca.orca_pollers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+pygama.raw.orca.stream\_orca module
+-----------------------------------
+
+.. automodule:: pygama.raw.orca.stream_orca
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

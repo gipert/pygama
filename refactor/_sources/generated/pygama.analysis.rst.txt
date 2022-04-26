@@ -1,0 +1,8 @@
+pygama.analysis package
+=======================
+
+.. automodule:: pygama.analysis
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

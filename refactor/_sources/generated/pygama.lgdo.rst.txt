@@ -5,6 +5,7 @@ pygama.lgdo package
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 Submodules
 ----------
@@ -16,6 +17,7 @@ pygama.lgdo.array module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.lgdo.arrayofequalsizedarrays module
 ------------------------------------------
@@ -24,6 +26,7 @@ pygama.lgdo.arrayofequalsizedarrays module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.lgdo.fixedsizearray module
 ---------------------------------
@@ -32,6 +35,7 @@ pygama.lgdo.fixedsizearray module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.lgdo.lgdo\_utils module
 ------------------------------
@@ -40,6 +44,7 @@ pygama.lgdo.lgdo\_utils module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.lgdo.lh5\_store module
 -----------------------------
@@ -48,6 +53,7 @@ pygama.lgdo.lh5\_store module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.lgdo.scalar module
 -------------------------
@@ -56,6 +62,7 @@ pygama.lgdo.scalar module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.lgdo.struct module
 -------------------------
@@ -64,6 +71,7 @@ pygama.lgdo.struct module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.lgdo.table module
 ------------------------
@@ -72,6 +80,7 @@ pygama.lgdo.table module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.lgdo.vectorofvectors module
 ----------------------------------
@@ -80,6 +89,7 @@ pygama.lgdo.vectorofvectors module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
 
 pygama.lgdo.waveform\_table module
 ----------------------------------
@@ -88,3 +98,4 @@ pygama.lgdo.waveform\_table module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
