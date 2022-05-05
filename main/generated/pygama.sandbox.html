@@ -50,8 +50,8 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">pygama.sandbox package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pygama-sandbox-base-module">pygama.sandbox.base module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pygama-sandbox-base-calculators-module">pygama.sandbox.base_calculators module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pygama-sandbox-base-transforms-module">pygama.sandbox.base_transforms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-pygama.sandbox.base_calculators">pygama.sandbox.base_calculators module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-pygama.sandbox.base_transforms">pygama.sandbox.base_transforms module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.sandbox.compass_header">pygama.sandbox.compass_header module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pygama-sandbox-compass-wfs-module">pygama.sandbox.compass_wfs module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.sandbox.database">pygama.sandbox.database module</a></li>
@@ -67,8 +67,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.sandbox.test_wfc">pygama.sandbox.test_wfc module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pygama-sandbox-tier1-base-module">pygama.sandbox.tier1_base module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pygama-sandbox-tier1-vector-module">pygama.sandbox.tier1_vector module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pygama-sandbox-uproot-mjd-module">pygama.sandbox.uproot_mjd module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pygama-sandbox-uproot-test-module">pygama.sandbox.uproot_test module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-pygama.sandbox.uproot_mjd">pygama.sandbox.uproot_mjd module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-pygama.sandbox.uproot_test">pygama.sandbox.uproot_test module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.sandbox.vec1">pygama.sandbox.vec1 module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.sandbox.vector">pygama.sandbox.vector module</a></li>
 </ul>
@@ -130,11 +130,131 @@
 <section id="pygama-sandbox-base-module">
 <h2>pygama.sandbox.base module<a class="headerlink" href="#pygama-sandbox-base-module" title="Permalink to this headline"></a></h2>
 </section>
-<section id="pygama-sandbox-base-calculators-module">
-<h2>pygama.sandbox.base_calculators module<a class="headerlink" href="#pygama-sandbox-base-calculators-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.sandbox.base_calculators">
+<span id="pygama-sandbox-base-calculators-module"></span><h2>pygama.sandbox.base_calculators module<a class="headerlink" href="#module-pygama.sandbox.base_calculators" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_calculators.calc_timepoint">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_calculators.</span></span><span class="sig-name descname"><span class="pre">calc_timepoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doNorm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_calculators.calc_timepoint" title="Permalink to this definition"></a></dt>
+<dd><p>Estimate arbitrary timepoint before max
+percentage: if less than zero, will return timepoint on falling edge
+do_interp: linear linerpolation of the timepoint...</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_calculators.current_max">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_calculators.</span></span><span class="sig-name descname"><span class="pre">current_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_calculators.current_max" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the maximum current (&quot;A&quot;).
+Current is calculated by convolution with a first-deriv. of Gaussian</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_calculators.fit_baseline">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_calculators.</span></span><span class="sig-name descname"><span class="pre">fit_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_calculators.fit_baseline" title="Permalink to this definition"></a></dt>
+<dd><p>Finds baseline from start index to end index samples (default linear)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_calculators.gretina_overshoot">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_calculators.</span></span><span class="sig-name descname"><span class="pre">gretina_overshoot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc_us</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pole_rel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_calculators.gretina_overshoot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_calculators.is_saturated">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_calculators.</span></span><span class="sig-name descname"><span class="pre">is_saturated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bit_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_calculators.is_saturated" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_calculators.max_time">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_calculators.</span></span><span class="sig-name descname"><span class="pre">max_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_calculators.max_time" title="Permalink to this definition"></a></dt>
+<dd><p>give the t_max of a waveform</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_calculators.rc_decay">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_calculators.</span></span><span class="sig-name descname"><span class="pre">rc_decay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc1_us</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_calculators.rc_decay" title="Permalink to this definition"></a></dt>
+<dd><p>rc1_us: decay time constant in microseconds
+freq: digitization frequency of signal you wanna process</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_calculators.t0_estimate">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_calculators.</span></span><span class="sig-name descname"><span class="pre">t0_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median_kernel_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">51</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_t0_adc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_calculators.t0_estimate" title="Permalink to this definition"></a></dt>
+<dd><p>Estimate t0
+max t0 adc:
+maximum adc (above baseline) the wf can get to
+before assuming the wf has started</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_calculators.trap_max">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_calculators.</span></span><span class="sig-name descname"><span class="pre">trap_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pickoff_sample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_calculators.trap_max" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate maximum of trapezoid -- no pride here</p>
+</dd></dl>
+
 </section>
-<section id="pygama-sandbox-base-transforms-module">
-<h2>pygama.sandbox.base_transforms module<a class="headerlink" href="#pygama-sandbox-base-transforms-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.sandbox.base_transforms">
+<span id="pygama-sandbox-base-transforms-module"></span><h2>pygama.sandbox.base_transforms module<a class="headerlink" href="#module-pygama.sandbox.base_transforms" title="Permalink to this headline"></a></h2>
+<p>========= PYGAMA =========
+transforms: given a waveform,
+return a new waveform.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.asym_trap_filter">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">asym_trap_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ramp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fall</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padAfter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.asym_trap_filter" title="Permalink to this definition"></a></dt>
+<dd><p>Computes an asymmetric trapezoidal filter</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.center">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples_after</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.center" title="Permalink to this definition"></a></dt>
+<dd><p>Return a waveform centered (windowed) around center_index</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.interpolate">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">interpolate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.interpolate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.nonlinearity_correct">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">nonlinearity_correct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_constant_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fNLCMap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fNLCMap2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.nonlinearity_correct" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.notch_filter">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">notch_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notch_freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qual_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_dig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.notch_filter" title="Permalink to this definition"></a></dt>
+<dd><p>apply notch filter with some quality factor Q</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.pz_correct">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">pz_correct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digFreq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.pz_correct" title="Permalink to this definition"></a></dt>
+<dd><p>pole-zero correct a waveform</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.remove_baseline">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">remove_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bl_0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bl_1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.remove_baseline" title="Permalink to this definition"></a></dt>
+<dd><p>Return a baseline-subtracted waveform</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.savgol_filter">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">savgol_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">47</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.savgol_filter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.trap_filter">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">trap_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rampTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decayTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.trap_filter" title="Permalink to this definition"></a></dt>
+<dd><p>Apply a trap filter to a waveform.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.base_transforms.trim_waveform">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.base_transforms.</span></span><span class="sig-name descname"><span class="pre">trim_waveform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples_before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.base_transforms.trim_waveform" title="Permalink to this definition"></a></dt>
+<dd><p>Cut out the first n_samples_before and the last n_samples_after samples.
+If no values are supplied, you get the whole thing back</p>
+</dd></dl>
+
 </section>
 <section id="module-pygama.sandbox.compass_header">
 <span id="pygama-sandbox-compass-header-module"></span><h2>pygama.sandbox.compass_header module<a class="headerlink" href="#module-pygama.sandbox.compass_header" title="Permalink to this headline"></a></h2>
@@ -315,11 +435,196 @@ this is a test function on the way to changing daq_to_raw.py in pygama.</p>
 <section id="pygama-sandbox-tier1-vector-module">
 <h2>pygama.sandbox.tier1_vector module<a class="headerlink" href="#pygama-sandbox-tier1-vector-module" title="Permalink to this headline"></a></h2>
 </section>
-<section id="pygama-sandbox-uproot-mjd-module">
-<h2>pygama.sandbox.uproot_mjd module<a class="headerlink" href="#pygama-sandbox-uproot-mjd-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.sandbox.uproot_mjd">
+<span id="pygama-sandbox-uproot-mjd-module"></span><h2>pygama.sandbox.uproot_mjd module<a class="headerlink" href="#module-pygama.sandbox.uproot_mjd" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_mjd.compress_dvi">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_mjd.</span></span><span class="sig-name descname"><span class="pre">compress_dvi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wfarr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_mjd.compress_dvi" title="Permalink to this definition"></a></dt>
+<dd><p>run diff-var-int compression on a wf. corresponds to &quot;writeVLSigned&quot;
+- MGTWaveform: <a class="reference external" href="https://github.com/mppmu/MGDO/blob/master/Root/MGTWaveform.cc">https://github.com/mppmu/MGDO/blob/master/Root/MGTWaveform.cc</a>
+- zigzag encoding: <a class="reference external" href="https://gist.github.com/mfuerstenau/ba870a29e16536fdbaba">https://gist.github.com/mfuerstenau/ba870a29e16536fdbaba</a></p>
+<blockquote>
+<div><p>[signed]=[encoded] : 0=0, -1=1, 1=2, -2=3, 2=4, -3=5, 3=6 ....</p>
+</div></blockquote>
+<p>TODO:
+this requires a loop over the array, which is way too slow in python.
+move the compression to a library function and cythonize it.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_mjd.decompress_dvi">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_mjd.</span></span><span class="sig-name descname"><span class="pre">decompress_dvi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cwf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_mjd.decompress_dvi" title="Permalink to this definition"></a></dt>
+<dd><p>unpack a diff-var-int waveform. corresponds to &quot;readVLSigned&quot;
+- MGTWaveform: <a class="reference external" href="https://github.com/mppmu/MGDO/blob/master/Root/MGTWaveform.cc">https://github.com/mppmu/MGDO/blob/master/Root/MGTWaveform.cc</a>
+Basically we read in a series of 7-bit integers.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_mjd.main">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_mjd.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_mjd.main" title="Permalink to this definition"></a></dt>
+<dd><p>Convert Majorana skim, gatified, and built data files to HDF5, using uproot,
+awkward-array, pandas, and PyROOT.  Can also retrieve waveform data.
+** Requires $MJDDATADIR contain three folders: <cite>gatified</cite>, <cite>built</cite>, <cite>hdf5</cite>
+Usage:
+$ python uproot_mjd.py -r 23578  (finds files by run number with GATDataSet)
+$ python uproot_mjd.py -f skimDS6_1.root (run directly on any ROOT file)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_mjd.read_awkward">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_mjd.</span></span><span class="sig-name descname"><span class="pre">read_awkward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_mjd.read_awkward" title="Permalink to this definition"></a></dt>
+<dd><p>build the awkward hdf5 file into pd.DataFrames, matching read_pandas.
+NOTE:
+this route is necessary when we want load RAW data where we can't enforce
+that everything must use pandas.  This is how LEGEND daq_to_raw data will be.
+For Majorana, nobody will care about this and we can just use pytables.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_mjd.read_pandas">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_mjd.</span></span><span class="sig-name descname"><span class="pre">read_pandas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_mjd.read_pandas" title="Permalink to this definition"></a></dt>
+<dd><p>reads files created by write_HDF5.  also gives a couple examples
+of aligning ('friending') and skimming DataFrames of different shapes.
+I think all Majorana DataFrames should use &quot;tables&quot; mode because it
+allows appending to an active file, and HDF5 indexing for fast lookups</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_mjd.test_dvi">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_mjd.</span></span><span class="sig-name descname"><span class="pre">test_dvi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_mjd.test_dvi" title="Permalink to this definition"></a></dt>
+<dd><p>load hdf5 files and test the DiffVarInt compression</p>
+<p>NOTE:
+these are written before the MGTWaveform compressor runs:
+- UInt_t R__c = R__b.WriteVersion(MGTWaveform::Class(), kTRUE);
+- R__b.WriteDouble(fSampFreq);
+- R__b.WriteDouble(fTOffset);
+- R__b.WriteInt(fWFType);
+- R__b.WriteULong64(fData.size());
+- R__b.WriteInt(fWFEncScheme);
+- R__b.WriteInt(fID);
+- R__b.SetByteCount(R__c, kTRUE);</p>
+<p>Need to implement:
+- ReadDouble, ReadInt, ReadULong64</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_mjd.write_HDF5">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_mjd.</span></span><span class="sig-name descname"><span class="pre">write_HDF5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pandas'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nevt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_mjd.write_HDF5" title="Permalink to this definition"></a></dt>
+<dd><p>primary writer function.  contains several Majorana-specific choices.
+works on gatified or skim data.  (TODO: simulation data?)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_mjd.write_waveforms">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_mjd.</span></span><span class="sig-name descname"><span class="pre">write_waveforms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wf_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'root'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_mjd.write_waveforms" title="Permalink to this definition"></a></dt>
+<dd><p>retrieve MGTWaveform objects &amp; add them as a group to an HDF5 file.
+options:
+- wf_mode: root, uproot (modes for accessing a built file)
+- skim: T/F (access multiple built files &amp; retrieve specific wfs)
+- compression: dvi (&quot;diff-var-int&quot;)
+TODO:
+- cythonize compression functions (right now they're too slow to be useful)
+- apply nonlinearity correction (requires NLC input files)
+- try out david's compression algorithm</p>
+</dd></dl>
+
 </section>
-<section id="pygama-sandbox-uproot-test-module">
-<h2>pygama.sandbox.uproot_test module<a class="headerlink" href="#pygama-sandbox-uproot-test-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.sandbox.uproot_test">
+<span id="pygama-sandbox-uproot-test-module"></span><h2>pygama.sandbox.uproot_test module<a class="headerlink" href="#module-pygama.sandbox.uproot_test" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.compress_dvi">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">compress_dvi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wfarr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.compress_dvi" title="Permalink to this definition"></a></dt>
+<dd><p>run diff-var-int compression on a wf. corresponds to &quot;writeVLSigned&quot;
+- MGTWaveform: <a class="reference external" href="https://github.com/mppmu/MGDO/blob/master/Root/MGTWaveform.cc">https://github.com/mppmu/MGDO/blob/master/Root/MGTWaveform.cc</a>
+- zigzag encoding: <a class="reference external" href="https://gist.github.com/mfuerstenau/ba870a29e16536fdbaba">https://gist.github.com/mfuerstenau/ba870a29e16536fdbaba</a></p>
+<blockquote>
+<div><p>[signed]=[encoded] : 0=0, -1=1, 1=2, -2=3, 2=4, -3=5, 3=6 ....</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.debug">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.debug" title="Permalink to this definition"></a></dt>
+<dd><p>fWaveforms is a custom class.  can we get uproot to read it,
+a little better than just reading out .content directly?
+- <a class="reference external" href="https://github.com/scikit-hep/uproot/issues/124">https://github.com/scikit-hep/uproot/issues/124</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.decompress_dvi">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">decompress_dvi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cwf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.decompress_dvi" title="Permalink to this definition"></a></dt>
+<dd><p>unpack a diff-var-int waveform. corresponds to &quot;readVLSigned&quot;
+- MGTWaveform: <a class="reference external" href="https://github.com/mppmu/MGDO/blob/master/Root/MGTWaveform.cc">https://github.com/mppmu/MGDO/blob/master/Root/MGTWaveform.cc</a>
+Basically we read in a series of 7-bit integers.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.explore_file">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">explore_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.explore_file" title="Permalink to this definition"></a></dt>
+<dd><p>access a file, print branches, convert a small amount of data
+to numpy arrays with 'awkward' and check the resulting datatypes</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.load_h5">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">load_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.load_h5" title="Permalink to this definition"></a></dt>
+<dd><p>read an hdf5 file created by awkward</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.load_root">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">load_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ilo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ihi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brlist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.load_root" title="Permalink to this definition"></a></dt>
+<dd><p>use pyroot to save decoded (uncompressed) MGTWaveforms,
+into awkward's hdf5 file object.
+this is to compare against uproot, which reads compressed wfs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.main">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.main" title="Permalink to this definition"></a></dt>
+<dd><p>uproot tutorial:
+<a class="reference external" href="https://hub.mybinder.org/user/scikit-hep-uproot-0ldc9pe0/lab">https://hub.mybinder.org/user/scikit-hep-uproot-0ldc9pe0/lab</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.quick_gat">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">quick_gat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.quick_gat" title="Permalink to this definition"></a></dt>
+<dd><p>uproot has a rad auto-dataframe method that should work for
+single-valued gatified files.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.run_uproot">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">run_uproot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ilo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ihi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brlist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.run_uproot" title="Permalink to this definition"></a></dt>
+<dd><p>load uproot data into awkward arrays</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.test_dvi">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">test_dvi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.test_dvi" title="Permalink to this definition"></a></dt>
+<dd><p>load hdf5 files and test the DiffVarInt compression</p>
+<p>NOTE:
+these are written before the MGTWaveform compressor runs:
+- UInt_t R__c = R__b.WriteVersion(MGTWaveform::Class(), kTRUE);
+- R__b.WriteDouble(fSampFreq);
+- R__b.WriteDouble(fTOffset);
+- R__b.WriteInt(fWFType);
+- R__b.WriteULong64(fData.size());
+- R__b.WriteInt(fWFEncScheme);
+- R__b.WriteInt(fID);
+- R__b.SetByteCount(R__c, kTRUE);</p>
+<p>Need to implement:
+- ReadDouble, ReadInt, ReadULong64</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.sandbox.uproot_test.write_h5">
+<span class="sig-prename descclassname"><span class="pre">pygama.sandbox.uproot_test.</span></span><span class="sig-name descname"><span class="pre">write_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uarrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.sandbox.uproot_test.write_h5" title="Permalink to this definition"></a></dt>
+<dd><p>write an hdf5 file created by awkward, from awkward.JaggedArrays.
+- awkward/awkward/persist.py
+- awkward/tests/test_hdf5.py</p>
+</dd></dl>
+
 </section>
 <section id="module-pygama.sandbox.vec1">
 <span id="pygama-sandbox-vec1-module"></span><h2>pygama.sandbox.vec1 module<a class="headerlink" href="#module-pygama.sandbox.vec1" title="Permalink to this headline"></a></h2>

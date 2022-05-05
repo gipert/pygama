@@ -89,17 +89,22 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
 <p>Install on local systems with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/legend-exp/pygama
-<span class="gp">$ </span>pip install -e pygama
+<span class="gp">$ </span>pip install pygama
 </pre></div>
 </div>
-<p>You can omit the <code class="docutils literal notranslate"><span class="pre">-e</span></code> flag (editable mode) if you do not plan to develop
-pygama. If you do not have admin rights you can install pygama as a normal
-user:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install -e pygama --user
+<p>Append the <code class="docutils literal notranslate"><span class="pre">-e</span></code> flag (editable mode) if you plan to develop <em>pygama</em>. If you
+do not have admin rights you can install pygama as a normal user:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install pygama --user
 </pre></div>
 </div>
 <p>and make sure that your <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> environment variable is aware of the
-install location. To uninstall pygama run:</p>
+install location. Optionally-required dependencies can be also collected:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install pygama<span class="o">[</span>daq<span class="o">]</span>  <span class="c1"># if you need to convert DAQ files to LH5</span>
+<span class="gp">$ </span>pip install pygama<span class="o">[</span>test<span class="o">]</span> <span class="c1"># if you want to run package test files</span>
+<span class="gp">$ </span>pip install pygama<span class="o">[</span>docs<span class="o">]</span> <span class="c1"># if you need to build documentation</span>
+</pre></div>
+</div>
+<p>To uninstall pygama run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip uninstall pygama
 </pre></div>
 </div>

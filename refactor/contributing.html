@@ -149,14 +149,19 @@ consistent output parameters</p>
 <li><p>Unit tests are automatically run for every push event and pull request to the
 remote Git repository on a remote server (currently handled by GitHub
 actions). Every pull request must pass all tests before being approved for
-merging.</p></li>
+merging. Running the test suite is simple:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install .<span class="o">[</span>test<span class="o">]</span>
+<span class="gp">$ </span>pytest
+</pre></div>
+</div>
+</li>
 <li><p>Additionally, pull request authors are required to provide tests with
 sufficient code coverage for every proposed change or addition. If necessary,
 high-level functional tests should be updated. We currently rely on
 <a class="reference external" href="https://app.codecov.io/gh/legend-exp/pygama">codecov.io</a> to keep track of
 the test coverage. To generate a local coverage report (recommended before
-submitting pull requests), the <code class="docutils literal notranslate"><span class="pre">coverage</span></code> Python package is needed:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install coverage
+submitting pull requests), run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install .<span class="o">[</span>test<span class="o">]</span>
 <span class="gp">$ </span>coverage run -m pytest
 <span class="gp">$ </span>coverage report
 </pre></div>
@@ -177,7 +182,7 @@ every proposed change or addition.</p></li>
 <li><p>Documentation for functions, classes, modules and packages should be provided
 as <a class="reference external" href="https://peps.python.org/pep-0257">Docstrings</a> along with the respective
 source code. Docstrings are automatically converted to HTML as part of the
-<a class="reference internal" href="generated/pygama.html#module-pygama"><span class="std std-ref">pygama API documentation</span></a>.</p></li>
+<a class="reference internal" href="generated/pygama.html#pygama-package"><span class="std std-ref">pygama API documentation</span></a>.</p></li>
 <li><p>General guides, comprehensive tutorials or other high-level documentation
 (e.g. referring to how separate parts of the code interact between each
 other) must be provided as separate pages in <code class="docutils literal notranslate"><span class="pre">docs/source/</span></code> and linked in
@@ -206,16 +211,12 @@ available <a class="reference external" href="https://sphinxcontrib-napoleon.rea
 <section id="building-documentation">
 <h3>Building documentation<a class="headerlink" href="#building-documentation" title="Permalink to this headline"></a></h3>
 <p>Scripts and tools to build documentation are located below <code class="docutils literal notranslate"><span class="pre">docs/</span></code>. To build
-documentation, the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, <code class="docutils literal notranslate"><span class="pre">sphinx-rtd-theme</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx-multiversion</span></code>
-Python packages are required. At the moment, <em>pygama</em> is using a <code class="docutils literal notranslate"><span class="pre">sphinx-multiversion</span></code>
-functionality only available through a fork of the project
-(<code class="docutils literal notranslate"><span class="pre">samtygier-stfc/sphinx-multiversion</span></code>, at the <code class="docutils literal notranslate"><span class="pre">prebuild_command</span></code> branch). With pip,
-it can be installed with the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install git+https://github.com/samtygier-stfc/sphinx-multiversion.git@prebuild_command
+documentation, <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, <code class="docutils literal notranslate"><span class="pre">sphinx-rtd-theme</span></code> and a couple of additional
+Python packages are required. You can get all the needed dependencies by running:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install .<span class="o">[</span>docs<span class="o">]</span>
 </pre></div>
 </div>
-<p>This will probably change in the future. To build documentation for the current
-Git ref, run the following commands:</p>
+<p>To build documentation for the current Git ref, run the following commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> docs
 <span class="gp">$ </span>make clean
 <span class="gp">$ </span>make
@@ -241,12 +242,9 @@ new project version must implement the following procedures:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://semver.org">Semantic versioning</a> is adopted. The version string
 uses the <code class="docutils literal notranslate"><span class="pre">MAJOR.MINOR.PATCH</span></code> format.</p></li>
-<li><p>The version string is manually specified in <code class="docutils literal notranslate"><span class="pre">pygama/version.py</span></code>. If needed
-elsewhere in the source code (e.g. in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>), must be read in from here.</p></li>
 <li><p>To release a new <strong>minor</strong> or <strong>major version</strong>, the following procedure
 should be followed:</p>
 <ol class="arabic simple">
-<li><p>The <em>pygama</em> version is updated in <code class="docutils literal notranslate"><span class="pre">pygama/version.py</span></code></p></li>
 <li><p>A new branch with name <code class="docutils literal notranslate"><span class="pre">releases/vMAJOR.MINOR</span></code> (note the <code class="docutils literal notranslate"><span class="pre">v</span></code>) containing
 the code at the intended stage is created</p></li>
 <li><p>The commit is tagged with a descriptive message: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">vMAJOR.MINOR.0</span>
@@ -256,7 +254,6 @@ the code at the intended stage is created</p></li>
 </li>
 <li><p>To release a new <strong>patch version</strong>, the following procedure should be followed:</p>
 <ol class="arabic simple">
-<li><p>The <em>pygama</em> version is updated in <code class="docutils literal notranslate"><span class="pre">pygama/version.py</span></code></p></li>
 <li><p>A commit with the patch is created on the relevant release branch
 <code class="docutils literal notranslate"><span class="pre">releases/vMAJOR.MINOR</span></code></p></li>
 <li><p>The commit is tagged: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">vMAJOR.MINOR.PATCH</span></code> (note the <code class="docutils literal notranslate"><span class="pre">v</span></code>)</p></li>
