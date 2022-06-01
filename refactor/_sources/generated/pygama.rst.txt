@@ -13,7 +13,6 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   pygama.analysis
    pygama.dsp
    pygama.flow
    pygama.hit

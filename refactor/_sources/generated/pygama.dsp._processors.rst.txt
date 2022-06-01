@@ -10,15 +10,6 @@ pygama.dsp.\_processors package
 Submodules
 ----------
 
-pygama.dsp.\_processors.Wiener\_filter module
----------------------------------------------
-
-.. automodule:: pygama.dsp._processors.Wiener_filter
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :private-members:
-
 pygama.dsp.\_processors.bl\_subtract module
 -------------------------------------------
 
@@ -212,6 +203,15 @@ pygama.dsp.\_processors.trap\_filters module
 --------------------------------------------
 
 .. automodule:: pygama.dsp._processors.trap_filters
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+pygama.dsp.\_processors.wiener\_filter module
+---------------------------------------------
+
+.. automodule:: pygama.dsp._processors.wiener_filter
    :members:
    :undoc-members:
    :show-inheritance:

@@ -40,7 +40,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials (Jupyter notebooks)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generated/pygama.html">Package API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/modules.html">Package API reference</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Contribution guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#code-style">Code style</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
@@ -99,6 +99,11 @@
 <p>The following rules and conventions have been established for the package
 development and are enforced throughout the entire code base. Merge requests
 that do not comply to the following directives will be rejected.</p>
+<p>All extra tools needed to develop <em>pygama</em> are listed as optional dependencies
+and can be installed via pip by running:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install .<span class="o">[</span>all<span class="o">]</span>
+</pre></div>
+</div>
 <section id="code-style">
 <h2>Code style<a class="headerlink" href="#code-style" title="Permalink to this headline"></a></h2>
 <p>A set of <a class="reference external" href="https://pre-commit.com">pre-commit</a> hooks is configured to make
@@ -182,7 +187,7 @@ every proposed change or addition.</p></li>
 <li><p>Documentation for functions, classes, modules and packages should be provided
 as <a class="reference external" href="https://peps.python.org/pep-0257">Docstrings</a> along with the respective
 source code. Docstrings are automatically converted to HTML as part of the
-<a class="reference internal" href="generated/pygama.html#pygama-package"><span class="std std-ref">pygama API documentation</span></a>.</p></li>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code> package API documentation.</p></li>
 <li><p>General guides, comprehensive tutorials or other high-level documentation
 (e.g. referring to how separate parts of the code interact between each
 other) must be provided as separate pages in <code class="docutils literal notranslate"><span class="pre">docs/source/</span></code> and linked in
