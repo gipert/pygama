@@ -113,7 +113,7 @@ them, wherever possible. Configured hooks are listed in the
 <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file at the project root folder. They are run
 remotely on the GitHub repository through the <a class="reference external" href="https://pre-commit.ci">pre-commit bot</a>, but can also be run locally before submitting a
 pull request (recommended):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install pre-commit      <span class="c1"># required</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install .<span class="o">[</span>test<span class="o">]</span>
 <span class="gp">$ </span>pre-commit run --all-files  <span class="c1"># analyse the source code and fix it wherever possible</span>
 <span class="gp">$ </span>pre-commit install          <span class="c1"># install a Git pre-commit hook (optional)</span>
 </pre></div>
@@ -167,8 +167,7 @@ high-level functional tests should be updated. We currently rely on
 the test coverage. To generate a local coverage report (recommended before
 submitting pull requests), run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install .<span class="o">[</span>test<span class="o">]</span>
-<span class="gp">$ </span>coverage run -m pytest
-<span class="gp">$ </span>coverage report
+<span class="gp">$ </span>pytest --cov<span class="o">=</span>pygama
 </pre></div>
 </div>
 </li>
