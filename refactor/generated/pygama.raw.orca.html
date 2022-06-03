@@ -104,34 +104,635 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="pygama-raw-orca-package">
-<h1>pygama.raw.orca package<a class="headerlink" href="#pygama-raw-orca-package" title="Permalink to this headline"></a></h1>
+  <section id="module-pygama.raw.orca">
+<span id="pygama-raw-orca-package"></span><h1>pygama.raw.orca package<a class="headerlink" href="#module-pygama.raw.orca" title="Permalink to this headline"></a></h1>
+<p>Subpackage documentation</p>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
 </section>
-<section id="pygama-raw-orca-orca-base-module">
-<h2>pygama.raw.orca.orca_base module<a class="headerlink" href="#pygama-raw-orca-orca-base-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.raw.orca.orca_base">
+<span id="pygama-raw-orca-orca-base-module"></span><h2>pygama.raw.orca.orca_base module<a class="headerlink" href="#module-pygama.raw.orca.orca_base" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_base.OrcaDecoder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_base.</span></span><span class="sig-name descname"><span class="pre">OrcaDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_base.OrcaDecoder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.raw.data_decoder.DataDecoder</span></code></a></p>
+<p>Base class for ORCA decoders.</p>
+<p>Mostly here to provide a standard interface for setting the header in init</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_base.OrcaDecoder._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.orca.orca_base.OrcaDecoder._abc_impl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_base.OrcaDecoder.set_header">
+<span class="sig-name descname"><span class="pre">set_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_base.OrcaDecoder.set_header" title="Permalink to this definition"></a></dt>
+<dd><p>Setter for headers. Overload to set card parameters, etc.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_base.get_card">
+<span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_base.</span></span><span class="sig-name descname"><span class="pre">get_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ccc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_base.get_card" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_base.get_ccc">
+<span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_base.</span></span><span class="sig-name descname"><span class="pre">get_ccc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_base.get_ccc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_base.get_channel">
+<span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_base.</span></span><span class="sig-name descname"><span class="pre">get_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ccc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_base.get_channel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_base.get_crate">
+<span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_base.</span></span><span class="sig-name descname"><span class="pre">get_crate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ccc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_base.get_crate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </section>
 <section id="pygama-raw-orca-orca-digitizers-module">
 <h2>pygama.raw.orca.orca_digitizers module<a class="headerlink" href="#pygama-raw-orca-orca-digitizers-module" title="Permalink to this headline"></a></h2>
 </section>
-<section id="pygama-raw-orca-orca-flashcam-module">
-<h2>pygama.raw.orca.orca_flashcam module<a class="headerlink" href="#pygama-raw-orca-orca-flashcam-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.raw.orca.orca_flashcam">
+<span id="pygama-raw-orca-orca-flashcam-module"></span><h2>pygama.raw.orca.orca_flashcam module<a class="headerlink" href="#module-pygama.raw.orca.orca_flashcam" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_flashcam.ORCAFlashCamListenerConfigDecoder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_flashcam.</span></span><span class="sig-name descname"><span class="pre">ORCAFlashCamListenerConfigDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_flashcam.ORCAFlashCamListenerConfigDecoder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygama.raw.orca.orca_base.OrcaDecoder" title="pygama.raw.orca.orca_base.OrcaDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.raw.orca.orca_base.OrcaDecoder</span></code></a></p>
+<blockquote>
+<div><p>'''
+Decoder for FlashCam listener config written by ORCA
+'''
+def __init__(self, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs):</p>
+<blockquote>
+<div><p>self.decoder_name    = 'ORFlashCamListenerConfigDecoder'
+self.orca_class_name = 'ORFlashCamListenerModel'</p>
+<p># up through ch_inputnum, these are in order of the fcio data format
+# for similicity.  append any additional values after this.
+self.decoded_values = {</p>
+<blockquote>
+<div><p>'readout_id':   { 'dtype': 'uint16', },
+'listener_id':  { 'dtype': 'uint16', },
+'telid':        { 'dtype': 'int32',  },
+'nadcs':        { 'dtype': 'int32',  },
+'ntriggers':    { 'dtype': 'int32',  },
+'nsamples':     { 'dtype': 'int32',  },
+'adcbits':      { 'dtype': 'int32',  },
+'sumlength':    { 'dtype': 'int32',  },
+'blprecision':  { 'dtype': 'int32',  },
+'mastercards':  { 'dtype': 'int32',  },
+'triggercards': { 'dtype': 'int32',  },
+'adccards':     { 'dtype': 'int32',  },
+'gps':          { 'dtype': 'int32',  },
+'ch_boardid':   { 'dtype': 'uint16',</p>
+<blockquote>
+<div><p>'datatype':
+'array_of_equalsized_arrays&lt;1,1&gt;{real}',
+'length': 2400, },</p>
+</div></blockquote>
+<dl class="simple">
+<dt>'ch_inputnum':  { 'dtype': 'uint16',</dt><dd><p>'datatype':
+'array_of_equalsized_arrays&lt;1,1&gt;{real}',
+'length': 2400, },</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>super().__init__(args, kwargs)</p>
+</div></blockquote>
+<dl>
+<dt>def get_decoded_values(self, channel=None):</dt><dd><p>return self.decoded_values</p>
+</dd>
+<dt>def max_n_rows_per_packet(self):</dt><dd><p>return 1</p>
+</dd>
+<dt>def decode_packet(self, packet, lh5_tables,</dt><dd><blockquote>
+<div><p>packet_id, header_dict, verbose=False):</p>
+</div></blockquote>
+<p>data = np.frombuffer(packet, dtype=np.int32)
+tbl  = lh5_tables
+ii   = tbl.loc</p>
+<p>tbl['readout_id'].nda[ii]  = (data[0] &amp; 0xffff0000) &gt;&gt; 16
+tbl['listener_id'].nda[ii] =  data[0] &amp; 0x0000ffff</p>
+<dl class="simple">
+<dt>for i,k in enumerate(self.decoded_values):</dt><dd><p>if i &lt; 2: continue
+tbl[k].nda[ii] = data[i-1]
+if k == 'gps': break</p>
+</dd>
+</dl>
+<p>data = np.frombuffer(packet, dtype=np.uint32)
+data = data[list(self.decoded_values.keys()).index('ch_boardid')-1:]
+for i in range(len(data)):</p>
+<blockquote>
+<div><p>tbl['ch_boardid'].nda[ii][i]  = (data[i] &amp; 0xffff0000) &gt;&gt; 16
+tbl['ch_inputnum'].nda[ii][i] =  data[i] &amp; 0x0000ffff</p>
+</div></blockquote>
+<p>tbl.push_row()</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>class ORCAFlashCamListenerStatusDecoder(OrcaDecoder):</dt><dd><p>'''
+Decoder for FlashCam status packets written by ORCA</p>
+<p>Some of the card level status data contains an  array of values
+(temperatures for instance) for each card.  Since lh5 currently only
+supports a 1d vector of 1d vectors, this (card,value) data has to be
+flattened before populating the lh5 table.
+'''
+def __init__(self, <a href="#id5"><span class="problematic" id="id6">*</span></a>args, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs):</p>
+<blockquote>
+<div><p>self.decoder_name    = 'ORFlashCamListenerStatusDecoder'
+self.orca_class_name = 'ORFlashCamListenerModel'
+self.nOtherErrors    = np.uint32(5)
+self.nEnvMonitors    = np.uint32(16)
+self.nCardTemps      = np.uint32(5)
+self.nCardVoltages   = np.uint32(6)
+self.nADCTemps       = np.uint32(2)
+self.nCTILinks       = np.uint32(4)
+self.nCards          = np.uint32(1)</p>
+<dl>
+<dt>self.decoded_values = {</dt><dd><p>'readout_id':  { 'dtype': 'uint16', },
+'listener_id': { 'dtype': 'uint16', },
+'cards':       { 'dtype': 'int32',  },
+'status':      { 'dtype': 'int32',  },
+'statustime':  { 'dtype': 'float64', 'units': 's', },
+'cputime':     { 'dtype': 'float64', 'units': 's', },
+'startoffset': { 'dtype': 'float64', 'units': 's', },
+'card_fcio_id':  {</p>
+<blockquote>
+<div><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</div></blockquote>
+<dl class="simple">
+<dt>'card_status': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</dd>
+<dt>'card_event_number': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</dd>
+<dt>'card_pps_count': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</dd>
+<dt>'card_tick_count': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</dd>
+<dt>'card_max_ticks': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</dd>
+<dt>'card_total_errors': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</dd>
+<dt>'card_env_errors': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</dd>
+<dt>'card_cti_errors': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</dd>
+<dt>'card_link_errors': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards, },</p>
+</dd>
+<dt>'card_other_errors': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards * self.nOtherErrors, },</p>
+</dd>
+<dt>'card_temp': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards * self.nCardTemps,
+'units':        'mC', },</p>
+</dd>
+<dt>'card_voltage': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards * self.nCardVoltages,
+'units':        'mV', },</p>
+</dd>
+<dt>'card_current': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards,
+'units':        'mA', },</p>
+</dd>
+<dt>'card_humidity': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards,
+'units':        'o/oo', },</p>
+</dd>
+<dt>'card_adc_temp': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards * self.nADCTemps,
+'units':        'mC', },</p>
+</dd>
+<dt>'card_cti_link': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards * self.nCTILinks, },</p>
+</dd>
+<dt>'card_card_link_state': {</dt><dd><p>'dtype':        'uint32',
+'datatype':     'array&lt;1&gt;{array&lt;1&gt;{real}}',
+'length_guess':  self.nCards * self.nCards, },</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>}</p>
+<p># arrays to temporarily store card-level decoded data
+self.cdata = {}
+self.resize_card_data(ncards=self.nCards)</p>
+<p>super().__init__(args, kwargs)</p>
+</div></blockquote>
+<dl>
+<dt>def resize_card_data(self, ncards):</dt><dd><p>try: ncards = np.uint32(ncards)
+except ValueError: return
+if ncards == 0: return
+for key in self.decoded_values:</p>
+<blockquote>
+<div><p># ignore keys that aren't card level
+if key.find('<a href="#id9"><span class="problematic" id="id10">card_</span></a>') != 0: continue
+try:</p>
+<blockquote>
+<div><p># skip keys for things that aren't arrays with a length_guess
+if self.decoded_values[key]['datatype'].find('array') != 0:</p>
+<blockquote>
+<div><p>continue</p>
+</div></blockquote>
+<p>length = self.decoded_values[key]['length_guess']
+try:</p>
+<blockquote>
+<div><p># resize if ncards differs from the old shape
+oldshape = self.cdata[key].shape
+if oldshape[0] == ncards: continue
+if key.find('<a href="#id11"><span class="problematic" id="id12">card_card_</span></a>') == 0:</p>
+<blockquote>
+<div><p>self.cdata[key].resize((ncards,ncards,) + oldshape[2:])</p>
+</div></blockquote>
+<dl class="simple">
+<dt>else:</dt><dd><p>self.cdata[key].resize((ncards,) + oldshape[1:])</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>except KeyError:</dt><dd><p># if the key didn't exist set the ndarray for this key
+if ((length == ncards or (length % ncards) != 0) and</p>
+<blockquote>
+<div><p>key.find('<a href="#id13"><span class="problematic" id="id14">card_card_</span></a>') == -1):
+self.cdata[key] = np.ndarray(shape=(length),</p>
+<blockquote>
+<div><p>dtype=np.uint32)</p>
+</div></blockquote>
+</div></blockquote>
+<dl>
+<dt>else:</dt><dd><p>nval = np.uint32(length / ncards)
+self.cdata[key] = np.ndarray(shape=(ncards, nval),</p>
+<blockquote>
+<div><p>dtype=np.uint32)</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>except KeyError: continue</p>
+</div></blockquote>
+<p># set nCards to allow for not calling this function during decoding
+self.nCards = ncards</p>
+</dd>
+<dt>def get_decoded_values(self, channel=None):</dt><dd><p>return self.decoded_values</p>
+</dd>
+<dt>def max_n_rows_per_packet(self):</dt><dd><p>return 1</p>
+</dd>
+<dt>def decode_packet(self, packet, lh5_tables,</dt><dd><blockquote>
+<div><p>packet_id, header_dict, verbose=False):</p>
+</div></blockquote>
+<p>data = np.frombuffer(packet, dtype=np.uint32)
+tbl  = lh5_tables
+ii   = tbl.loc</p>
+<p># populate the packet header information
+tbl['readout_id'].nda[ii]  = (data[0] &amp; 0xffff0000) &gt;&gt; 16
+tbl['listener_id'].nda[ii] =  data[0] &amp; 0x0000ffff
+tbl['status'].nda[ii]      = np.int32(data[1])
+tbl['statustime'].nda[ii]  = np.float64(data[2] + data[3] / 1.0e6)
+tbl['cputime'].nda[ii]     = np.float64(data[4] + data[5] / 1.0e6)
+tbl['startoffset'].nda[ii] = np.float64(data[7] + data[8] / 1.0e6)
+tbl['cards'].nda[ii]       = np.int32(data[12])</p>
+<p># resize the card level data if necessary
+if data[12] != self.nCards:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>print('ORlashCamListenerStatusDecoder: resizing card arrays '</dt><dd><p>'from', self.nCards, ' cards to', data[12])</p>
+</dd>
+</dl>
+<p>self.resize_card_data(ncards=data[12])</p>
+</div></blockquote>
+<p># set the local card level data
+for i in range(np.int(data[12])):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>j = 14 + i * (data[12] + 14 + self.nOtherErrors +</dt><dd><p>self.nEnvMonitors + self.nCTILinks)</p>
+</dd>
+</dl>
+<p>self.cdata['card_fcio_id'][i]      = data[j]
+self.cdata['card_status'][i]       = data[j+1]
+self.cdata['card_event_number'][i] = data[j+2]
+self.cdata['card_pps_count'][i]    = data[j+3]
+self.cdata['card_tick_count'][i]   = data[j+4]
+self.cdata['card_max_ticks'][i]    = data[j+5]
+self.cdata['card_total_errors'][i] = data[j+10]
+self.cdata['card_env_errors'][i]   = data[j+11]
+self.cdata['card_cti_errors'][i]   = data[j+12]
+self.cdata['card_link_errors'][i]  = data[j+13]
+k = j + 14
+self.cdata['card_other_errors'][i][:]= data[k:k+self.nOtherErrors]
+k += self.nOtherErrors
+self.cdata['card_temp'][i][:]        = data[k:k+self.nCardTemps]
+k += self.nCardTemps
+self.cdata['card_voltage'][i][:]     = data[k:k+self.nCardVoltages]
+k += self.nCardVoltages
+self.cdata['card_current'][i]        = data[k]
+self.cdata['card_humidity'][i]       = data[k+1]
+k += 2
+self.cdata['card_adc_temp'][i][:]    = data[k:k+self.nADCTemps]
+k += self.nADCTemps
+self.cdata['card_cti_link'][i][:]    = data[k:k+self.nCTILinks]
+k += self.nCTILinks
+self.cdata['card_card_link_state'][i][:]  = data[k:k+data[12]]</p>
+</div></blockquote>
+<p># populate the card level data with the flattened local data, then push
+for key in self.cdata:</p>
+<blockquote>
+<div><p>tbl[key].set_vector(ii, self.cdata[key].flatten())</p>
+</div></blockquote>
+<p>tbl.push_row()</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_flashcam.ORCAFlashCamListenerConfigDecoder._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.orca.orca_flashcam.ORCAFlashCamListenerConfigDecoder._abc_impl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_flashcam.</span></span><span class="sig-name descname"><span class="pre">ORFlashCamADCWaveformDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygama.raw.orca.orca_base.OrcaDecoder" title="pygama.raw.orca.orca_base.OrcaDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.raw.orca.orca_base.OrcaDecoder</span></code></a></p>
+<p>Decoder for FlashCam ADC data written by ORCA</p>
+<p>DOCME</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder._abc_impl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder.decode_packet">
+<span class="sig-name descname"><span class="pre">decode_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rbl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder.decode_packet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder.get_decoded_values">
+<span class="sig-name descname"><span class="pre">get_decoded_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder.get_decoded_values" title="Permalink to this definition"></a></dt>
+<dd><p>Get decoded values (optionally for a given key, typically a channel)</p>
+<p>Must overload for your decoder if it has key-specific decoded
+values. Note: implement key = None returns a &quot;default&quot; decoded_values</p>
+<p>Otherwise, just returns self.decoded_values, which should be defined in
+the constructor</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder.get_key_list">
+<span class="sig-name descname"><span class="pre">get_key_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder.get_key_list" title="Permalink to this definition"></a></dt>
+<dd><p>overload with list of keys for this decoder.
+e.g. <cite>return range(n_channels)</cite>
+The default version works for decoders with single / no keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder.set_header">
+<span class="sig-name descname"><span class="pre">set_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_flashcam.ORFlashCamADCWaveformDecoder.set_header" title="Permalink to this definition"></a></dt>
+<dd><p>Setter for headers. Overload to set card parameters, etc.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="pygama-raw-orca-orca-header-module">
-<h2>pygama.raw.orca.orca_header module<a class="headerlink" href="#pygama-raw-orca-orca-header-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.raw.orca.orca_header">
+<span id="pygama-raw-orca-orca-header-module"></span><h2>pygama.raw.orca.orca_header module<a class="headerlink" href="#module-pygama.raw.orca.orca_header" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header.OrcaHeader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_header.</span></span><span class="sig-name descname"><span class="pre">OrcaHeader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsons</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lgdo_scalar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header.OrcaHeader" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<p>Orca file header object</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header.OrcaHeader.get_auxhw_info">
+<span class="sig-name descname"><span class="pre">get_auxhw_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orca_class_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header.OrcaHeader.get_auxhw_info" title="Permalink to this definition"></a></dt>
+<dd><p>returns a list with all the info from the AuxHw table of the header
+with name orca_class_name.  optionally, if unique_id &gt;= 0 only return
+the object for that Orca unique id number.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header.OrcaHeader.get_data_id">
+<span class="sig-name descname"><span class="pre">get_data_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decoder_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header.OrcaHeader.get_data_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header.OrcaHeader.get_decoder_list">
+<span class="sig-name descname"><span class="pre">get_decoder_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header.OrcaHeader.get_decoder_list" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header.OrcaHeader.get_object_info">
+<span class="sig-name descname"><span class="pre">get_object_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orca_class_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header.OrcaHeader.get_object_info" title="Permalink to this definition"></a></dt>
+<dd><p>returns a list with all info from the header for each card with name
+orca_class_name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header.OrcaHeader.get_readout_info">
+<span class="sig-name descname"><span class="pre">get_readout_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orca_class_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header.OrcaHeader.get_readout_info" title="Permalink to this definition"></a></dt>
+<dd><p>returns a list with all the readout list info from the header with name
+orca_class_name.  optionally, if unique_id &gt;= 0 only return the list for
+that Orca unique id number.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header.OrcaHeader.get_run_number">
+<span class="sig-name descname"><span class="pre">get_run_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header.OrcaHeader.get_run_number" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header.OrcaHeader.set_from_lgdo">
+<span class="sig-name descname"><span class="pre">set_from_lgdo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lgdo_scalar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header.OrcaHeader.set_from_lgdo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="pygama-raw-orca-orca-header-decoder-module">
-<h2>pygama.raw.orca.orca_header_decoder module<a class="headerlink" href="#pygama-raw-orca-orca-header-decoder-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.raw.orca.orca_header_decoder">
+<span id="pygama-raw-orca-orca-header-decoder-module"></span><h2>pygama.raw.orca.orca_header_decoder module<a class="headerlink" href="#module-pygama.raw.orca.orca_header_decoder" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_header_decoder.</span></span><span class="sig-name descname"><span class="pre">OrcaHeaderDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygama.raw.orca.orca_base.OrcaDecoder" title="pygama.raw.orca.orca_base.OrcaDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.raw.orca.orca_base.OrcaDecoder</span></code></a></p>
+<p>Decodes Orca headers</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder._abc_impl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder.buffer_is_full">
+<span class="sig-name descname"><span class="pre">buffer_is_full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder.buffer_is_full" title="Permalink to this definition"></a></dt>
+<dd><p>Returns whether the buffer is too full to read in another packet</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder.decode_packet">
+<span class="sig-name descname"><span class="pre">decode_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rbl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder.decode_packet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder.make_lgdo">
+<span class="sig-name descname"><span class="pre">make_lgdo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_header_decoder.OrcaHeaderDecoder.make_lgdo" title="Permalink to this definition"></a></dt>
+<dd><p>Make an lgdo for this DataDecoder to fill</p>
+<p>This default version of this function allocates a Table using
+the decoded_values for key. If a different type of lgdo object is
+required for this decoder, overload this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>etc</em>) -- used by init_obj to initialize the lgdo for a particular key (e.g.
+to have different trace lengths for different channels of a piece of
+hardware). Leave as None if such specialization is not necessary</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- the size to be allocated for the lgdo, if applicable</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>data_obj</strong> -- the newly allocated lgdo</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>lgdo</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="pygama-raw-orca-orca-packet-module">
-<h2>pygama.raw.orca.orca_packet module<a class="headerlink" href="#pygama-raw-orca-orca-packet-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.raw.orca.orca_packet">
+<span id="pygama-raw-orca-orca-packet-module"></span><h2>pygama.raw.orca.orca_packet module<a class="headerlink" href="#module-pygama.raw.orca.orca_packet" title="Permalink to this headline"></a></h2>
+<p>orca packets are ndarrays of type uint32</p>
+<p>1 'word' is one uint32</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_packet.get_data_id">
+<span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_packet.</span></span><span class="sig-name descname"><span class="pre">get_data_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_packet.get_data_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_packet.get_n_words">
+<span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_packet.</span></span><span class="sig-name descname"><span class="pre">get_n_words</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_packet.get_n_words" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_packet.is_short">
+<span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_packet.</span></span><span class="sig-name descname"><span class="pre">is_short</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_packet.is_short" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </section>
 <section id="pygama-raw-orca-orca-pollers-module">
 <h2>pygama.raw.orca.orca_pollers module<a class="headerlink" href="#pygama-raw-orca-orca-pollers-module" title="Permalink to this headline"></a></h2>
 </section>
-<section id="pygama-raw-orca-orca-streamer-module">
-<h2>pygama.raw.orca.orca_streamer module<a class="headerlink" href="#pygama-raw-orca-orca-streamer-module" title="Permalink to this headline"></a></h2>
+<section id="module-pygama.raw.orca.orca_streamer">
+<span id="pygama-raw-orca-orca-streamer-module"></span><h2>pygama.raw.orca.orca_streamer module<a class="headerlink" href="#module-pygama.raw.orca.orca_streamer" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.orca.orca_streamer.</span></span><span class="sig-name descname"><span class="pre">OrcaStreamer</span></span><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_streamer.DataStreamer" title="pygama.raw.data_streamer.DataStreamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.raw.data_streamer.DataStreamer</span></code></a></p>
+<p>Data streamer for ORCA data</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer._abc_impl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer.close_in_stream">
+<span class="sig-name descname"><span class="pre">close_in_stream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer.close_in_stream" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer.get_decoder_list">
+<span class="sig-name descname"><span class="pre">get_decoder_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer.get_decoder_list" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of decoder objects for this data stream.
+Needs to be overloaded. Gets called during open_stream().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer.hex_dump">
+<span class="sig-name descname"><span class="pre">hex_dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_data_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_n_words</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_words</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_short</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer.hex_dump" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer.is_orca_stream">
+<span class="sig-name descname"><span class="pre">is_orca_stream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer.is_orca_stream" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer.load_packet">
+<span class="sig-name descname"><span class="pre">load_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skip_unknown_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer.load_packet" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the next packet into the internal buffer
+Returns packet as a uint32 view of the buffer (a slice)
+Returns None at EOF or for an error</p>
+<p>CHECK: need to correct for endianness?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer.open_stream">
+<span class="sig-name descname"><span class="pre">open_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rb_lib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'any_full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer.open_stream" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the ORCA data stream</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- The ORCA filename.  Only file streams are currently supported.
+Socket stream reading can be added later.</p></li>
+<li><p><strong>rb_lib</strong> (<a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBufferLibrary" title="pygama.raw.raw_buffer.RawBufferLibrary"><em>RawBufferLibrary</em></a>) -- library of buffers for this stream</p></li>
+<li><p><strong>buffer_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- length of tables to be read out in read_chunk</p></li>
+<li><p><strong>chunk_mode</strong> (<em>'any_full'</em><em>, </em><em>'only_full'</em><em>, or </em><em>'single_packet'</em>) -- sets the mode use for read_chunk</p></li>
+<li><p><strong>out_stream</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- optional name of output stream for default rb_lib generation</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- verbosity level for the initialize function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>header_data</strong> -- a list of length 1 containing the raw buffer holding the ORCA header</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>(<a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer">RawBuffer</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer.read_packet">
+<span class="sig-name descname"><span class="pre">read_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer.read_packet" title="Permalink to this definition"></a></dt>
+<dd><p>Read a packet of data.</p>
+<p>Data written to self.rb_lib.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.orca.orca_streamer.OrcaStreamer.set_in_stream">
+<span class="sig-name descname"><span class="pre">set_in_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.orca.orca_streamer.OrcaStreamer.set_in_stream" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
