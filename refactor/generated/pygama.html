@@ -7,6 +7,7 @@
   <title>pygama package &mdash; pygama  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,7 +15,10 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -40,6 +44,7 @@
     
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">User Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials (Jupyter notebooks)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Package API reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pygama package</a><ul>
@@ -58,7 +63,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contribution guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer's guide</a></li>
 </ul>
 
     <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
@@ -103,11 +108,11 @@
            <div itemprop="articleBody">
              
   <section id="module-pygama">
-<span id="pygama-package"></span><h1>pygama package<a class="headerlink" href="#module-pygama" title="Permalink to this headline"></a></h1>
+<span id="pygama-package"></span><h1>pygama package<a class="headerlink" href="#module-pygama" title="Permalink to this heading"></a></h1>
 <p>Pygama: decoding and processing digitizer data.
 Check out the <a class="reference external" href="https://legend-exp.github.io/pygama">online documentation</a></p>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a><ul>
@@ -133,7 +138,6 @@ Check out the <a class="reference external" href="https://legend-exp.github.io/p
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.pulse_injector">pygama.dsp._processors.pulse_injector module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.saturation">pygama.dsp._processors.saturation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.soft_pileup_corr">pygama.dsp._processors.soft_pileup_corr module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.template">pygama.dsp._processors.template module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.time_point_thresh">pygama.dsp._processors.time_point_thresh module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.trap_filters">pygama.dsp._processors.trap_filters module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.wiener_filter">pygama.dsp._processors.wiener_filter module</a></li>
@@ -204,12 +208,12 @@ Check out the <a class="reference external" href="https://legend-exp.github.io/p
 <li class="toctree-l3"><a class="reference internal" href="pygama.raw.orca.html">pygama.raw.orca package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_base">pygama.raw.orca.orca_base module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#pygama-raw-orca-orca-digitizers-module">pygama.raw.orca.orca_digitizers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_digitizers">pygama.raw.orca.orca_digitizers module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_flashcam">pygama.raw.orca.orca_flashcam module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_header">pygama.raw.orca.orca_header module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_header_decoder">pygama.raw.orca.orca_header_decoder module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_packet">pygama.raw.orca.orca_packet module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#pygama-raw-orca-orca-pollers-module">pygama.raw.orca.orca_pollers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_pollers">pygama.raw.orca.orca_pollers module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_streamer">pygama.raw.orca.orca_streamer module</a></li>
 </ul>
 </li>

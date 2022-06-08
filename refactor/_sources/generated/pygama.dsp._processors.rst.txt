@@ -181,15 +181,6 @@ pygama.dsp.\_processors.soft\_pileup\_corr module
    :show-inheritance:
    :private-members:
 
-pygama.dsp.\_processors.template module
----------------------------------------
-
-.. automodule:: pygama.dsp._processors.template
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :private-members:
-
 pygama.dsp.\_processors.time\_point\_thresh module
 --------------------------------------------------
 

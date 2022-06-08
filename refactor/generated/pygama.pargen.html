@@ -7,6 +7,7 @@
   <title>pygama.pargen package &mdash; pygama  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,7 +15,10 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -40,6 +44,7 @@
     
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">User Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials (Jupyter notebooks)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Package API reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="pygama.html">pygama package</a><ul class="current">
@@ -58,7 +63,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contribution guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer's guide</a></li>
 </ul>
 
     <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
@@ -104,13 +109,13 @@
            <div itemprop="articleBody">
              
   <section id="module-pygama.pargen">
-<span id="pygama-pargen-package"></span><h1>pygama.pargen package<a class="headerlink" href="#module-pygama.pargen" title="Permalink to this headline"></a></h1>
+<span id="pygama-pargen-package"></span><h1>pygama.pargen package<a class="headerlink" href="#module-pygama.pargen" title="Permalink to this heading"></a></h1>
 <p>Subpackage description</p>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-pygama.pargen.data_cleaning">
-<span id="pygama-pargen-data-cleaning-module"></span><h2>pygama.pargen.data_cleaning module<a class="headerlink" href="#module-pygama.pargen.data_cleaning" title="Permalink to this headline"></a></h2>
+<span id="pygama-pargen-data-cleaning-module"></span><h2>pygama.pargen.data_cleaning module<a class="headerlink" href="#module-pygama.pargen.data_cleaning" title="Permalink to this heading"></a></h2>
 <p>mainly pulser tagging
 - gaussian_cut (fits data to a gaussian, returns mean +/- cut_sigma values)
 - xtalball_cut (fits data to a crystalball, returns mean +/- cut_sigma values)
@@ -140,7 +145,7 @@
 
 </section>
 <section id="module-pygama.pargen.dsp_optimize">
-<span id="pygama-pargen-dsp-optimize-module"></span><h2>pygama.pargen.dsp_optimize module<a class="headerlink" href="#module-pygama.pargen.dsp_optimize" title="Permalink to this headline"></a></h2>
+<span id="pygama-pargen-dsp-optimize-module"></span><h2>pygama.pargen.dsp_optimize module<a class="headerlink" href="#module-pygama.pargen.dsp_optimize" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.pargen.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">ParGrid</span></span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid" title="Permalink to this definition"></a></dt>
@@ -390,7 +395,7 @@ optimization will be based. Should accept verbosity as a second argument</p></li
 
 </section>
 <section id="module-pygama.pargen.ecal_th">
-<span id="pygama-pargen-ecal-th-module"></span><h2>pygama.pargen.ecal_th module<a class="headerlink" href="#module-pygama.pargen.ecal_th" title="Permalink to this headline"></a></h2>
+<span id="pygama-pargen-ecal-th-module"></span><h2>pygama.pargen.ecal_th module<a class="headerlink" href="#module-pygama.pargen.ecal_th" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.pargen.ecal_th.energy_cal_th">
 <span class="sig-prename descclassname"><span class="pre">pygama.pargen.ecal_th.</span></span><span class="sig-name descname"><span class="pre">energy_cal_th</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lh5_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.ecal_th.energy_cal_th" title="Permalink to this definition"></a></dt>
@@ -415,7 +420,7 @@ optimization will be based. Should accept verbosity as a second argument</p></li
 
 </section>
 <section id="module-pygama.pargen.energy_cal">
-<span id="pygama-pargen-energy-cal-module"></span><h2>pygama.pargen.energy_cal module<a class="headerlink" href="#module-pygama.pargen.energy_cal" title="Permalink to this headline"></a></h2>
+<span id="pygama-pargen-energy-cal-module"></span><h2>pygama.pargen.energy_cal module<a class="headerlink" href="#module-pygama.pargen.energy_cal" title="Permalink to this heading"></a></h2>
 <p>routines for automatic calibration.</p>
 <ul class="simple">
 <li><p>hpge_find_E_peaks (Find uncalibrated E peaks whose E spacing matches the pattern in peaks_keV)</p></li>
@@ -806,7 +811,7 @@ are bad.</p></li>
 
 </section>
 <section id="module-pygama.pargen.mse_psd">
-<span id="pygama-pargen-mse-psd-module"></span><h2>pygama.pargen.mse_psd module<a class="headerlink" href="#module-pygama.pargen.mse_psd" title="Permalink to this headline"></a></h2>
+<span id="pygama-pargen-mse-psd-module"></span><h2>pygama.pargen.mse_psd module<a class="headerlink" href="#module-pygama.pargen.mse_psd" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>get_avse_cut (does AvsE)</p></li>
 <li><p>get_ae_cut (does A/E)</p></li>

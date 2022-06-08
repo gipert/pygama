@@ -7,6 +7,7 @@
   <title>pygama.dsp._processors package &mdash; pygama  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,7 +15,11 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -40,6 +45,7 @@
     
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">User Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials (Jupyter notebooks)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Package API reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="pygama.html">pygama package</a><ul class="current">
@@ -58,7 +64,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contribution guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer's guide</a></li>
 </ul>
 
     <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
@@ -105,13 +111,13 @@
            <div itemprop="articleBody">
              
   <section id="module-pygama.dsp._processors">
-<span id="pygama-dsp-processors-package"></span><h1>pygama.dsp._processors package<a class="headerlink" href="#module-pygama.dsp._processors" title="Permalink to this headline"></a></h1>
+<span id="pygama-dsp-processors-package"></span><h1>pygama.dsp._processors package<a class="headerlink" href="#module-pygama.dsp._processors" title="Permalink to this heading"></a></h1>
 <p>Package documentation</p>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-pygama.dsp._processors.bl_subtract">
-<span id="pygama-dsp-processors-bl-subtract-module"></span><h2>pygama.dsp._processors.bl_subtract module<a class="headerlink" href="#module-pygama.dsp._processors.bl_subtract" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-bl-subtract-module"></span><h2>pygama.dsp._processors.bl_subtract module<a class="headerlink" href="#module-pygama.dsp._processors.bl_subtract" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.bl_subtract.bl_subtract">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.bl_subtract.</span></span><span class="sig-name descname"><span class="pre">bl_subtract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_baseline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.bl_subtract.bl_subtract" title="Permalink to this definition"></a></dt>
@@ -139,7 +145,7 @@
 
 </section>
 <section id="module-pygama.dsp._processors.convolutions">
-<span id="pygama-dsp-processors-convolutions-module"></span><h2>pygama.dsp._processors.convolutions module<a class="headerlink" href="#module-pygama.dsp._processors.convolutions" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-convolutions-module"></span><h2>pygama.dsp._processors.convolutions module<a class="headerlink" href="#module-pygama.dsp._processors.convolutions" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.convolutions.cusp_filter">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.convolutions.</span></span><span class="sig-name descname"><span class="pre">cusp_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.convolutions.cusp_filter" title="Permalink to this definition"></a></dt>
@@ -229,7 +235,7 @@ argument and that the function the waveforms are passed to using args.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.fftw">
-<span id="pygama-dsp-processors-fftw-module"></span><h2>pygama.dsp._processors.fftw module<a class="headerlink" href="#module-pygama.dsp._processors.fftw" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-fftw-module"></span><h2>pygama.dsp._processors.fftw module<a class="headerlink" href="#module-pygama.dsp._processors.fftw" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.fftw.dft">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.fftw.</span></span><span class="sig-name descname"><span class="pre">dft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.fftw.dft" title="Permalink to this definition"></a></dt>
@@ -293,7 +299,7 @@ input/outputs are:
 
 </section>
 <section id="module-pygama.dsp._processors.fixed_time_pickoff">
-<span id="pygama-dsp-processors-fixed-time-pickoff-module"></span><h2>pygama.dsp._processors.fixed_time_pickoff module<a class="headerlink" href="#module-pygama.dsp._processors.fixed_time_pickoff" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-fixed-time-pickoff-module"></span><h2>pygama.dsp._processors.fixed_time_pickoff module<a class="headerlink" href="#module-pygama.dsp._processors.fixed_time_pickoff" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.fixed_time_pickoff.fixed_time_pickoff">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.fixed_time_pickoff.</span></span><span class="sig-name descname"><span class="pre">fixed_time_pickoff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.fixed_time_pickoff.fixed_time_pickoff" title="Permalink to this definition"></a></dt>
@@ -322,7 +328,7 @@ provided index is out of range, return NaN.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.gaussian_filter1d">
-<span id="pygama-dsp-processors-gaussian-filter1d-module"></span><h2>pygama.dsp._processors.gaussian_filter1d module<a class="headerlink" href="#module-pygama.dsp._processors.gaussian_filter1d" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-gaussian-filter1d-module"></span><h2>pygama.dsp._processors.gaussian_filter1d module<a class="headerlink" href="#module-pygama.dsp._processors.gaussian_filter1d" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.gaussian_filter1d.gaussian_filter1d">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.gaussian_filter1d.</span></span><span class="sig-name descname"><span class="pre">gaussian_filter1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.gaussian_filter1d.gaussian_filter1d" title="Permalink to this definition"></a></dt>
@@ -347,7 +353,7 @@ Default is 4.0.</p></li>
 
 </section>
 <section id="module-pygama.dsp._processors.get_multi_local_extrema">
-<span id="pygama-dsp-processors-get-multi-local-extrema-module"></span><h2>pygama.dsp._processors.get_multi_local_extrema module<a class="headerlink" href="#module-pygama.dsp._processors.get_multi_local_extrema" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-get-multi-local-extrema-module"></span><h2>pygama.dsp._processors.get_multi_local_extrema module<a class="headerlink" href="#module-pygama.dsp._processors.get_multi_local_extrema" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.get_multi_local_extrema.get_multi_local_extrema">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.get_multi_local_extrema.</span></span><span class="sig-name descname"><span class="pre">get_multi_local_extrema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_delta_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vt_max_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vt_min_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_min_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.get_multi_local_extrema.get_multi_local_extrema" title="Permalink to this definition"></a></dt>
@@ -376,7 +382,7 @@ Returns 0 if there are no peaks, or multiple peaks in a waveform</p></li>
 
 </section>
 <section id="module-pygama.dsp._processors.linear_slope_fit">
-<span id="pygama-dsp-processors-linear-slope-fit-module"></span><h2>pygama.dsp._processors.linear_slope_fit module<a class="headerlink" href="#module-pygama.dsp._processors.linear_slope_fit" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-linear-slope-fit-module"></span><h2>pygama.dsp._processors.linear_slope_fit module<a class="headerlink" href="#module-pygama.dsp._processors.linear_slope_fit" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.linear_slope_fit.linear_slope_fit">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.linear_slope_fit.</span></span><span class="sig-name descname"><span class="pre">linear_slope_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intercept</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.linear_slope_fit.linear_slope_fit" title="Permalink to this definition"></a></dt>
@@ -408,7 +414,7 @@ using linear regression.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.log_check">
-<span id="pygama-dsp-processors-log-check-module"></span><h2>pygama.dsp._processors.log_check module<a class="headerlink" href="#module-pygama.dsp._processors.log_check" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-log-check-module"></span><h2>pygama.dsp._processors.log_check module<a class="headerlink" href="#module-pygama.dsp._processors.log_check" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.log_check.log_check">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.log_check.</span></span><span class="sig-name descname"><span class="pre">log_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.log_check.log_check" title="Permalink to this definition"></a></dt>
@@ -436,7 +442,7 @@ are positive; otherwise, return NaN.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.min_max">
-<span id="pygama-dsp-processors-min-max-module"></span><h2>pygama.dsp._processors.min_max module<a class="headerlink" href="#module-pygama.dsp._processors.min_max" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-min-max-module"></span><h2>pygama.dsp._processors.min_max module<a class="headerlink" href="#module-pygama.dsp._processors.min_max" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.min_max.min_max">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.min_max.</span></span><span class="sig-name descname"><span class="pre">min_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.min_max.min_max" title="Permalink to this definition"></a></dt>
@@ -468,7 +474,7 @@ in the waveform will be returned.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.moving_windows">
-<span id="pygama-dsp-processors-moving-windows-module"></span><h2>pygama.dsp._processors.moving_windows module<a class="headerlink" href="#module-pygama.dsp._processors.moving_windows" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-moving-windows-module"></span><h2>pygama.dsp._processors.moving_windows module<a class="headerlink" href="#module-pygama.dsp._processors.moving_windows" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.moving_windows.avg_current">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.moving_windows.</span></span><span class="sig-name descname"><span class="pre">avg_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.moving_windows.avg_current" title="Permalink to this definition"></a></dt>
@@ -574,7 +580,7 @@ its application between the left and the right.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.multi_a_filter">
-<span id="pygama-dsp-processors-multi-a-filter-module"></span><h2>pygama.dsp._processors.multi_a_filter module<a class="headerlink" href="#module-pygama.dsp._processors.multi_a_filter" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-multi-a-filter-module"></span><h2>pygama.dsp._processors.multi_a_filter module<a class="headerlink" href="#module-pygama.dsp._processors.multi_a_filter" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.multi_a_filter.multi_a_filter">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.multi_a_filter.</span></span><span class="sig-name descname"><span class="pre">multi_a_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vt_maxs_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">va_max_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.multi_a_filter.multi_a_filter" title="Permalink to this definition"></a></dt>
@@ -592,7 +598,7 @@ its application between the left and the right.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.multi_t_filter">
-<span id="pygama-dsp-processors-multi-t-filter-module"></span><h2>pygama.dsp._processors.multi_t_filter module<a class="headerlink" href="#module-pygama.dsp._processors.multi_t_filter" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-multi-t-filter-module"></span><h2>pygama.dsp._processors.multi_t_filter module<a class="headerlink" href="#module-pygama.dsp._processors.multi_t_filter" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.multi_t_filter.multi_t_filter">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.multi_t_filter.</span></span><span class="sig-name descname"><span class="pre">multi_t_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_threshold_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vt_max_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vt_min_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.multi_t_filter.multi_t_filter" title="Permalink to this definition"></a></dt>
@@ -641,7 +647,7 @@ maximum of a waveform isn't right at index 0.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.optimize">
-<span id="pygama-dsp-processors-optimize-module"></span><h2>pygama.dsp._processors.optimize module<a class="headerlink" href="#module-pygama.dsp._processors.optimize" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-optimize-module"></span><h2>pygama.dsp._processors.optimize module<a class="headerlink" href="#module-pygama.dsp._processors.optimize" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygama.dsp._processors.optimize.Model">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.optimize.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.optimize.Model" title="Permalink to this definition"></a></dt>
@@ -717,7 +723,7 @@ which to optimize the pole-zero cancellation</p></li>
 
 </section>
 <section id="module-pygama.dsp._processors.param_lookup">
-<span id="pygama-dsp-processors-param-lookup-module"></span><h2>pygama.dsp._processors.param_lookup module<a class="headerlink" href="#module-pygama.dsp._processors.param_lookup" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-param-lookup-module"></span><h2>pygama.dsp._processors.param_lookup module<a class="headerlink" href="#module-pygama.dsp._processors.param_lookup" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.param_lookup.param_lookup">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.param_lookup.</span></span><span class="sig-name descname"><span class="pre">param_lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.param_lookup.param_lookup" title="Permalink to this definition"></a></dt>
@@ -728,12 +734,12 @@ param_dict.  If there is no key, use default_val instead.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.pole_zero">
-<span id="pygama-dsp-processors-pole-zero-module"></span><h2>pygama.dsp._processors.pole_zero module<a class="headerlink" href="#module-pygama.dsp._processors.pole_zero" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-pole-zero-module"></span><h2>pygama.dsp._processors.pole_zero module<a class="headerlink" href="#module-pygama.dsp._processors.pole_zero" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.pole_zero.double_pole_zero">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.pole_zero.</span></span><span class="sig-name descname"><span class="pre">double_pole_zero</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_tau1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_tau2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.pole_zero.double_pole_zero" title="Permalink to this definition"></a></dt>
 <dd><p>Apply a double pole-zero cancellation using the provided time
-constant to the waveform.</p>
+constants to the waveform.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -755,6 +761,21 @@ constant to the waveform.</p>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+<p class="rubric">Notes</p>
+<p>This algorithm is an IIR filter to deconvolve the function</p>
+<div class="math notranslate nohighlight">
+\[s(t) = A[frac*\exp\left(-\frac{t}{t_{tau2}}\right) + (1-frac)*\exp\left(-\frac{t}{t_{tau1}}\right)]\]</div>
+<p>into a single step function of amplitude A.
+This filter is derived by z-transforming the input (<span class="math notranslate nohighlight">\(s(t)\)</span>) and output (step function)
+signals, and then determining the transfer function. For shorthand, define <span class="math notranslate nohighlight">\(a=\exp\left(-\frac{1}{t_{tau1}}\right)\)</span>
+and <span class="math notranslate nohighlight">\(b=\exp\left(-\frac{1}{t_{tau2}}\right)\)</span>, the transfer function is then:</p>
+<div class="math notranslate nohighlight">
+\[H(z) =  \frac{1-(a+b)z^{-1}+abz^{-2}}{1+(fb-fa-b-1)z^{-1}-(fb-fa-b)z^{-2}}\]</div>
+<p>By equating the transfer function to the ratio of output to input waveforms <span class="math notranslate nohighlight">\(H(z) = \frac{w_{out}(z)}{w_{in}(z)}\)</span>
+and then taking the inverse z-transform yields the filter as run in the function, where f is the frac parameter:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}w_{out}[n] = &amp;w_{in}[n]-(a+b)w_{in}[n-1]+(ab)w_{in}[n-2]\\
+&amp;-(fb-fa-b-1)w_{out}[n-1]+(fb-fa-b)w_{out}[n-2]\end{split}\]</div>
 </dd></dl>
 
 <dl class="py function">
@@ -785,7 +806,7 @@ constant to the waveform.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.presum">
-<span id="pygama-dsp-processors-presum-module"></span><h2>pygama.dsp._processors.presum module<a class="headerlink" href="#module-pygama.dsp._processors.presum" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-presum-module"></span><h2>pygama.dsp._processors.presum module<a class="headerlink" href="#module-pygama.dsp._processors.presum" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.presum.presum">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.presum.</span></span><span class="sig-name descname"><span class="pre">presum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.presum.presum" title="Permalink to this definition"></a></dt>
@@ -804,7 +825,7 @@ will be omitted.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.pulse_injector">
-<span id="pygama-dsp-processors-pulse-injector-module"></span><h2>pygama.dsp._processors.pulse_injector module<a class="headerlink" href="#module-pygama.dsp._processors.pulse_injector" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-pulse-injector-module"></span><h2>pygama.dsp._processors.pulse_injector module<a class="headerlink" href="#module-pygama.dsp._processors.pulse_injector" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.pulse_injector.inject_exp_pulse">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.pulse_injector.</span></span><span class="sig-name descname"><span class="pre">inject_exp_pulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wf_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wf_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.pulse_injector.inject_exp_pulse" title="Permalink to this definition"></a></dt>
@@ -819,7 +840,7 @@ will be omitted.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.saturation">
-<span id="pygama-dsp-processors-saturation-module"></span><h2>pygama.dsp._processors.saturation module<a class="headerlink" href="#module-pygama.dsp._processors.saturation" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-saturation-module"></span><h2>pygama.dsp._processors.saturation module<a class="headerlink" href="#module-pygama.dsp._processors.saturation" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.saturation.saturation">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.saturation.</span></span><span class="sig-name descname"><span class="pre">saturation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bit_depth_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_lo_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_hi_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.saturation.saturation" title="Permalink to this definition"></a></dt>
@@ -850,7 +871,7 @@ on the bit depth.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.soft_pileup_corr">
-<span id="pygama-dsp-processors-soft-pileup-corr-module"></span><h2>pygama.dsp._processors.soft_pileup_corr module<a class="headerlink" href="#module-pygama.dsp._processors.soft_pileup_corr" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-soft-pileup-corr-module"></span><h2>pygama.dsp._processors.soft_pileup_corr module<a class="headerlink" href="#module-pygama.dsp._processors.soft_pileup_corr" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.soft_pileup_corr.soft_pileup_corr">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.soft_pileup_corr.</span></span><span class="sig-name descname"><span class="pre">soft_pileup_corr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.soft_pileup_corr.soft_pileup_corr" title="Permalink to this definition"></a></dt>
@@ -911,18 +932,8 @@ to fit to an exponential</p></li>
 </dd></dl>
 
 </section>
-<section id="module-pygama.dsp._processors.template">
-<span id="pygama-dsp-processors-template-module"></span><h2>pygama.dsp._processors.template module<a class="headerlink" href="#module-pygama.dsp._processors.template" title="Permalink to this headline"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.dsp._processors.template.the_processor_template">
-<span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.template.</span></span><span class="sig-name descname"><span class="pre">the_processor_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.template.the_processor_template" title="Permalink to this definition"></a></dt>
-<dd><p>Add here a complete description of what the processor does, including the
-meaning of input and output variables</p>
-</dd></dl>
-
-</section>
 <section id="module-pygama.dsp._processors.time_point_thresh">
-<span id="pygama-dsp-processors-time-point-thresh-module"></span><h2>pygama.dsp._processors.time_point_thresh module<a class="headerlink" href="#module-pygama.dsp._processors.time_point_thresh" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-time-point-thresh-module"></span><h2>pygama.dsp._processors.time_point_thresh module<a class="headerlink" href="#module-pygama.dsp._processors.time_point_thresh" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.time_point_thresh.time_point_thresh">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.time_point_thresh.</span></span><span class="sig-name descname"><span class="pre">time_point_thresh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walk_forward</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.time_point_thresh.time_point_thresh" title="Permalink to this definition"></a></dt>
@@ -953,7 +964,7 @@ walking either forward or backward from the starting index.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.trap_filters">
-<span id="pygama-dsp-processors-trap-filters-module"></span><h2>pygama.dsp._processors.trap_filters module<a class="headerlink" href="#module-pygama.dsp._processors.trap_filters" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-trap-filters-module"></span><h2>pygama.dsp._processors.trap_filters module<a class="headerlink" href="#module-pygama.dsp._processors.trap_filters" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.trap_filters.asym_trap_filter">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.trap_filters.</span></span><span class="sig-name descname"><span class="pre">asym_trap_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rise</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.trap_filters.asym_trap_filter" title="Permalink to this definition"></a></dt>
@@ -1066,7 +1077,7 @@ in the rise and fall sections.</p>
 
 </section>
 <section id="module-pygama.dsp._processors.wiener_filter">
-<span id="pygama-dsp-processors-wiener-filter-module"></span><h2>pygama.dsp._processors.wiener_filter module<a class="headerlink" href="#module-pygama.dsp._processors.wiener_filter" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-wiener-filter-module"></span><h2>pygama.dsp._processors.wiener_filter module<a class="headerlink" href="#module-pygama.dsp._processors.wiener_filter" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.wiener_filter.wiener_filter">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.wiener_filter.</span></span><span class="sig-name descname"><span class="pre">wiener_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name_array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.wiener_filter.wiener_filter" title="Permalink to this definition"></a></dt>
@@ -1095,7 +1106,7 @@ the noise waveform must be called 'spms/processed/noise_wf'</p>
 
 </section>
 <section id="module-pygama.dsp._processors.windower">
-<span id="pygama-dsp-processors-windower-module"></span><h2>pygama.dsp._processors.windower module<a class="headerlink" href="#module-pygama.dsp._processors.windower" title="Permalink to this headline"></a></h2>
+<span id="pygama-dsp-processors-windower-module"></span><h2>pygama.dsp._processors.windower module<a class="headerlink" href="#module-pygama.dsp._processors.windower" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.dsp._processors.windower.windower">
 <span class="sig-prename descclassname"><span class="pre">pygama.dsp._processors.windower.</span></span><span class="sig-name descname"><span class="pre">windower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.dsp._processors.windower.windower" title="Permalink to this definition"></a></dt>

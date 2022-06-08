@@ -7,6 +7,7 @@
   <title>pygama.raw.fc package &mdash; pygama  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,7 +15,10 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -40,6 +44,7 @@
     
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">User Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials (Jupyter notebooks)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Package API reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="pygama.html">pygama package</a><ul class="current">
@@ -58,7 +63,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contribution guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer's guide</a></li>
 </ul>
 
     <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
@@ -105,17 +110,17 @@
            <div itemprop="articleBody">
              
   <section id="module-pygama.raw.fc">
-<span id="pygama-raw-fc-package"></span><h1>pygama.raw.fc package<a class="headerlink" href="#module-pygama.raw.fc" title="Permalink to this headline"></a></h1>
+<span id="pygama-raw-fc-package"></span><h1>pygama.raw.fc package<a class="headerlink" href="#module-pygama.raw.fc" title="Permalink to this heading"></a></h1>
 <p>Subpackage documentation</p>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-pygama.raw.fc.fc_config_decoder">
-<span id="pygama-raw-fc-fc-config-decoder-module"></span><h2>pygama.raw.fc.fc_config_decoder module<a class="headerlink" href="#module-pygama.raw.fc.fc_config_decoder" title="Permalink to this headline"></a></h2>
+<span id="pygama-raw-fc-fc-config-decoder-module"></span><h2>pygama.raw.fc.fc_config_decoder module<a class="headerlink" href="#module-pygama.raw.fc.fc_config_decoder" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_config_decoder.FCConfigDecoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.fc.fc_config_decoder.</span></span><span class="sig-name descname"><span class="pre">FCConfigDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.raw.data_decoder.DataDecoder</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataDecoder</span></code></a></p>
 <p>Decode FlashCam config data</p>
 <p>Derives from DataDecoder in anticipation of possible future functionality;
 currently DataDecoder interface is not used.</p>
@@ -167,11 +172,11 @@ hardware). Leave as None if such specialization is not necessary</p></li>
 
 </section>
 <section id="module-pygama.raw.fc.fc_event_decoder">
-<span id="pygama-raw-fc-fc-event-decoder-module"></span><h2>pygama.raw.fc.fc_event_decoder module<a class="headerlink" href="#module-pygama.raw.fc.fc_event_decoder" title="Permalink to this headline"></a></h2>
+<span id="pygama-raw-fc-fc-event-decoder-module"></span><h2>pygama.raw.fc.fc_event_decoder module<a class="headerlink" href="#module-pygama.raw.fc.fc_event_decoder" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_event_decoder.FCEventDecoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.fc.fc_event_decoder.</span></span><span class="sig-name descname"><span class="pre">FCEventDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.raw.data_decoder.DataDecoder</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataDecoder</span></code></a></p>
 <p>decode FlashCam digitizer event data.</p>
 <p>DOCME</p>
 <dl class="py attribute">
@@ -234,11 +239,11 @@ fc_config = FCConfigDecoder.decode_config(fcio)</p>
 
 </section>
 <section id="module-pygama.raw.fc.fc_status_decoder">
-<span id="pygama-raw-fc-fc-status-decoder-module"></span><h2>pygama.raw.fc.fc_status_decoder module<a class="headerlink" href="#module-pygama.raw.fc.fc_status_decoder" title="Permalink to this headline"></a></h2>
+<span id="pygama-raw-fc-fc-status-decoder-module"></span><h2>pygama.raw.fc.fc_status_decoder module<a class="headerlink" href="#module-pygama.raw.fc.fc_status_decoder" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_status_decoder.FCStatusDecoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.fc.fc_status_decoder.</span></span><span class="sig-name descname"><span class="pre">FCStatusDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_status_decoder.FCStatusDecoder" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.raw.data_decoder.DataDecoder</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataDecoder</span></code></a></p>
 <p>decode FlashCam digitizer status data.</p>
 <p>DOCME</p>
 <dl class="py attribute">
@@ -256,11 +261,11 @@ fc_config = FCConfigDecoder.decode_config(fcio)</p>
 
 </section>
 <section id="module-pygama.raw.fc.fc_streamer">
-<span id="pygama-raw-fc-fc-streamer-module"></span><h2>pygama.raw.fc.fc_streamer module<a class="headerlink" href="#module-pygama.raw.fc.fc_streamer" title="Permalink to this headline"></a></h2>
+<span id="pygama-raw-fc-fc-streamer-module"></span><h2>pygama.raw.fc.fc_streamer module<a class="headerlink" href="#module-pygama.raw.fc.fc_streamer" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_streamer.FCStreamer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.fc.fc_streamer.</span></span><span class="sig-name descname"><span class="pre">FCStreamer</span></span><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_streamer.DataStreamer" title="pygama.raw.data_streamer.DataStreamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygama.raw.data_streamer.DataStreamer</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_streamer.DataStreamer" title="pygama.raw.data_streamer.DataStreamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataStreamer</span></code></a></p>
 <p>decode FlashCam data, using the fcutils package to handle file access,
 and the FlashCam DataDecoders to save the results and write to output.</p>
 <dl class="py attribute">
