@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pygama.analysis package" href="pygama.analysis.html" />
-    <link rel="prev" title="Tutorials" href="../tutorials.html" /> 
+    <link rel="next" title="pygama.dsp package" href="pygama.dsp.html" />
+    <link rel="prev" title="pygama" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,22 +43,30 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
     
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing pygama</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contribution guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Package API reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pygama.analysis.html">pygama.analysis package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygama.io.html">pygama.io package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygama.lh5.html">pygama.lh5 package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygama.sandbox.html">pygama.sandbox package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials (Jupyter notebooks)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Package API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pygama package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.evt.html">pygama.evt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.flow.html">pygama.flow package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.hit.html">pygama.hit package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.lgdo.html">pygama.lgdo package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.math.html">pygama.math package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.pargen.html">pygama.pargen package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.html">pygama.raw package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.vis.html">pygama.vis package</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pygama.utils">pygama.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pygama.cli">pygama.cli module</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer's guide</a></li>
 </ul>
 
     <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
@@ -70,8 +78,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../../refactor/index.html">refactor</a></dd>
           <dd><a href="pygama.html">main</a></dd>
+          <dd><a href="../../refactor/index.html">refactor</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -91,6 +99,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">pygama</a> &raquo;</li>
       <li>pygama package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/generated/pygama.rst.txt" rel="nofollow"> View page source</a>
@@ -103,111 +112,135 @@
              
   <section id="module-pygama">
 <span id="pygama-package"></span><h1>pygama package<a class="headerlink" href="#module-pygama" title="Permalink to this heading"></a></h1>
-<p>pygama init file.
-it might be better to declare more of the public functions here if it
-makes sphinx auto-generated documentation easier.</p>
-<p>There's a nice discussion about what to include in this file here:
-<a class="reference external" href="https://www.reddit.com/r/Python/comments/1bbbwk/whats_your_opinion_on_what_to_include_in_init_py/">https://www.reddit.com/r/Python/comments/1bbbwk/whats_your_opinion_on_what_to_include_in_init_py/</a></p>
-<p>Clint's fav answer:</p>
-<p>I like importing key functions and classes. Flat is better than nested, so
-as a user of a library, I prefer <cite>from library import ThingIWant</cite> or
-<cite>import library</cite> and then using <cite>library.ThingIWant</cite> rather than
-<cite>from library.things.thing_i_want import ThingIWant</cite>.</p>
-<dl class="simple">
-<dt>More specifically, I would often have the contents of __init__.py be:</dt><dd><p>&quot;Docstring explaining package&quot; (use triple quotes though)
-from thispackage.module_or_subpackage import *
-from thispackage.module_thats_next_alphabetically import *
-...</p>
-</dd>
-</dl>
-<p>And then have each module use __all__ to specify which names constitute
-its public API that should be exposed by the package.</p>
-<p>For something you are distributing publicly, I don't think your __init__.py
-should ever by &quot;blank&quot; as specified by option 1: you should at least include a
-docstring explaining what the package does. This will help users poking around
-in ipython, etc.</p>
+<p>Pygama: decoding and processing digitizer data.
+Check out the <a class="reference external" href="https://legend-exp.github.io/pygama">online documentation</a></p>
 <section id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="pygama.analysis.html">pygama.analysis package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#pygama-analysis-calibration-module">pygama.analysis.calibration module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#pygama-analysis-data-cleaning-module">pygama.analysis.data_cleaning module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#module-pygama.analysis.datagroup">pygama.analysis.datagroup module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#pygama-analysis-histograms-module">pygama.analysis.histograms module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#module-pygama.analysis.metadata">pygama.analysis.metadata module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#pygama-analysis-peak-fitting-module">pygama.analysis.peak_fitting module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.analysis.html#pygama-analysis-pulse-shape-analysis-module">pygama.analysis.pulse_shape_analysis module</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pygama.dsp._processors.html">pygama.dsp._processors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.bl_subtract">pygama.dsp._processors.bl_subtract module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.convolutions">pygama.dsp._processors.convolutions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.fftw">pygama.dsp._processors.fftw module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.fixed_time_pickoff">pygama.dsp._processors.fixed_time_pickoff module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.gaussian_filter1d">pygama.dsp._processors.gaussian_filter1d module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.get_multi_local_extrema">pygama.dsp._processors.get_multi_local_extrema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.linear_slope_fit">pygama.dsp._processors.linear_slope_fit module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.log_check">pygama.dsp._processors.log_check module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.min_max">pygama.dsp._processors.min_max module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.moving_windows">pygama.dsp._processors.moving_windows module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.multi_a_filter">pygama.dsp._processors.multi_a_filter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.multi_t_filter">pygama.dsp._processors.multi_t_filter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.optimize">pygama.dsp._processors.optimize module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.param_lookup">pygama.dsp._processors.param_lookup module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.pole_zero">pygama.dsp._processors.pole_zero module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.presum">pygama.dsp._processors.presum module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.pulse_injector">pygama.dsp._processors.pulse_injector module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.saturation">pygama.dsp._processors.saturation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.soft_pileup_corr">pygama.dsp._processors.soft_pileup_corr module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.time_point_thresh">pygama.dsp._processors.time_point_thresh module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.trap_filters">pygama.dsp._processors.trap_filters module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.upsampler">pygama.dsp._processors.upsampler module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.wiener_filter">pygama.dsp._processors.wiener_filter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp._processors.html#module-pygama.dsp._processors.windower">pygama.dsp._processors.windower module</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-processingchain-module">pygama.dsp.ProcessingChain module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-waveformbrowser-module">pygama.dsp.WaveformBrowser module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-build-processing-chain-module">pygama.dsp.build_processing_chain module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-dsp-optimize-module">pygama.dsp.dsp_optimize module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#module-pygama.dsp.build_dsp">pygama.dsp.build_dsp module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#module-pygama.dsp.errors">pygama.dsp.errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#module-pygama.dsp.processing_chain">pygama.dsp.processing_chain module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#module-pygama.dsp.processors">pygama.dsp.processors module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.dsp.html#pygama-dsp-units-module">pygama.dsp.units module</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pygama.io.html">pygama.io package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#pygama-io-mgdodecoder-module">pygama.io.MGDODecoder module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.ch_group">pygama.io.ch_group module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.compassdaq">pygama.io.compassdaq module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.daq_to_raw">pygama.io.daq_to_raw module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.fcdaq">pygama.io.fcdaq module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.hit_to_evt">pygama.io.hit_to_evt module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.io_base">pygama.io.io_base module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.lh5">pygama.io.lh5 module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.llamadaq">pygama.io.llamadaq module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.orca_digitizers">pygama.io.orca_digitizers module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.orca_flashcam">pygama.io.orca_flashcam module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.orcadaq">pygama.io.orcadaq module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.pollers">pygama.io.pollers module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#pygama-io-raw-to-dsp-module">pygama.io.raw_to_dsp module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.io.html#module-pygama.io.wfcompress">pygama.io.wfcompress module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pygama.evt.html">pygama.evt package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.evt.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.evt.html#module-pygama.evt.build_tcm">pygama.evt.build_tcm module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.evt.html#module-pygama.evt.tcm">pygama.evt.tcm module</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pygama.lh5.html">pygama.lh5 package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-pygama.lh5.array">pygama.lh5.array module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-pygama.lh5.arrayofequalsizedarrays">pygama.lh5.arrayofequalsizedarrays module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-pygama.lh5.fixedsizearray">pygama.lh5.fixedsizearray module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-pygama.lh5.lh5_utils">pygama.lh5.lh5_utils module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-pygama.lh5.scalar">pygama.lh5.scalar module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-pygama.lh5.store">pygama.lh5.store module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-pygama.lh5.struct">pygama.lh5.struct module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-pygama.lh5.table">pygama.lh5.table module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.lh5.html#module-pygama.lh5.vectorofvectors">pygama.lh5.vectorofvectors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pygama.flow.html">pygama.flow package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.flow.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.flow.html#module-pygama.flow.datagroup">pygama.flow.datagroup module</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pygama.sandbox.html">pygama.sandbox package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-base-module">pygama.sandbox.base module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.base_calculators">pygama.sandbox.base_calculators module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.base_transforms">pygama.sandbox.base_transforms module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.compass_header">pygama.sandbox.compass_header module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-compass-wfs-module">pygama.sandbox.compass_wfs module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.database">pygama.sandbox.database module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.databases">pygama.sandbox.databases module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.h5parser">pygama.sandbox.h5parser module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-multirun-module">pygama.sandbox.multirun module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-module">pygama.sandbox.test module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-3302-module">pygama.sandbox.test_3302 module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-lh5-buffered-read-module">pygama.sandbox.test_lh5_buffered_read module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-pygama-module">pygama.sandbox.test_pygama module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-tier-0-module">pygama.sandbox.test_tier_0 module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-test-tier-1-module">pygama.sandbox.test_tier_1 module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.test_wfc">pygama.sandbox.test_wfc module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-tier1-base-module">pygama.sandbox.tier1_base module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#pygama-sandbox-tier1-vector-module">pygama.sandbox.tier1_vector module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.uproot_mjd">pygama.sandbox.uproot_mjd module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.uproot_test">pygama.sandbox.uproot_test module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.vec1">pygama.sandbox.vec1 module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygama.sandbox.html#module-pygama.sandbox.vector">pygama.sandbox.vector module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pygama.hit.html">pygama.hit package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.hit.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.hit.html#module-pygama.hit.build_hit">pygama.hit.build_hit module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pygama.lgdo.html">pygama.lgdo package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.array">pygama.lgdo.array module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.arrayofequalsizedarrays">pygama.lgdo.arrayofequalsizedarrays module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.fixedsizearray">pygama.lgdo.fixedsizearray module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.lgdo_utils">pygama.lgdo.lgdo_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.lh5_store">pygama.lgdo.lh5_store module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.scalar">pygama.lgdo.scalar module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.struct">pygama.lgdo.struct module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.table">pygama.lgdo.table module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.vectorofvectors">pygama.lgdo.vectorofvectors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.lgdo.html#module-pygama.lgdo.waveform_table">pygama.lgdo.waveform_table module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pygama.math.html">pygama.math package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.math.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.math.html#module-pygama.math.histogram">pygama.math.histogram module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.math.html#module-pygama.math.peak_fitting">pygama.math.peak_fitting module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.math.html#module-pygama.math.units">pygama.math.units module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.math.html#module-pygama.math.utils">pygama.math.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pygama.pargen.html">pygama.pargen package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.pargen.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.pargen.html#module-pygama.pargen.data_cleaning">pygama.pargen.data_cleaning module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.pargen.html#module-pygama.pargen.dsp_optimize">pygama.pargen.dsp_optimize module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.pargen.html#module-pygama.pargen.ecal_th">pygama.pargen.ecal_th module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.pargen.html#module-pygama.pargen.energy_cal">pygama.pargen.energy_cal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.pargen.html#module-pygama.pargen.mse_psd">pygama.pargen.mse_psd module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pygama.raw.html">pygama.raw package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.raw.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pygama.raw.fc.html">pygama.raw.fc package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.fc.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.fc.html#module-pygama.raw.fc.fc_config_decoder">pygama.raw.fc.fc_config_decoder module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.fc.html#module-pygama.raw.fc.fc_event_decoder">pygama.raw.fc.fc_event_decoder module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.fc.html#module-pygama.raw.fc.fc_status_decoder">pygama.raw.fc.fc_status_decoder module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.fc.html#module-pygama.raw.fc.fc_streamer">pygama.raw.fc.fc_streamer module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.raw.orca.html">pygama.raw.orca package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_base">pygama.raw.orca.orca_base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_digitizers">pygama.raw.orca.orca_digitizers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_flashcam">pygama.raw.orca.orca_flashcam module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_header">pygama.raw.orca.orca_header module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_header_decoder">pygama.raw.orca.orca_header_decoder module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_packet">pygama.raw.orca.orca_packet module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_pollers">pygama.raw.orca.orca_pollers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.orca.html#module-pygama.raw.orca.orca_streamer">pygama.raw.orca.orca_streamer module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.raw.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.raw.html#module-pygama.raw.build_raw">pygama.raw.build_raw module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.raw.html#module-pygama.raw.data_decoder">pygama.raw.data_decoder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.raw.html#module-pygama.raw.data_streamer">pygama.raw.data_streamer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.raw.html#module-pygama.raw.raw_buffer">pygama.raw.raw_buffer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pygama.raw.html#primary-classes">Primary Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pygama.vis.html">pygama.vis package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pygama.vis.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygama.vis.html#module-pygama.vis.waveform_browser">pygama.vis.waveform_browser module</a></li>
 </ul>
 </li>
 </ul>
@@ -216,176 +249,47 @@ in ipython, etc.</p>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
-<section id="module-pygama.utils">
-<span id="pygama-utils-module"></span><h2>pygama.utils module<a class="headerlink" href="#module-pygama.utils" title="Permalink to this heading"></a></h2>
-<p>pygama convenience functions.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="pygama.utils.SafeDict">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">SafeDict</span></span><a class="headerlink" href="#pygama.utils.SafeDict" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
-<p>used in handling LEGEND file format strings.
-when a key is missing, return the string value of that key.</p>
+<section id="module-pygama.cli">
+<span id="pygama-cli-module"></span><h2>pygama.cli module<a class="headerlink" href="#module-pygama.cli" title="Permalink to this heading"></a></h2>
+<p>pygama's command line interface utilities.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.cli.add_build_dsp_parser">
+<span class="sig-prename descclassname"><span class="pre">pygama.cli.</span></span><span class="sig-name descname"><span class="pre">add_build_dsp_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subparsers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.cli.add_build_dsp_parser" title="Permalink to this definition"></a></dt>
+<dd><p>Configure <a class="reference internal" href="pygama.dsp.html#pygama.dsp.build_dsp.build_dsp" title="pygama.dsp.build_dsp.build_dsp"><code class="xref py py-func docutils literal notranslate"><span class="pre">dsp.build_dsp.build_dsp()</span></code></a> command line interface</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.fit_simple_scaling">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">fit_simple_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.fit_simple_scaling" title="Permalink to this definition"></a></dt>
-<dd><p>Fast computation of weighted linear least squares fit to a simple scaling</p>
-<p>I.e. y = scale * x. Returns the best fit scale parameter and its variance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array like</em>) -- x values for the fit</p></li>
-<li><p><strong>y</strong> (<em>array like</em>) -- y values for the fit</p></li>
-<li><p><strong>var</strong> (<em>array like</em><em> (</em><em>optional</em><em>)</em>) -- The variances for each y-value</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>scale, scale_var</strong> -- The scale parameter and its variance</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="pygama.cli.add_build_raw_parser">
+<span class="sig-prename descclassname"><span class="pre">pygama.cli.</span></span><span class="sig-name descname"><span class="pre">add_build_raw_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subparsers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.cli.add_build_raw_parser" title="Permalink to this definition"></a></dt>
+<dd><p>Configure <a class="reference internal" href="pygama.raw.html#pygama.raw.build_raw.build_raw" title="pygama.raw.build_raw.build_raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">raw.build_raw.build_raw()</span></code></a> command line interface</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.get_dataset_from_cmdline">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">get_dataset_from_cmdline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cal_db</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.get_dataset_from_cmdline" title="Permalink to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>make it easier to call this from argparse:</dt><dd><p>arg(&quot;-ds&quot;, nargs='*', action=&quot;store&quot;, help=&quot;load runs for a DS&quot;)
-arg(&quot;-r&quot;, &quot;--run&quot;, nargs=1, help=&quot;load a single run&quot;)</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="pygama.cli.build_dsp_cli">
+<span class="sig-prename descclassname"><span class="pre">pygama.cli.</span></span><span class="sig-name descname"><span class="pre">build_dsp_cli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.cli.build_dsp_cli" title="Permalink to this definition"></a></dt>
+<dd><p>Passes command line arguments to <a class="reference internal" href="pygama.dsp.html#pygama.dsp.build_dsp.build_dsp" title="pygama.dsp.build_dsp.build_dsp"><code class="xref py py-func docutils literal notranslate"><span class="pre">dsp.build_dsp.build_dsp()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.get_formatted_stats">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">get_formatted_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndigs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.get_formatted_stats" title="Permalink to this definition"></a></dt>
-<dd><p>convenience function for formatting mean +/- sigma to the right number of
-significant figures.</p>
+<dt class="sig sig-object py" id="pygama.cli.build_raw_cli">
+<span class="sig-prename descclassname"><span class="pre">pygama.cli.</span></span><span class="sig-name descname"><span class="pre">build_raw_cli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.cli.build_raw_cli" title="Permalink to this definition"></a></dt>
+<dd><p>Passes command line arguments to <a class="reference internal" href="pygama.raw.html#pygama.raw.build_raw.build_raw" title="pygama.raw.build_raw.build_raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">raw.build_raw.build_raw()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.get_par_names">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">get_par_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.get_par_names" title="Permalink to this definition"></a></dt>
-<dd><p>Return a list containing the names of the arguments of &quot;func&quot; other than the
-first argument. In pygamaland, those are the function's &quot;parameters.&quot;</p>
+<dt class="sig sig-object py" id="pygama.cli.pygama_cli">
+<span class="sig-prename descclassname"><span class="pre">pygama.cli.</span></span><span class="sig-name descname"><span class="pre">pygama_cli</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.cli.pygama_cli" title="Permalink to this definition"></a></dt>
+<dd><p>pygama's command line interface.</p>
+<p>Defines the command line interface (CLI) of the package, which exposes some
+of the most used functions to the console.  This function is added to the
+<code class="docutils literal notranslate"><span class="pre">entry_points.console_scripts</span></code> list and defines the <code class="docutils literal notranslate"><span class="pre">pygama</span></code> executable
+(see <code class="docutils literal notranslate"><span class="pre">setuptools</span></code>' documentation). To learn more about the CLI, have a
+look at the help section:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pygama --help
+<span class="gp">$ </span>pygama build-raw --help  <span class="c1"># help section for a specific sub-command</span>
+</pre></div>
+</div>
 </dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.linear_fit_by_sums">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">linear_fit_by_sums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.linear_fit_by_sums" title="Permalink to this definition"></a></dt>
-<dd><p>Fast computation of weighted linear least squares fit to a linear model</p>
-<p>Note: doesn't compute covariances. If you want covariances, just use polyfit</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array like</em>) -- x values for the fit</p></li>
-<li><p><strong>y</strong> (<em>array like</em>) -- y values for the fit</p></li>
-<li><p><strong>var</strong> (<em>array like</em><em> (</em><em>optional</em><em>)</em>) -- The variances for each y-value</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>(m, b)</strong> -- The slope (m) and y-intercept (b) of the best fit (in the least-squares
-sense) of the data to y = mx + b</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.peakdet">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">peakdet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.peakdet" title="Permalink to this definition"></a></dt>
-<dd><p>Converted from MATLAB script at: <a class="reference external" href="http://billauer.co.il/peakdet.html">http://billauer.co.il/peakdet.html</a>
-Returns two arrays: [maxtab, mintab] = peakdet(v, delta, x)
-An updated (vectorized) version is in pygama.dsp.transforms.peakdet</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.plot_func">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">plot_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.plot_func" title="Permalink to this definition"></a></dt>
-<dd><p>plot a function.  take care of the x-axis points automatically, or user can
-specify via range and npx arguments.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.print_fit_results">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">print_fit_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.print_fit_results" title="Permalink to this definition"></a></dt>
-<dd><p>convenience function for scipy.optimize.curve_fit results</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.set_plot_style">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">set_plot_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.set_plot_style" title="Permalink to this definition"></a></dt>
-<dd><p>Choose a pygama plot style.
-Current options: 'clint', 'root'
-Or add your own [label].mpl file in the pygama directory!</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.sh">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">sh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.sh" title="Permalink to this definition"></a></dt>
-<dd><p>input a shell command as you would type it on the command line.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.sizeof_fmt">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">sizeof_fmt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'B'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.sizeof_fmt" title="Permalink to this definition"></a></dt>
-<dd><p>given a file size in bytes, output a human-readable form.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.tqdm_range">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">tqdm_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.tqdm_range" title="Permalink to this definition"></a></dt>
-<dd><p>Uses tqdm.trange which wraps around the python range and also has the option
-to display a progress</p>
-<p>Example:</p>
-<blockquote>
-<div><dl>
-<dt>for start_row in range(0, tot_n_rows, buffer_len):</dt><dd><p>...</p>
-<p>Can be converted to the following</p>
-</dd>
-<dt>for start_row in tqdm_range(0, tot_n_rows, buffer_len, verbose):</dt><dd><p>...</p>
-</dd>
-</dl>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- starting iteration value</p></li>
-<li><p><strong>stop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- ending iteration value</p></li>
-<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- step size inbetween each iteration</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- verbose = 0 hides progress bar verbose &gt; 0 displays progress bar</p></li>
-<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- text to display in front of the progress bar</p></li>
-<li><p><strong>bar_length</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- horizontal length of the bar in cursor spaces</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>iterable</strong> -- object that can be iterated over in a for loop</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>tqdm.trange</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.tree_draw">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">tree_draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tcut</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.tree_draw" title="Permalink to this definition"></a></dt>
-<dd><p>if you have to debase yourself and use ROOT, this is an easy
-convenience function for quickly extracting data from TTrees.
-TTree::Draw can only handle groups of 4 variables at a time,
-but here we can put in as many as we want, and
-return a list of numpy.ndarrays for each one</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.utils.update_progress">
-<span class="sig-prename descclassname"><span class="pre">pygama.utils.</span></span><span class="sig-name descname"><span class="pre">update_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tqdm_bar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.utils.update_progress" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
 
 </section>
 </section>
@@ -394,14 +298,14 @@ return a list of numpy.ndarrays for each one</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pygama.analysis.html" class="btn btn-neutral float-right" title="pygama.analysis package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="pygama" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pygama.dsp.html" class="btn btn-neutral float-right" title="pygama.dsp package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, the LEGEND Collaboration.</p>
+    <p>&#169; Copyright 2022, the LEGEND Collaboration.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

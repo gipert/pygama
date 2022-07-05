@@ -75,8 +75,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="pygama.vis.html">refactor</a></dd>
           <dd><a href="../../main/index.html">main</a></dd>
+          <dd><a href="pygama.vis.html">refactor</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -169,7 +169,7 @@ or auxiliary data-table</p>
 </p></li>
 <li><p><strong>legend_opts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> (</em><em>default None</em><em>)</em>) -- dict containing additional kwargs for matplotlib.legend</p></li>
 <li><p><strong>n_drawn</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> (</em><em>default 1</em><em>)</em>) -- number of events to draw simultaneously when calling DrawNext</p></li>
-<li><p><strong>x_lim</strong> (<em>tuple-pair of float</em><em>, </em><em>pint.Quantity</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>default auto</em><em>)</em>) -- <p>range of x- or y-values and units passes as tuple.</p>
+<li><p><strong>x_lim</strong> (<em>tuple-pair of float</em><em>, </em><a class="reference external" href="https://pint.readthedocs.io/en/stable/developers_reference.html#pint.Quantity" title="(in pint v0.19.1)"><em>pint.Quantity</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>default auto</em><em>)</em>) -- <p>range of x- or y-values and units passes as tuple.</p>
 <blockquote>
 <div><ul>
 <li><p>None: Get range from first waveform drawn</p></li>
@@ -179,7 +179,7 @@ or auxiliary data-table</p>
 </ul>
 </div></blockquote>
 </p></li>
-<li><p><strong>y_lim</strong> (<em>tuple-pair of float</em><em>, </em><em>pint.Quantity</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>default auto</em><em>)</em>) -- <p>range of x- or y-values and units passes as tuple.</p>
+<li><p><strong>y_lim</strong> (<em>tuple-pair of float</em><em>, </em><a class="reference external" href="https://pint.readthedocs.io/en/stable/developers_reference.html#pint.Quantity" title="(in pint v0.19.1)"><em>pint.Quantity</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>default auto</em><em>)</em>) -- <p>range of x- or y-values and units passes as tuple.</p>
 <blockquote>
 <div><ul>
 <li><p>None: Get range from first waveform drawn</p></li>
@@ -189,7 +189,7 @@ or auxiliary data-table</p>
 </ul>
 </div></blockquote>
 </p></li>
-<li><p><strong>x_unit</strong> (<em>pint.Unit</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>default auto</em><em>)</em>) -- unit of x-axis</p></li>
+<li><p><strong>x_unit</strong> (<a class="reference external" href="https://pint.readthedocs.io/en/stable/developers_reference.html#pint.Unit" title="(in pint v0.19.1)"><em>pint.Unit</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>default auto</em><em>)</em>) -- unit of x-axis</p></li>
 <li><p><strong>norm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>default None</em><em>)</em>) -- name of parameter (probably energy) to use to normalize WFs
 useful when drawing multiple WFs</p></li>
 <li><p><strong>align</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>default None</em><em>)</em>) -- name of parameter to use for x-offset; useful, e.g., for aligning
@@ -304,7 +304,7 @@ Can give a WaveformBrowser object to use the fig/axis from that</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, the LEGEND Collaboration.</p>
+    <p>&#169; Copyright 2022, the LEGEND Collaboration.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

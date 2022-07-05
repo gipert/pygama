@@ -5,41 +5,27 @@ pygama.dsp package
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pygama.dsp._processors
 
 Submodules
 ----------
 
-pygama.dsp.ProcessingChain module
----------------------------------
+pygama.dsp.build\_dsp module
+----------------------------
 
-.. automodule:: pygama.dsp.ProcessingChain
+.. automodule:: pygama.dsp.build_dsp
    :members:
    :undoc-members:
    :show-inheritance:
-
-pygama.dsp.WaveformBrowser module
----------------------------------
-
-.. automodule:: pygama.dsp.WaveformBrowser
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pygama.dsp.build\_processing\_chain module
-------------------------------------------
-
-.. automodule:: pygama.dsp.build_processing_chain
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pygama.dsp.dsp\_optimize module
--------------------------------
-
-.. automodule:: pygama.dsp.dsp_optimize
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   :private-members:
 
 pygama.dsp.errors module
 ------------------------
@@ -48,6 +34,16 @@ pygama.dsp.errors module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
+
+pygama.dsp.processing\_chain module
+-----------------------------------
+
+.. automodule:: pygama.dsp.processing_chain
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
 
 pygama.dsp.processors module
 ----------------------------
@@ -56,11 +52,4 @@ pygama.dsp.processors module
    :members:
    :undoc-members:
    :show-inheritance:
-
-pygama.dsp.units module
------------------------
-
-.. automodule:: pygama.dsp.units
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   :private-members:
