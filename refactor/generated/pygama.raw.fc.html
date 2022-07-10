@@ -50,6 +50,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="pygama.html">pygama package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="pygama.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.evt.html">pygama.evt package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.flow.html">pygama.flow package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.hit.html">pygama.hit package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.lgdo.html">pygama.lgdo package</a></li>
@@ -59,6 +60,8 @@
 <li class="toctree-l4"><a class="reference internal" href="pygama.vis.html">pygama.vis package</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.html#module-pygama.cli">pygama.cli module</a></li>
 </ul>
 </li>
 </ul>
@@ -75,8 +78,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../../main/index.html">main</a></dd>
           <dd><a href="pygama.raw.fc.html">refactor</a></dd>
+          <dd><a href="../../main/index.html">main</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -111,7 +114,8 @@
              
   <section id="module-pygama.raw.fc">
 <span id="pygama-raw-fc-package"></span><h1>pygama.raw.fc package<a class="headerlink" href="#module-pygama.raw.fc" title="Permalink to this heading"></a></h1>
-<p>Subpackage documentation</p>
+<p>This subpackage overloads decoding utilities defined in <a class="reference internal" href="pygama.raw.html#module-pygama.raw" title="pygama.raw"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama.raw</span></code></a> to
+read files produced by the FlashCam acquisition system.</p>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
@@ -121,12 +125,25 @@
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_config_decoder.FCConfigDecoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.fc.fc_config_decoder.</span></span><span class="sig-name descname"><span class="pre">FCConfigDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataDecoder</span></code></a></p>
-<p>Decode FlashCam config data</p>
-<p>Derives from DataDecoder in anticipation of possible future functionality;
-currently DataDecoder interface is not used.</p>
-<p>Typical usage:</p>
-<p>fc_config = FCConfigDecoder.decode_config(fcio)</p>
-<p>Then you just use the fcio_config, which is a lgdo Struct (i.e. a dict)</p>
+<p>Decode FlashCam config data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Derives from <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataDecoder</span></code></a> in anticipation of
+possible future functionality. Currently the base class interface is not
+used.</p>
+</div>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fcutils</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygama.raw.fc.fc_config_decoder</span> <span class="kn">import</span> <span class="n">FCConfigDecoder</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span> <span class="o">=</span> <span class="n">fcutils</span><span class="o">.</span><span class="n">fcio</span><span class="p">(</span><span class="s1">&#39;file.fcio&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">decoder</span> <span class="o">=</span> <span class="n">FCConfigDecoder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">decoder</span><span class="o">.</span><span class="n">decode_config</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="go">pygama.lgdo.struct.Struct</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_config_decoder.FCConfigDecoder._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder._abc_impl" title="Permalink to this definition"></a></dt>
@@ -134,36 +151,48 @@ currently DataDecoder interface is not used.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_config_decoder.FCConfigDecoder.buffer_is_full">
-<span class="sig-name descname"><span class="pre">buffer_is_full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder.buffer_is_full" title="Permalink to this definition"></a></dt>
-<dd><p>Returns whether the buffer is too full to read in another packet</p>
+<span class="sig-name descname"><span class="pre">buffer_is_full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer"><span class="pre">RawBuffer</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder.buffer_is_full" title="Permalink to this definition"></a></dt>
+<dd><p>Returns whether the buffer is too full to read in another packet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_config_decoder.FCConfigDecoder.decode_config">
-<span class="sig-name descname"><span class="pre">decode_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder.decode_config" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">decode_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">fcio</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.struct.Struct" title="pygama.lgdo.struct.Struct"><span class="pre">Struct</span></a></span></span><a class="headerlink" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder.decode_config" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.struct.Struct" title="pygama.lgdo.struct.Struct"><em>Struct</em></a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_config_decoder.FCConfigDecoder.make_lgdo">
-<span class="sig-name descname"><span class="pre">make_lgdo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder.make_lgdo" title="Permalink to this definition"></a></dt>
-<dd><p>Make an lgdo for this DataDecoder to fill</p>
-<p>This default version of this function allocates a Table using
-the decoded_values for key. If a different type of lgdo object is
-required for this decoder, overload this function.</p>
+<span class="sig-name descname"><span class="pre">make_lgdo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.struct.Struct" title="pygama.lgdo.struct.Struct"><span class="pre">Struct</span></a></span></span><a class="headerlink" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder.make_lgdo" title="Permalink to this definition"></a></dt>
+<dd><p>Make an LGDO for this <code class="xref py py-class docutils literal notranslate"><span class="pre">DataDecoder</span></code> to fill.</p>
+<p>This default version of this function allocates a
+<a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.table.Table" title="pygama.lgdo.table.Table"><code class="xref py py-class docutils literal notranslate"><span class="pre">Table</span></code></a> using the <cite>decoded_values</cite> for key. If a
+different type of LGDO object is required for this decoder, overload
+this function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>etc</em>) -- used by init_obj to initialize the lgdo for a particular key (e.g.
-to have different trace lengths for different channels of a piece of
-hardware). Leave as None if such specialization is not necessary</p></li>
-<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- the size to be allocated for the lgdo, if applicable</p></li>
+<li><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) -- used to initialize the LGDO for a particular <cite>key</cite> (e.g.  to have
+different trace lengths for different channels of a piece of
+hardware). Leave as <code class="docutils literal notranslate"><span class="pre">None</span></code> if such specialization is not
+necessary.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) -- the size to be allocated for the LGDO, if applicable.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>data_obj</strong> -- the newly allocated lgdo</p>
+<dd class="field-even"><p><em>data_obj</em> -- the newly allocated LGDO.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>lgdo</p>
+<dd class="field-odd"><p><a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.struct.Struct" title="pygama.lgdo.struct.Struct"><em>Struct</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -177,8 +206,9 @@ hardware). Leave as None if such specialization is not necessary</p></li>
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_event_decoder.FCEventDecoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.fc.fc_event_decoder.</span></span><span class="sig-name descname"><span class="pre">FCEventDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataDecoder</span></code></a></p>
-<p>decode FlashCam digitizer event data.</p>
-<p>DOCME</p>
+<p>Decode FlashCam digitizer event data.</p>
+<dl class="field-list simple">
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_event_decoder.FCEventDecoder._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder._abc_impl" title="Permalink to this definition"></a></dt>
@@ -186,53 +216,67 @@ hardware). Leave as None if such specialization is not necessary</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_event_decoder.FCEventDecoder.decode_packet">
-<span class="sig-name descname"><span class="pre">decode_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evt_rbkd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder.decode_packet" title="Permalink to this definition"></a></dt>
-<dd><p>access FCIOEvent members for each event in the raw file</p>
+<span class="sig-name descname"><span class="pre">decode_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">fcio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evt_rbkd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.table.Table" title="pygama.lgdo.table.Table"><span class="pre">pygama.lgdo.table.Table</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.table.Table" title="pygama.lgdo.table.Table"><span class="pre">pygama.lgdo.table.Table</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder.decode_packet" title="Permalink to this definition"></a></dt>
+<dd><p>Access <code class="docutils literal notranslate"><span class="pre">FCIOEvent</span></code> members for each event in the DAQ file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>fcio</strong> (<em>fcio reader object</em>) -- The interface to the fcio data. Enters this function after a call to
-fcio.get_record() so that data for packet_id ready to be read out</p></li>
-<li><p><strong>evt_rbkd</strong> (<em>lgdo.Table</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) -- A single table for reading out all data, or a dict of tables keyed
-by channel number (i.e. as returned by raw_groups.build_tables())</p></li>
-<li><p><strong>packet_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- The index of the packet in the fcio stream. Incremented by
-fc_streamer</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- verbosity level for packet decoding</p></li>
+<li><p><strong>fcio</strong> (<em>fcio</em>) -- The interface to the <code class="docutils literal notranslate"><span class="pre">fcio</span></code> data. Enters this function after a
+call to <code class="docutils literal notranslate"><span class="pre">fcio.get_record()</span></code> so that data for <cite>packet_id</cite> ready to
+be read out.</p></li>
+<li><p><strong>evt_rbkd</strong> (<a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.table.Table" title="pygama.lgdo.table.Table"><em>pygama.lgdo.table.Table</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.table.Table" title="pygama.lgdo.table.Table"><em>pygama.lgdo.table.Table</em></a><em>]</em>) -- A single table for reading out all data, or a dictionary of tables
+keyed by channel number.</p></li>
+<li><p><strong>packet_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- The index of the packet in the <cite>fcio</cite> stream. Incremented by
+<a class="reference internal" href="#pygama.raw.fc.fc_streamer.FCStreamer" title="pygama.raw.fc.fc_streamer.FCStreamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FCStreamer</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>n_bytes</strong> -- (estimated) number of bytes in the packet that was just decoded.</p>
+<dd class="field-even"><p><em>n_bytes</em> -- (estimated) number of bytes in the packet that was just decoded.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_event_decoder.FCEventDecoder.get_decoded_values">
-<span class="sig-name descname"><span class="pre">get_decoded_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder.get_decoded_values" title="Permalink to this definition"></a></dt>
-<dd><p>Get decoded values (optionally for a given key, typically a channel)</p>
-<p>Must overload for your decoder if it has key-specific decoded
-values. Note: implement key = None returns a &quot;default&quot; decoded_values</p>
-<p>Otherwise, just returns self.decoded_values, which should be defined in
-the constructor</p>
+<span class="sig-name descname"><span class="pre">get_decoded_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder.get_decoded_values" title="Permalink to this definition"></a></dt>
+<dd><p>Get decoded values (optionally for a given key, typically a channel).</p>
+<p class="rubric">Notes</p>
+<p>Must overload for your decoder if it has key-specific decoded values.
+Must also implement <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">=</span> <span class="pre">None</span></code> returns a &quot;default&quot;
+<cite>decoded_values</cite>. Otherwise, just returns <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.decoded_values</span></code>,
+which should be defined in the constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><em>Any</em></a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_event_decoder.FCEventDecoder.get_key_list">
-<span class="sig-name descname"><span class="pre">get_key_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder.get_key_list" title="Permalink to this definition"></a></dt>
-<dd><p>overload with list of keys for this decoder.
-e.g. <cite>return range(n_channels)</cite>
-The default version works for decoders with single / no keys</p>
+<span class="sig-name descname"><span class="pre">get_key_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#range" title="(in Python v3.10)"><span class="pre">range</span></a></span></span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder.get_key_list" title="Permalink to this definition"></a></dt>
+<dd><p>Overload with list of keys for this decoder, e.g. <code class="docutils literal notranslate"><span class="pre">return</span>
+<span class="pre">range(n_channels)</span></code>.  The default version works for decoders with
+single / no keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#range" title="(in Python v3.10)">range</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_event_decoder.FCEventDecoder.set_file_config">
-<span class="sig-name descname"><span class="pre">set_file_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fc_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder.set_file_config" title="Permalink to this definition"></a></dt>
-<dd><p>access FCIOConfig members once when each file is opened</p>
-<p>fc_config is a lgdo Struct extracted via
-fc_config = FCConfigDecoder.decode_config(fcio)</p>
+<span class="sig-name descname"><span class="pre">set_file_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fc_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.struct.Struct" title="pygama.lgdo.struct.Struct"><span class="pre">Struct</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pygama.raw.fc.fc_event_decoder.FCEventDecoder.set_file_config" title="Permalink to this definition"></a></dt>
+<dd><p>Access <code class="docutils literal notranslate"><span class="pre">FCIOConfig</span></code> members once when each file is opened.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fc_config</strong> (<a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.struct.Struct" title="pygama.lgdo.struct.Struct"><em>Struct</em></a>) -- extracted via <a class="reference internal" href="#pygama.raw.fc.fc_config_decoder.FCConfigDecoder.decode_config" title="pygama.raw.fc.fc_config_decoder.FCConfigDecoder.decode_config"><code class="xref py py-meth docutils literal notranslate"><span class="pre">decode_config()</span></code></a>.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -244,8 +288,9 @@ fc_config = FCConfigDecoder.decode_config(fcio)</p>
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_status_decoder.FCStatusDecoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.fc.fc_status_decoder.</span></span><span class="sig-name descname"><span class="pre">FCStatusDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_status_decoder.FCStatusDecoder" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataDecoder</span></code></a></p>
-<p>decode FlashCam digitizer status data.</p>
-<p>DOCME</p>
+<p>Decode FlashCam digitizer status data.</p>
+<dl class="field-list simple">
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_status_decoder.FCStatusDecoder._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.fc.fc_status_decoder.FCStatusDecoder._abc_impl" title="Permalink to this definition"></a></dt>
@@ -253,8 +298,12 @@ fc_config = FCConfigDecoder.decode_config(fcio)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_status_decoder.FCStatusDecoder.decode_packet">
-<span class="sig-name descname"><span class="pre">decode_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status_rb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_status_decoder.FCStatusDecoder.decode_packet" title="Permalink to this definition"></a></dt>
-<dd><p>access FC status (temp., log, ...)</p>
+<span class="sig-name descname"><span class="pre">decode_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">fcio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status_rb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer"><span class="pre">RawBuffer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#pygama.raw.fc.fc_status_decoder.FCStatusDecoder.decode_packet" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -266,50 +315,74 @@ fc_config = FCConfigDecoder.decode_config(fcio)</p>
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_streamer.FCStreamer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.raw.fc.fc_streamer.</span></span><span class="sig-name descname"><span class="pre">FCStreamer</span></span><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pygama.raw.html#pygama.raw.data_streamer.DataStreamer" title="pygama.raw.data_streamer.DataStreamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataStreamer</span></code></a></p>
-<p>decode FlashCam data, using the fcutils package to handle file access,
-and the FlashCam DataDecoders to save the results and write to output.</p>
+<p>Decode FlashCam data, using the <code class="docutils literal notranslate"><span class="pre">fcutils</span></code> package to handle file access,
+and the FlashCam data decoders to save the results and write to output.</p>
+<dl class="field-list simple">
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_streamer.FCStreamer._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer._abc_impl" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pygama.raw.fc.fc_streamer.FCStreamer.close_stream">
+<span class="sig-name descname"><span class="pre">close_stream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer.close_stream" title="Permalink to this definition"></a></dt>
+<dd><p>Close this data stream.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Needs to be overloaded.</p>
+</div>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_streamer.FCStreamer.get_decoder_list">
-<span class="sig-name descname"><span class="pre">get_decoder_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer.get_decoder_list" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a list of decoder objects for this data stream.
-Needs to be overloaded. Gets called during open_stream().</p>
+<span class="sig-name descname"><span class="pre">get_decoder_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder"><span class="pre">pygama.raw.data_decoder.DataDecoder</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer.get_decoder_list" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of decoder objects for this data stream.</p>
+<p class="rubric">Notes</p>
+<p>Needs to be overloaded. Gets called during <a class="reference internal" href="#pygama.raw.fc.fc_streamer.FCStreamer.open_stream" title="pygama.raw.fc.fc_streamer.FCStreamer.open_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">open_stream()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference internal" href="pygama.raw.html#pygama.raw.data_decoder.DataDecoder" title="pygama.raw.data_decoder.DataDecoder">pygama.raw.data_decoder.DataDecoder</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_streamer.FCStreamer.open_stream">
-<span class="sig-name descname"><span class="pre">open_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcio_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rb_lib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'any_full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer.open_stream" title="Permalink to this definition"></a></dt>
-<dd><p>Initialize the FC data stream</p>
+<span class="sig-name descname"><span class="pre">open_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcio_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rb_lib</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBufferLibrary" title="pygama.raw.raw_buffer.RawBufferLibrary"><span class="pre">RawBufferLibrary</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'any_full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer"><span class="pre">pygama.raw.raw_buffer.RawBuffer</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer.open_stream" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the FlashCam data stream.</p>
+<p>Refer to the documentation for
+<a class="reference internal" href="pygama.raw.html#pygama.raw.data_streamer.DataStreamer.open_stream" title="pygama.raw.data_streamer.DataStreamer.open_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">raw.data_streamer.DataStreamer.open_stream()</span></code></a> for a description
+of the parameters.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fcio_filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- the FCIO filename</p></li>
-<li><p><strong>rb_lib</strong> (<a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBufferLibrary" title="pygama.raw.raw_buffer.RawBufferLibrary"><em>RawBufferLibrary</em></a>) -- library of buffers for this stream</p></li>
-<li><p><strong>buffer_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- length of tables to be read out in read_chunk</p></li>
-<li><p><strong>chunk_mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- DOCME</p></li>
-<li><p><strong>out_stream</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- DOCME</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- verbosity level for the initialize function</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><em>header_data</em> -- a list of length 1 containing the raw buffer holding the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">FCConfig</span></code> table.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>header_data</strong> -- a list of length 1 containing the raw buffer holding the fc_config table</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>(<a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer">RawBuffer</a>)</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer">pygama.raw.raw_buffer.RawBuffer</a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.fc.fc_streamer.FCStreamer.read_packet">
-<span class="sig-name descname"><span class="pre">read_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer.read_packet" title="Permalink to this definition"></a></dt>
-<dd><p>Read a packet of data.</p>
-<p>Data written to self.rb_lib.
-Updates self.n_bytes_read</p>
+<span class="sig-name descname"><span class="pre">read_packet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#pygama.raw.fc.fc_streamer.FCStreamer.read_packet" title="Permalink to this definition"></a></dt>
+<dd><p>Reads a single packet's worth of data in to the
+<a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBufferLibrary" title="pygama.raw.raw_buffer.RawBufferLibrary"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawBufferLibrary</span></code></a>.</p>
+<p>Needs to be overloaded. Gets called by <a class="reference internal" href="pygama.raw.html#pygama.raw.data_streamer.DataStreamer.read_chunk" title="pygama.raw.data_streamer.DataStreamer.read_chunk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read_chunk()</span></code></a> Needs to
+update <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.any_full</span></code> if any buffers would possibly over-fill on
+the next read. Needs to update <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.n_bytes_read</span></code> too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><em>still_has_data</em> -- returns <cite>True</cite> while there is still data to read.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

@@ -78,8 +78,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="pygama.raw.fc.html">main</a></dd>
           <dd><a href="../../refactor/index.html">refactor</a></dd>
+          <dd><a href="pygama.raw.fc.html">main</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -177,10 +177,7 @@ necessary</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>data_obj</strong> -- the newly allocated LGDO</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>lgdo</p>
+<dd class="field-even"><p><strong>data_obj</strong> (<em>lgdo</em>) -- the newly allocated LGDO</p>
 </dd>
 </dl>
 </dd></dl>
@@ -217,10 +214,7 @@ keyed by channel number</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>n_bytes</strong> -- (estimated) number of bytes in the packet that was just decoded.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<dd class="field-even"><p><strong>n_bytes</strong> (<em>int</em>) -- (estimated) number of bytes in the packet that was just decoded.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -323,11 +317,8 @@ and the FlashCam data decoders to save the results and write to output.</p>
 of the parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>header_data</strong> -- a list of length 1 containing the raw buffer holding the
+<dd class="field-odd"><p><strong>header_data</strong> (<em>list(RawBuffer)</em>) -- a list of length 1 containing the raw buffer holding the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">FCConfig</span></code> table</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>(<a class="reference internal" href="pygama.raw.html#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer">RawBuffer</a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -342,10 +333,7 @@ update <code class="xref py py-attr docutils literal notranslate"><span class="p
 the next read. Needs to update <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.n_bytes_read</span></code> too.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>still_has_data</strong> -- Returns true while there is still data to read</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+<dd class="field-odd"><p><strong>still_has_data</strong> (<em>bool</em>) -- Returns true while there is still data to read</p>
 </dd>
 </dl>
 </dd></dl>

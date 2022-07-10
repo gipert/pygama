@@ -68,8 +68,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../main/developer.html">main</a></dd>
           <dd><a href="developer.html">refactor</a></dd>
+          <dd><a href="../main/developer.html">main</a></dd>
           <dd><a href="../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -104,29 +104,58 @@
 <p>The following rules and conventions have been established for the package
 development and are enforced throughout the entire code base. Merge requests
 that do not comply to the following directives will be rejected.</p>
-<p>To start developing <em>pygama</em>, clone the remote repository:</p>
+<p>To start developing <a class="reference internal" href="generated/pygama.html#module-pygama" title="pygama"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code></a>, clone the remote repository:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/legend-exp/pygama
 </pre></div>
 </div>
-<p>All extra tools needed to develop <em>pygama</em> are listed as optional dependencies
-and can be installed via pip by running:</p>
+<p>All extra tools needed to develop <a class="reference internal" href="generated/pygama.html#module-pygama" title="pygama"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code></a> are listed as optional
+dependencies and can be installed via pip by running:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> pygama
 <span class="gp">$ </span>pip install <span class="s1">&#39;.[all]&#39;</span>  <span class="c1"># single quotes are not needed on bash</span>
 </pre></div>
 </div>
 <section id="code-style">
 <h2>Code style<a class="headerlink" href="#code-style" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>All functions and methods (arguments and return types) must be
+<a class="reference external" href="https://docs.python.org/3/library/typing.html">type-annotated</a>. Type
+annotations for variables like class attributes are also highly appreciated.
+Do not forget to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+</pre></div>
+</div>
+<p>at the top of a module implementation.</p>
+</li>
+<li><p>Messaging to the user is managed through the <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> module. Do not
+add <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> statements. To make a logging object available in a module,
+add this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>at the top. In general, try to keep the number of <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.debug" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">logging.debug()</span></code></a> calls
+low and use informative messages. <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.info" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">logging.info()</span></code></a> calls should be
+reserved for messages from high-level routines (like
+<a class="reference internal" href="generated/pygama.dsp.html#module-pygama.dsp.build_dsp" title="pygama.dsp.build_dsp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pygama.dsp.build_dsp()</span></code></a>). Good code is never too verbose.</p>
+</li>
+<li><p>If an error condition leading to undefined behavior occurs, raise an
+exception. try to find the most suitable between the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html">built-in exceptions</a>, otherwise <code class="docutils literal notranslate"><span class="pre">raise</span>
+<span class="pre">RuntimeError(&quot;message&quot;)</span></code>. Do not raise <code class="docutils literal notranslate"><span class="pre">Warning</span></code>s, use
+<a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.warning" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">logging.warning()</span></code></a> for that and don't abort the execution.</p></li>
+<li><p>Warning messages (emitted when a problem is encountered that does not lead to
+undefined behavior) must be emitted through <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.warning" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">logging.warning()</span></code></a> calls.</p></li>
+</ul>
 <p>A set of <a class="reference external" href="https://pre-commit.com">pre-commit</a> hooks is configured to make
-sure that <em>pygama</em> coherently follows standard coding style conventions. The
-pre-commit tool is able to identify common style problems and automatically fix
-them, wherever possible. Configured hooks are listed in the
+sure that <a class="reference internal" href="generated/pygama.html#module-pygama" title="pygama"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code></a> coherently follows standard coding style conventions.
+The pre-commit tool is able to identify common style problems and automatically
+fix them, wherever possible. Configured hooks are listed in the
 <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file at the project root folder. They are run
 remotely on the GitHub repository through the <a class="reference external" href="https://pre-commit.ci">pre-commit bot</a>, but can also be run locally before submitting a
 pull request (recommended):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> pygama
 <span class="gp">$ </span>pip install <span class="s1">&#39;.[test]&#39;</span>
 <span class="gp">$ </span>pre-commit run --all-files  <span class="c1"># analyse the source code and fix it wherever possible</span>
-<span class="gp">$ </span>pre-commit install          <span class="c1"># install a Git pre-commit hook (optional)</span>
+<span class="gp">$ </span>pre-commit install          <span class="c1"># install a Git pre-commit hook (optional but recommended)</span>
 </pre></div>
 </div>
 <p>For a more comprehensive guide, check out the <a class="reference external" href="https://scikit-hep.org/developer/style">Scikit-HEP documentation about
@@ -135,19 +164,19 @@ code style</a>.</p>
 <section id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h2>
 <ul>
-<li><p>The <em>pygama</em> test suite is available below <code class="docutils literal notranslate"><span class="pre">tests/</span></code>. We use <a class="reference external" href="https://docs.pytest.org">pytest</a> to run tests and analyze their output. As
+<li><p>The <a class="reference internal" href="generated/pygama.html#module-pygama" title="pygama"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code></a> test suite is available below <code class="docutils literal notranslate"><span class="pre">tests/</span></code>. We use <a class="reference external" href="https://docs.pytest.org">pytest</a> to run tests and analyze their output. As
 a starting point to learn how to write good tests, reading of <a class="reference external" href="https://scikit-hep.org/developer/pytest">the
 Scikit-HEP Intro to testing</a> is
 recommended. Refer to <a class="reference external" href="https://docs.pytest.org/en/stable/how-to/index.html">pytest's how-to guides</a> for a complete
 overview.</p></li>
-<li><p><em>pygama</em> tests belong to three categories:</p>
+<li><p><a class="reference internal" href="generated/pygama.html#module-pygama" title="pygama"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code></a> tests belong to three categories:</p>
 <dl class="field-list simple">
 <dt class="field-odd">unit tests</dt>
 <dd class="field-odd"><p>Should ensure the correct behaviour of each function
-independently, possibly without relying on other <em>pygama</em> methods. The
-existence of these micro-tests makes it possible to promptly identify and
-fix the source of a bug. An example of this are tests for each single DSP
-processor</p>
+independently, possibly without relying on other <a class="reference internal" href="generated/pygama.html#module-pygama" title="pygama"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code></a> methods.
+The existence of these micro-tests makes it possible to promptly identify
+and fix the source of a bug. An example of this are tests for each single
+DSP processor</p>
 </dd>
 <dt class="field-even">integration tests</dt>
 <dd class="field-even"><p>Should ensure that independent parts of the code base
@@ -186,8 +215,9 @@ requests, can be generated by running:</p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h2>
-<p>We adopt best practices in writing and maintaining <em>pygama</em>'s documentation. When
-contributing to the project, make sure to implement the following:</p>
+<p>We adopt best practices in writing and maintaining <a class="reference internal" href="generated/pygama.html#module-pygama" title="pygama"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code></a>'s
+documentation. When contributing to the project, make sure to implement the
+following:</p>
 <ul class="simple">
 <li><p>Documentation should be exclusively available on the Project website
 <a class="reference external" href="https://legend-exp.github.io/pygama">https://legend-exp.github.io/pygama</a>. No READMEs, GitHub/LEGEND wiki pages
@@ -239,8 +269,8 @@ required. You can get all the needed dependencies by running:</p>
 </pre></div>
 </div>
 <p>Documentation can be then displayed by opening <code class="docutils literal notranslate"><span class="pre">build/html/index.html</span></code> with a
-web browser.  To build documentation for all main <em>pygama</em> versions (development
-branch and stable releases), run</p>
+web browser.  To build documentation for all main <a class="reference internal" href="generated/pygama.html#module-pygama" title="pygama"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code></a> versions
+(development branch and stable releases), run</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git fetch --prune origin
 <span class="gp">$ </span><span class="nb">cd</span> docs
 <span class="gp">$ </span>make clean
@@ -248,32 +278,42 @@ branch and stable releases), run</p>
 </pre></div>
 </div>
 <p>and display the documentation by opening <code class="docutils literal notranslate"><span class="pre">build/allver/html/index.html</span></code>. This
-documentation is also deployed to the <em>pygama</em> website.</p>
+documentation is also deployed to the <a class="reference internal" href="generated/pygama.html#module-pygama" title="pygama"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pygama</span></code></a> website.</p>
 </section>
 </section>
 <section id="versioning">
 <h2>Versioning<a class="headerlink" href="#versioning" title="Permalink to this heading"></a></h2>
 <p>Collaborators with push access to the GitHub repository that wish to release a
 new project version must implement the following procedures:</p>
-<ul class="simple">
+<ul>
 <li><p><a class="reference external" href="https://semver.org">Semantic versioning</a> is adopted. The version string
 uses the <code class="docutils literal notranslate"><span class="pre">MAJOR.MINOR.PATCH</span></code> format.</p></li>
 <li><p>To release a new <strong>minor</strong> or <strong>major version</strong>, the following procedure
 should be followed:</p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>A new branch with name <code class="docutils literal notranslate"><span class="pre">releases/vMAJOR.MINOR</span></code> (note the <code class="docutils literal notranslate"><span class="pre">v</span></code>) containing
 the code at the intended stage is created</p></li>
 <li><p>The commit is tagged with a descriptive message: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">vMAJOR.MINOR.0</span>
 <span class="pre">-m</span> <span class="pre">'short</span> <span class="pre">descriptive</span> <span class="pre">message</span> <span class="pre">here'</span></code> (note the <code class="docutils literal notranslate"><span class="pre">v</span></code>)</p></li>
-<li><p>Changes are pushed to the remote: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span> <span class="pre">origin</span> <span class="pre">releases/vMAJOR.MINOR</span></code></p></li>
+<li><p>Changes are pushed to the remote:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git push origin releases/vMAJOR.MINOR
+<span class="gp">$ </span>git push origin refs/tags/vMAJOR.MINOR.0
+</pre></div>
+</div>
+</li>
 </ol>
 </li>
 <li><p>To release a new <strong>patch version</strong>, the following procedure should be followed:</p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>A commit with the patch is created on the relevant release branch
 <code class="docutils literal notranslate"><span class="pre">releases/vMAJOR.MINOR</span></code></p></li>
 <li><p>The commit is tagged: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">vMAJOR.MINOR.PATCH</span></code> (note the <code class="docutils literal notranslate"><span class="pre">v</span></code>)</p></li>
-<li><p>Changes are pushed to the remote: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span> <span class="pre">origin</span> <span class="pre">releases/vMAJOR.MINOR</span></code></p></li>
+<li><p>Changes are pushed to the remote:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git push origin releases/vMAJOR.MINOR
+<span class="gp">$ </span>git push origin refs/tags/vMAJOR.MINOR.PATCH
+</pre></div>
+</div>
+</li>
 </ol>
 </li>
 </ul>

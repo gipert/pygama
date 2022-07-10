@@ -70,8 +70,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../../../main/index.html">main</a></dd>
           <dd><a href="../../../refactor/index.html">refactor</a></dd>
+          <dd><a href="../../../main/index.html">main</a></dd>
           <dd><a href="pygama.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -240,10 +240,7 @@ when a key is missing, return the string value of that key.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>scale, scale_var</strong> -- The scale parameter and its variance</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
+<dd class="field-even"><p><strong>scale, scale_var</strong> (<em>tuple (float, float)</em>) -- The scale parameter and its variance</p>
 </dd>
 </dl>
 </dd></dl>
@@ -286,11 +283,8 @@ first argument. In pygamaland, those are the function's &quot;parameters.&quot;<
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>(m, b)</strong> -- The slope (m) and y-intercept (b) of the best fit (in the least-squares
+<dd class="field-even"><p><strong>(m, b)</strong> (<em>tuple (float, float)</em>) -- The slope (m) and y-intercept (b) of the best fit (in the least-squares
 sense) of the data to y = mx + b</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -363,10 +357,7 @@ to display a progress</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>iterable</strong> -- object that can be iterated over in a for loop</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>tqdm.trange</p>
+<dd class="field-even"><p><strong>iterable</strong> (<em>tqdm.trange</em>) -- object that can be iterated over in a for loop</p>
 </dd>
 </dl>
 </dd></dl>

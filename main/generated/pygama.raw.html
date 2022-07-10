@@ -78,8 +78,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="pygama.raw.html">main</a></dd>
           <dd><a href="../../refactor/index.html">refactor</a></dd>
+          <dd><a href="pygama.raw.html">main</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -226,6 +226,8 @@ This function should return the number of bytes read.</p>
 variable-length array in the output file. If a problematic packet is found,
 call <a class="reference internal" href="#pygama.raw.data_decoder.DataDecoder.put_in_garbage" title="pygama.raw.data_decoder.DataDecoder.put_in_garbage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">put_in_garbage()</span></code></a>. User should set up an enum or bitbank of garbage
 codes to be stored along with the garbage packets.</p>
+<dl class="field-list simple">
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygama.raw.data_decoder.DataDecoder._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pygama.raw.data_decoder.DataDecoder._abc_impl" title="Permalink to this definition"></a></dt>
@@ -235,6 +237,11 @@ codes to be stored along with the garbage packets.</p>
 <dt class="sig sig-object py" id="pygama.raw.data_decoder.DataDecoder.buffer_is_full">
 <span class="sig-name descname"><span class="pre">buffer_is_full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer"><span class="pre">RawBuffer</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#pygama.raw.data_decoder.DataDecoder.buffer_is_full" title="Permalink to this definition"></a></dt>
 <dd><p>Returns whether the buffer is too full to read in another packet</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -249,6 +256,8 @@ values. Must also implement <code class="docutils literal notranslate"><span cla
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.decoded_values</span></code>, which should be defined in the
 constructor.</p>
 </div>
+<dl class="field-list simple">
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -257,6 +266,11 @@ constructor.</p>
 <dd><p>Overload with list of keys for this decoder, e.g. <code class="docutils literal notranslate"><span class="pre">return</span>
 <span class="pre">range(n_channels)</span></code>.  The default version works for decoders with
 single / no keys</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -266,6 +280,11 @@ single / no keys</p>
 packet.</p>
 <p>1 by default, overload as necessary to avoid writing past the ends of
 buffers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -287,10 +306,7 @@ necessary</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>data_obj</strong> -- the newly allocated LGDO</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>lgdo</p>
+<dd class="field-even"><p><strong>data_obj</strong> (<em>lgdo</em>) -- the newly allocated LGDO</p>
 </dd>
 </dl>
 </dd></dl>
@@ -298,12 +314,16 @@ necessary</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.data_decoder.DataDecoder.put_in_garbage">
 <span class="sig-name descname"><span class="pre">put_in_garbage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pygama.raw.data_decoder.DataDecoder.put_in_garbage" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.data_decoder.DataDecoder.write_out_garbage">
 <span class="sig-name descname"><span class="pre">write_out_garbage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lh5_store</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.lh5_store.LH5Store" title="pygama.lgdo.lh5_store.LH5Store"><span class="pre">LH5Store</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pygama.raw.data_decoder.DataDecoder.write_out_garbage" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -340,6 +360,11 @@ this stream.</p>
 built for each decoder name returned by <a class="reference internal" href="#pygama.raw.data_streamer.DataStreamer.get_decoder_list" title="pygama.raw.data_streamer.DataStreamer.get_decoder_list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_decoder_list()</span></code></a>. Each
 buffer's <code class="docutils literal notranslate"><span class="pre">out_name</span></code> is set to the decoder name. The lgdo's do not get
 initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pygama.raw.raw_buffer.RawBufferLibrary" title="pygama.raw.raw_buffer.RawBufferLibrary"><em>RawBufferLibrary</em></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -360,6 +385,11 @@ initialized.</p>
 <p class="admonition-title">Note</p>
 <p>Needs to be overloaded. Gets called during <a class="reference internal" href="#pygama.raw.data_streamer.DataStreamer.open_stream" title="pygama.raw.data_streamer.DataStreamer.open_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">open_stream()</span></code></a>.</p>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -389,12 +419,12 @@ variable length)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>header_data</strong> -- header_data is a list of RawBuffer's containing any file header
+<dd class="field-even"><p><strong>header_data</strong> (<em>list(RawBuffer), int</em>) -- header_data is a list of RawBuffer's containing any file header
 data, ready for writing to file or further processing. It's not a
 RawBufferList since the buffers may have a different format</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>(<a class="reference internal" href="#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer">RawBuffer</a>), <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference internal" href="#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer">pygama.raw.raw_buffer.RawBuffer</a>], <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -434,14 +464,14 @@ minor speed-up</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>chunk_list</strong> -- chunk_list is the list of RawBuffers with data ready for writing to
+<dd class="field-even"><p><strong>chunk_list</strong> (<em>list of RawBuffers, int</em>) -- chunk_list is the list of RawBuffers with data ready for writing to
 file or further processing. The list contains all buffers with data
 or just all full buffers depending on the flag full_only.  Note
 chunk_list is not a RawBufferList since the RawBuffers inside may
 not all have the same structure</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list of RawBuffers, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference internal" href="#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer">pygama.raw.raw_buffer.RawBuffer</a>], <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -456,7 +486,7 @@ update <code class="xref py py-attr docutils literal notranslate"><span class="p
 the next read. Needs to update <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.n_bytes_read</span></code> too.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>still_has_data</strong> -- Returns true while there is still data to read</p>
+<dd class="field-odd"><p><strong>still_has_data</strong> (<em>bool</em>) -- Returns true while there is still data to read</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
@@ -530,62 +560,33 @@ keys.</p>
 with some meta-data distinguishing what data goes into it, and where the
 lgdo gets written out. Also holds on to the current location in the buffer
 for writing.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pygama.raw.raw_buffer.RawBuffer.lgdo">
-<span class="sig-name descname"><span class="pre">lgdo</span></span><a class="headerlink" href="#pygama.raw.raw_buffer.RawBuffer.lgdo" title="Permalink to this definition"></a></dt>
-<dd><p>the lgdo used as the actual buffer. Typically a table. Set to None upon
-creation so that the user or a decoder can initialize it later.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>lgdo</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pygama.raw.raw_buffer.RawBuffer.key_list">
-<span class="sig-name descname"><span class="pre">key_list</span></span><a class="headerlink" href="#pygama.raw.raw_buffer.RawBuffer.key_list" title="Permalink to this definition"></a></dt>
-<dd><p>a list of keys (e.g. channel numbers) identifying data to be written
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lgdo</strong> (<em>lgdo</em>) -- the lgdo used as the actual buffer. Typically a table. Set to None upon
+creation so that the user or a decoder can initialize it later.</p></li>
+<li><p><strong>key_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) -- a list of keys (e.g. channel numbers) identifying data to be written
 into this buffer. The key scheme is specific to the decoder with which
 the RawBuffer is associated. This is called &quot;key_list&quot; instead of &quot;keys&quot;
-to avoid confusion with the dict function &quot;keys()&quot;, i.e. raw_buffer.lgdo.keys()</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pygama.raw.raw_buffer.RawBuffer.out_stream">
-<span class="sig-name descname"><span class="pre">out_stream</span></span><a class="headerlink" href="#pygama.raw.raw_buffer.RawBuffer.out_stream" title="Permalink to this definition"></a></dt>
-<dd><p>the output stream to which the raw_buffer's lgdo should be sent or
+to avoid confusion with the dict function &quot;keys()&quot;, i.e. raw_buffer.lgdo.keys()</p></li>
+<li><p><strong>out_stream</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) -- the output stream to which the raw_buffer's lgdo should be sent or
 written. A colon can be used to separate the stream name/address from an
 in-stream path / port:
 File example: '/path/filename.lh5:/group'
-Socket example: '198.0.0.100:8000'</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a> (optional)</p>
+Socket example: '198.0.0.100:8000'</p></li>
+<li><p><strong>out_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) -- the name / identifier of the object in the output stream</p></li>
+</ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pygama.raw.raw_buffer.RawBuffer.out_name">
-<span class="sig-name descname"><span class="pre">out_name</span></span><a class="headerlink" href="#pygama.raw.raw_buffer.RawBuffer.out_name" title="Permalink to this definition"></a></dt>
-<dd><p>the name / identifier of the object in the output stream</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a> (optional)</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.raw_buffer.RawBuffer.is_full">
 <span class="sig-name descname"><span class="pre">is_full</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#pygama.raw.raw_buffer.RawBuffer.is_full" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -596,10 +597,14 @@ Socket example: '198.0.0.100:8000'</p>
 <p>A <a class="reference internal" href="#pygama.raw.raw_buffer.RawBufferLibrary" title="pygama.raw.raw_buffer.RawBufferLibrary"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawBufferLibrary</span></code></a> is a collection of
 <a class="reference internal" href="#pygama.raw.raw_buffer.RawBufferList" title="pygama.raw.raw_buffer.RawBufferList"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawBufferList</span></code></a>s associated with the names of decoders that can
 write to them.</p>
+<dl class="field-list simple">
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.raw_buffer.RawBufferLibrary.clear_full">
 <span class="sig-name descname"><span class="pre">clear_full</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pygama.raw.raw_buffer.RawBufferLibrary.clear_full" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygama.raw.raw_buffer.RawBufferLibrary.get_list_of">
@@ -613,7 +618,7 @@ write to them.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>values</strong> -- The list of values of RawBuffer.attribute</p>
+<dd class="field-even"><p><strong>values</strong> (<em>list</em>) -- The list of values of RawBuffer.attribute</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
@@ -699,6 +704,11 @@ of identical structure (same format lgdo's with the same fields).</p>
 buffers' <code class="docutils literal notranslate"><span class="pre">key_lists</span></code>.</p>
 <p>Different keys may point to the same buffer. Requires the buffers in
 the <a class="reference internal" href="#pygama.raw.raw_buffer.RawBufferList" title="pygama.raw.raw_buffer.RawBufferList"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawBufferList</span></code></a> to have non-overlapping key lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -710,7 +720,7 @@ the <a class="reference internal" href="#pygama.raw.raw_buffer.RawBufferList" ti
 <dd class="field-odd"><p><strong>attribute</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- The RawBuffer attribute queried to make the list</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>values</strong> -- The list of values of RawBuffer.attribute</p>
+<dd class="field-even"><p><strong>values</strong> (<em>list</em>) -- The list of values of RawBuffer.attribute</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
@@ -731,6 +741,8 @@ shorthand. See <a class="reference internal" href="#pygama.raw.raw_buffer.RawBuf
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">json_dict</span></code> is changed by this function</p>
 </div>
+<dl class="field-list simple">
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -742,6 +754,8 @@ shorthand. See <a class="reference internal" href="#pygama.raw.raw_buffer.RawBuf
 <a class="reference internal" href="#pygama.raw.raw_buffer.RawBufferList" title="pygama.raw.raw_buffer.RawBufferList"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawBufferList</span></code></a></p>
 <p>See <a class="reference internal" href="#pygama.raw.raw_buffer.RawBufferLibrary.set_from_json_dict" title="pygama.raw.raw_buffer.RawBufferLibrary.set_from_json_dict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RawBufferLibrary.set_from_json_dict()</span></code></a> for details</p>
 <p>Note: The input JSON dictionary is changed by this function</p>
+<dl class="field-list simple">
+</dl>
 </dd></dl>
 
 <dl class="py function">

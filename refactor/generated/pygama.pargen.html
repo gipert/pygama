@@ -50,6 +50,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="pygama.html">pygama package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="pygama.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.evt.html">pygama.evt package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.flow.html">pygama.flow package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.hit.html">pygama.hit package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.lgdo.html">pygama.lgdo package</a></li>
@@ -59,6 +60,8 @@
 <li class="toctree-l4"><a class="reference internal" href="pygama.vis.html">pygama.vis package</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.html#module-pygama.cli">pygama.cli module</a></li>
 </ul>
 </li>
 </ul>
@@ -75,8 +78,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../../main/index.html">main</a></dd>
           <dd><a href="pygama.pargen.html">refactor</a></dd>
+          <dd><a href="../../main/index.html">main</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -308,11 +311,8 @@ second keyword argument</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>grid_values</strong> -- An N-dimensional numpy ndarray whose Mth axis corresponds to the Mth row
+<dd class="field-even"><p><strong>grid_values</strong> (<em>ndarray of floats</em>) -- An N-dimensional numpy ndarray whose Mth axis corresponds to the Mth row
 of the grid argument</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray of floats</p>
 </dd>
 </dl>
 </dd></dl>
@@ -490,12 +490,9 @@ extremum in order for it to be tagged</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>imaxes, imins</strong> -- A 2-tuple containing arrays of variable length that hold the indices of
+<dd class="field-even"><p><strong>imaxes, imins</strong> (<em>2-tuple ( array, array )</em>) -- A 2-tuple containing arrays of variable length that hold the indices of
 the identified local maxima (first tuple element) and minima (second
 tuple element)</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>2-tuple ( array, array )</p>
 </dd>
 </dl>
 </dd></dl>

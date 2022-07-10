@@ -51,6 +51,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="pygama.html">pygama package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="pygama.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.evt.html">pygama.evt package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.flow.html">pygama.flow package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.hit.html">pygama.hit package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pygama.lgdo.html">pygama.lgdo package</a></li>
@@ -60,6 +61,8 @@
 <li class="toctree-l4"><a class="reference internal" href="pygama.vis.html">pygama.vis package</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.html#module-pygama.cli">pygama.cli module</a></li>
 </ul>
 </li>
 </ul>
@@ -76,8 +79,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../../main/index.html">main</a></dd>
           <dd><a href="pygama.math.html">refactor</a></dd>
+          <dd><a href="../../main/index.html">main</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -215,11 +218,8 @@ in fit and final uncertainties if provided.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>fwfm, dfwfm</strong> -- fwfm: the full width at [fraction] of the maximum above bl
+<dd class="field-even"><p><strong>fwfm, dfwfm</strong> (<em>float, float</em>) -- fwfm: the full width at [fraction] of the maximum above bl
 dfwfm: the uncertainty in fwfm</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -446,10 +446,7 @@ func does not go negative over the x-range of the histogram.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>coeff, cov_matrix</strong></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>(array, matrix)</p>
+<dd class="field-even"><p><strong>coeff, cov_matrix</strong> (<em>tuple(array, matrix)</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -868,10 +865,7 @@ maximum : the estimated maximum value of the peak</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>scale, scale_var</strong> -- The scale parameter and its variance</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
+<dd class="field-even"><p><strong>scale, scale_var</strong> (<em>tuple (float, float)</em>) -- The scale parameter and its variance</p>
 </dd>
 </dl>
 </dd></dl>
@@ -914,11 +908,8 @@ first argument. In pygamaland, those are the function's &quot;parameters.&quot;<
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>(m, b)</strong> -- The slope (m) and y-intercept (b) of the best fit (in the least-squares
+<dd class="field-even"><p><strong>(m, b)</strong> (<em>tuple (float, float)</em>) -- The slope (m) and y-intercept (b) of the best fit (in the least-squares
 sense) of the data to y = mx + b</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -962,48 +953,6 @@ Or add your own [label].mpl file in the pygama directory!</p>
 <dt class="sig sig-object py" id="pygama.math.utils.sizeof_fmt">
 <span class="sig-prename descclassname"><span class="pre">pygama.math.utils.</span></span><span class="sig-name descname"><span class="pre">sizeof_fmt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'B'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.math.utils.sizeof_fmt" title="Permalink to this definition"></a></dt>
 <dd><p>given a file size in bytes, output a human-readable form.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygama.math.utils.tqdm_range">
-<span class="sig-prename descclassname"><span class="pre">pygama.math.utils.</span></span><span class="sig-name descname"><span class="pre">tqdm_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.math.utils.tqdm_range" title="Permalink to this definition"></a></dt>
-<dd><p>Uses tqdm.trange which wraps around the python range and also has the option
-to display a progress</p>
-<p>For example:
-.. code-block :: python</p>
-<blockquote>
-<div><dl class="simple">
-<dt>for start_row in range(0, tot_n_rows, buffer_len):</dt><dd><p>...</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>Can be converted to the following
-.. code-block :: python</p>
-<blockquote>
-<div><dl class="simple">
-<dt>for start_row in tqdm_range(0, tot_n_rows, buffer_len, verbose):</dt><dd><p>...</p>
-</dd>
-</dl>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- starting iteration value</p></li>
-<li><p><strong>stop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- ending iteration value</p></li>
-<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- step size in between each iteration</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- verbose = 0 hides progress bar verbose &gt; 0 displays progress bar</p></li>
-<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- text to display in front of the progress bar</p></li>
-<li><p><strong>bar_length</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- horizontal length of the bar in cursor spaces</p></li>
-<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- physical units to be displayed</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>iterable</strong> -- object that can be iterated over in a for loop</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>tqdm.trange</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">

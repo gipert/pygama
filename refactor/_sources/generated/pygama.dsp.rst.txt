@@ -13,7 +13,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   pygama.dsp._processors
+   pygama.dsp.processors
 
 Submodules
 ----------
@@ -40,15 +40,6 @@ pygama.dsp.processing\_chain module
 -----------------------------------
 
 .. automodule:: pygama.dsp.processing_chain
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :private-members:
-
-pygama.dsp.processors module
-----------------------------
-
-.. automodule:: pygama.dsp.processors
    :members:
    :undoc-members:
    :show-inheritance:
