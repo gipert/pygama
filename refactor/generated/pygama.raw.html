@@ -78,8 +78,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="pygama.raw.html">refactor</a></dd>
           <dd><a href="../../main/index.html">main</a></dd>
+          <dd><a href="pygama.raw.html">refactor</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -297,10 +297,10 @@ necessary.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>data_obj</em> -- the newly allocated LGDO.</p>
+<dd class="field-even"><p>the newly allocated LGDO.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><em>Union</em></a>[<a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.scalar.Scalar" title="pygama.lgdo.scalar.Scalar"><em>Scalar</em></a>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.struct.Struct" title="pygama.lgdo.struct.Struct"><em>Struct</em></a>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.array.Array" title="pygama.lgdo.array.Array"><em>Array</em></a>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.vectorofvectors.VectorOfVectors" title="pygama.lgdo.vectorofvectors.VectorOfVectors"><em>VectorOfVectors</em></a>]</p>
+<dd class="field-odd"><p>data_obj</p>
 </dd>
 </dl>
 </dd></dl>
@@ -413,13 +413,13 @@ with variable length).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>header_data</em> -- header_data is a list of <a class="reference internal" href="#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawBuffer</span></code></a>'s containing any
+<dd class="field-even"><p>header_data is a list of <a class="reference internal" href="#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawBuffer</span></code></a>'s containing any
 file header data, ready for writing to file or further processing.
 It's not a <a class="reference internal" href="#pygama.raw.raw_buffer.RawBufferList" title="pygama.raw.raw_buffer.RawBufferList"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawBufferList</span></code></a> since the buffers may have a
 different format.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference internal" href="#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer">pygama.raw.raw_buffer.RawBuffer</a>], <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>]</p>
+<dd class="field-odd"><p>header_data</p>
 </dd>
 </dl>
 </dd></dl>
@@ -456,14 +456,14 @@ manually for a minor speed-up.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>chunk_list</strong> (<em>list of RawBuffers, int</em>) -- chunk_list is the list of RawBuffers with data ready for writing to
+<dd class="field-even"><p><strong>chunk_list</strong> -- chunk_list is the list of RawBuffers with data ready for writing to
 file or further processing. The list contains all buffers with data
 or just all full buffers depending on the flag full_only.  Note
 chunk_list is not a RawBufferList since the RawBuffers inside may
 not all have the same structure</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference internal" href="#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer">pygama.raw.raw_buffer.RawBuffer</a>], <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>]</p>
+<dd class="field-odd"><p>list of RawBuffers, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -478,10 +478,10 @@ update <code class="xref py py-attr docutils literal notranslate"><span class="p
 the next read. Needs to update <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.n_bytes_read</span></code> too.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><em>still_has_data</em> -- returns <cite>True</cite> while there is still data to read.</p>
+<dd class="field-odd"><p>returns <cite>True</cite> while there is still data to read.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+<dd class="field-even"><p>still_has_data</p>
 </dd>
 </dl>
 </dd></dl>
@@ -614,10 +614,10 @@ write to them.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>values</em> -- The list of values of <cite>RawBuffer.attribute</cite>.</p>
+<dd class="field-even"><p>The list of values of <cite>RawBuffer.attribute</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
+<dd class="field-odd"><p>values</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -720,10 +720,10 @@ the <a class="reference internal" href="#pygama.raw.raw_buffer.RawBufferList" ti
 <dd class="field-odd"><p><strong>attribute</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- The <a class="reference internal" href="#pygama.raw.raw_buffer.RawBuffer" title="pygama.raw.raw_buffer.RawBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawBuffer</span></code></a> attribute queried to make the list.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>values</em> -- The list of values of <cite>RawBuffer.attribute</cite>.</p>
+<dd class="field-even"><p>The list of values of <cite>RawBuffer.attribute</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
+<dd class="field-odd"><p>values</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>

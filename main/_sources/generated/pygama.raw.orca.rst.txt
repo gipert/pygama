@@ -64,15 +64,6 @@ pygama.raw.orca.orca\_packet module
    :show-inheritance:
    :private-members:
 
-pygama.raw.orca.orca\_pollers module
-------------------------------------
-
-.. automodule:: pygama.raw.orca.orca_pollers
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :private-members:
-
 pygama.raw.orca.orca\_streamer module
 -------------------------------------
 

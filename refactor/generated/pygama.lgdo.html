@@ -79,8 +79,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="pygama.lgdo.html">refactor</a></dd>
           <dd><a href="../../main/index.html">main</a></dd>
+          <dd><a href="pygama.lgdo.html">refactor</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -330,10 +330,10 @@ type otherwise will attempt to case the type of the object to a
 <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.dtype</span></code></a>.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>element_type</em> -- A string stating the determined element type of the object.</p>
+<dd class="field-even"><p>A string stating the determined element type of the object.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+<dd class="field-odd"><p>element_type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -347,7 +347,7 @@ type otherwise will attempt to case the type of the object to a
 <dd class="field-odd"><p><strong>datatype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- a LGDO-formatted datatype string.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>element_type</em> -- the datatype name dims if not <code class="docutils literal notranslate"><span class="pre">None</span></code>, a tuple of dimensions for the
+<dd class="field-even"><p>the datatype name dims if not <code class="docutils literal notranslate"><span class="pre">None</span></code>, a tuple of dimensions for the
 LGDO. Note this is not the same as the NumPy shape of the underlying
 data object. See the LGDO specification for more information. Also see
 <a class="reference internal" href="#pygama.lgdo.arrayofequalsizedarrays.ArrayOfEqualSizedArrays" title="pygama.lgdo.arrayofequalsizedarrays.ArrayOfEqualSizedArrays"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayOfEqualSizedArrays</span></code></a> and
@@ -356,7 +356,7 @@ numeric objects, the element type for struct-like  objects, the list of
 fields in the struct.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>, ...], <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a> | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>]]</p>
+<dd class="field-odd"><p>element_type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -550,14 +550,14 @@ array-like objects.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>(object, n_rows_read)</em> -- <cite>object</cite> is the read-out object <cite>n_rows_read</cite> is the number of rows
+<dd class="field-even"><p><cite>object</cite> is the read-out object <cite>n_rows_read</cite> is the number of rows
 successfully read out. Essential for arrays when the amount of data
 is smaller than the object buffer.  For scalars and structs
 <cite>n_rows_read</cite> will be``1``. For tables it is redundant with
 <code class="docutils literal notranslate"><span class="pre">table.loc</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>[LGDO, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>]</p>
+<dd class="field-odd"><p>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)">object</a>, n_rows_read)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -612,12 +612,12 @@ values for each parameter.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><em>dataframe</em> -- contains columns for each parameter in <cite>par_list</cite>, and rows containing
+<dd class="field-odd"><p>contains columns for each parameter in <cite>par_list</cite>, and rows containing
 all data for the associated parameters concatenated over all files in
 <cite>f_list</cite>.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)">pandas.DataFrame</a></p>
+<dd class="field-even"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -639,12 +639,12 @@ group path, return a NumPy array with all values for each parameter.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>par_data</em> -- A dictionary of the parameter data keyed by the elements of <cite>par_list</cite>.
+<dd class="field-even"><p>A dictionary of the parameter data keyed by the elements of <cite>par_list</cite>.
 Each entry contains the data for the specified parameter concatenated
 over all files in <cite>f_list</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a>]</p>
+<dd class="field-odd"><p>par_data</p>
 </dd>
 </dl>
 </dd></dl>

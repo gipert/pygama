@@ -78,8 +78,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="pygama.dsp.html">refactor</a></dd>
           <dd><a href="../../main/index.html">main</a></dd>
+          <dd><a href="pygama.dsp.html">refactor</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -686,10 +686,10 @@ with a similar shape to the variable.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>buffer</em> -- <cite>buff</cite> or newly allocated input buffer.</p>
+<dd class="field-even"><p><cite>buff</cite> or newly allocated input buffer.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><em>Union</em></a>[<em>array</em>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.scalar.Scalar" title="pygama.lgdo.scalar.Scalar"><em>Scalar</em></a>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.array.Array" title="pygama.lgdo.array.Array"><em>Array</em></a>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.vectorofvectors.VectorOfVectors" title="pygama.lgdo.vectorofvectors.VectorOfVectors"><em>VectorOfVectors</em></a>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.struct.Struct" title="pygama.lgdo.struct.Struct"><em>Struct</em></a>]</p>
+<dd class="field-odd"><p>buffer</p>
 </dd>
 </dl>
 </dd></dl>
@@ -709,10 +709,10 @@ with a similar shape to the variable</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><em>buffer</em> -- <cite>buff</cite> or newly allocated output buffer.</p>
+<dd class="field-even"><p><cite>buff</cite> or newly allocated output buffer.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><em>Union</em></a>[<em>array</em>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.scalar.Scalar" title="pygama.lgdo.scalar.Scalar"><em>Scalar</em></a>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.array.Array" title="pygama.lgdo.array.Array"><em>Array</em></a>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.vectorofvectors.VectorOfVectors" title="pygama.lgdo.vectorofvectors.VectorOfVectors"><em>VectorOfVectors</em></a>, <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.struct.Struct" title="pygama.lgdo.struct.Struct"><em>Struct</em></a>]</p>
+<dd class="field-odd"><p>buffer</p>
 </dd>
 </dl>
 </dd></dl>
@@ -845,8 +845,7 @@ any value can be used.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><p><em>(proc_chain, field_mask, lh5_out)</em> --</p>
-<ul class="simple">
+<dd class="field-even"><p><ul class="simple">
 <li><p><cite>proc_chain</cite> -- <a class="reference internal" href="#pygama.dsp.processing_chain.ProcessingChain" title="pygama.dsp.processing_chain.ProcessingChain"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessingChain</span></code></a> object that is executed</p></li>
 <li><p><cite>field_mask</cite> -- list of input fields that are used</p></li>
 <li><p><cite>lh5_out</cite> -- output <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.table.Table" title="pygama.lgdo.table.Table"><code class="xref py py-class docutils literal notranslate"><span class="pre">Table</span></code></a> containing processed
@@ -855,7 +854,7 @@ values</p></li>
 </p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>[<a class="reference internal" href="#pygama.dsp.processing_chain.ProcessingChain" title="pygama.dsp.processing_chain.ProcessingChain">pygama.dsp.processing_chain.ProcessingChain</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>], <a class="reference internal" href="pygama.lgdo.html#pygama.lgdo.table.Table" title="pygama.lgdo.table.Table">pygama.lgdo.table.Table</a>]</p>
+<dd class="field-odd"><p>(proc_chain, field_mask, lh5_out)</p>
 </dd>
 </dl>
 </dd></dl>

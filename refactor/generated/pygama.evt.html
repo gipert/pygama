@@ -78,8 +78,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="pygama.evt.html">refactor</a></dd>
           <dd><a href="../../main/index.html">main</a></dd>
+          <dd><a href="pygama.evt.html">refactor</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -147,7 +147,10 @@ written; the tcm will just be returned in memory</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>tcm</strong> (<em>lgdo.Table</em>) -- The tcm!</p>
+<dd class="field-even"><p><strong>tcm</strong> -- The tcm!</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>lgdo.Table</p>
 </dd>
 </dl>
 </dd></dl>
@@ -191,11 +194,14 @@ values of array_idx</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>col_dict</strong> (<em>dict of ndarrays</em>) -- keys are 'coin_idx', 'array_id', and 'array_idx'
+<dd class="field-even"><p><strong>col_dict</strong> -- keys are 'coin_idx', 'array_id', and 'array_idx'
 coin_idx specifies which rows of the output arrays correspond to the
 which coincidence event
 array_id and array_idx specify the location in coin_data of each datum
 belonging to the coincidence event</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict of ndarrays</p>
 </dd>
 </dl>
 </dd></dl>

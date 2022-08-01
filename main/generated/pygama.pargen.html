@@ -78,8 +78,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../../refactor/index.html">refactor</a></dd>
           <dd><a href="pygama.pargen.html">main</a></dd>
+          <dd><a href="../../refactor/index.html">refactor</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -311,8 +311,11 @@ second keyword argument</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>grid_values</strong> (<em>ndarray of floats</em>) -- An N-dimensional numpy ndarray whose Mth axis corresponds to the Mth row
+<dd class="field-even"><p><strong>grid_values</strong> -- An N-dimensional numpy ndarray whose Mth axis corresponds to the Mth row
 of the grid argument</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of floats</p>
 </dd>
 </dl>
 </dd></dl>
@@ -490,9 +493,12 @@ extremum in order for it to be tagged</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>imaxes, imins</strong> (<em>2-tuple ( array, array )</em>) -- A 2-tuple containing arrays of variable length that hold the indices of
+<dd class="field-even"><p><strong>imaxes, imins</strong> -- A 2-tuple containing arrays of variable length that hold the indices of
 the identified local maxima (first tuple element) and minima (second
 tuple element)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>2-tuple ( array, array )</p>
 </dd>
 </dl>
 </dd></dl>
@@ -771,7 +777,7 @@ hist = 0, and any value here is fine.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pygama.pargen.energy_cal.poly_match">
-<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">poly_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.poly_match" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">poly_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.poly_match" title="Permalink to this definition"></a></dt>
 <dd><p>Find the polynomial function best matching pol(xx) = yy</p>
 <p>Finds the poly fit of xx to yy that obtains the most matches between pol(xx)
 and yy in the np.isclose() sense. If multiple fits give the same number of

@@ -82,8 +82,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../../../refactor/index.html">refactor</a></dd>
           <dd><a href="../../../main/index.html">main</a></dd>
+          <dd><a href="../../../refactor/index.html">refactor</a></dd>
           <dd><a href="pygama.lh5.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -231,7 +231,10 @@ just an alias for Array, but keeps track of the datatype name.</p>
 <dd class="field-odd"><p><strong>obj</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>any object with a numpy dtype</em>) -- </p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>el_type</strong> (<em>str</em>) -- A string stating the determined element type of the object.</p>
+<dd class="field-even"><p><strong>el_type</strong> -- A string stating the determined element type of the object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -245,7 +248,7 @@ just an alias for Array, but keeps track of the datatype name.</p>
 <dd class="field-odd"><p><strong>datatype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- a lh5-formatted datatype string</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><p><strong>(type, dims, elements)</strong> (<em>tuple</em>) --</p>
+<dd class="field-even"><p><p><strong>(type, dims, elements)</strong> --</p>
 <dl class="simple">
 <dt>type<span class="classifier">str</span></dt><dd><p>the datatype name</p>
 </dd>
@@ -259,6 +262,9 @@ for struct-like  objects, the list of fields in the struct</p>
 </dd>
 </dl>
 </p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -375,11 +381,14 @@ array-like objects</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>(object, n_rows_read)</strong> (<em>tuple</em>) -- object is the read-out object
+<dd class="field-even"><p><strong>(object, n_rows_read)</strong> -- object is the read-out object
 n_rows_read is the number of rows successfully read out. Essential
 for arrays when the amount of data is smaller than the object
 buffer.  For scalars and structs n_rows_read will be &quot;1&quot;. For tables
 it is redundant with table.loc</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -408,8 +417,11 @@ each parameter.</p>
 <dd class="field-odd"><p><strong>specification</strong> (<em>See load_nda for parameter</em>) -- </p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>df</strong> (<em>pandas.DataFrame</em>) -- Contains columns for each parameter in par_list, and rows containing all
+<dd class="field-even"><p><strong>df</strong> -- Contains columns for each parameter in par_list, and rows containing all
 data for the associated parameters concatenated over all files in f_list</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)">pandas.DataFrame</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -431,9 +443,12 @@ path, return a numpy array with all values for each parameter.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>par_data</strong> (<em>dict</em>) -- A dictionary of the parameter data keyed by the elements of par_list.
+<dd class="field-even"><p><strong>par_data</strong> -- A dictionary of the parameter data keyed by the elements of par_list.
 Each entry contains the data for the specified parameter concatenated
 over all files in f_list</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>

@@ -67,8 +67,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../../refactor/manuals/build_dsp.html">refactor</a></dd>
           <dd><a href="build_dsp.html">main</a></dd>
+          <dd><a href="../../refactor/manuals/build_dsp.html">refactor</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -131,6 +131,8 @@ full list of conversion options.</p>
 <h2>Writing custom processors<a class="headerlink" href="#writing-custom-processors" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) Import Python modules</span>
 <span class="c1">#</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">guvectorize</span>
 
@@ -159,14 +161,46 @@ full list of conversion options.</p>
 <span class="c1"># - Use &quot;w_&quot; for waveforms, &quot;t_&quot; for indexes, &quot;a_&quot; for amplitudes</span>
 <span class="c1"># - Use underscore casing for the name of the processor and variables, e.g.,</span>
 <span class="c1">#   &quot;a_trap_energy_in&quot; or &quot;t_trigger_in&quot;</span>
+<span class="c1"># - use type annotations</span>
 <span class="c1">#</span>
-<span class="k">def</span> <span class="nf">the_processor_template</span><span class="p">(</span><span class="n">w_in</span><span class="p">,</span> <span class="n">t_in</span><span class="p">,</span> <span class="n">a_in</span><span class="p">,</span> <span class="n">w_out</span><span class="p">,</span> <span class="n">t_out</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">the_processor_template</span><span class="p">(</span><span class="n">w_in</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                           <span class="n">t_in</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                           <span class="n">a_in</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                           <span class="n">w_out</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                           <span class="n">t_out</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
     <span class="c1"># 4) Document the algorithm</span>
     <span class="c1">#</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Add here a complete description of what the processor does, including the</span>
-<span class="sd">    meaning of input and output variables.</span>
+    <span class="sd">&quot;&quot;&quot;One-liner description of the processor.</span>
+
+<span class="sd">    Add here a more detailed description of what the processor does.</span>
+<span class="sd">    Document input parameters in the &quot;Parameters&quot; section. Add a JSON</span>
+<span class="sd">    example for ProcessingChain configuration in the last section.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    w_in</span>
+<span class="sd">        the input waveform.</span>
+<span class="sd">    t_in</span>
+<span class="sd">        a scalar parameter in the time domain</span>
+<span class="sd">    a_in</span>
+<span class="sd">        a scalar parameter in the amplitude domain</span>
+<span class="sd">    w_out</span>
+<span class="sd">        the output waveform</span>
+<span class="sd">    t_out</span>
+<span class="sd">        an output scalar value in the time domain</span>
+
+<span class="sd">    JSON Configuration Example</span>
+<span class="sd">    --------------------------</span>
+
+<span class="sd">    .. code-block :: json</span>
+
+<span class="sd">        &quot;wf_bl&quot;: {</span>
+<span class="sd">            &quot;function&quot;: &quot;the_processor_template&quot;,</span>
+<span class="sd">            &quot;module&quot;: &quot;pygama.dsp.processors&quot;,</span>
+<span class="sd">            &quot;args&quot;: [&quot;waveform&quot;, &quot;t_a&quot;, &quot;a_b&quot;, &quot;wf_filtered&quot;, &quot;t_result&quot;],</span>
+<span class="sd">            &quot;unit&quot;: &quot;ADC&quot;</span>
+<span class="sd">        }</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># 5) Initialize output parameters</span>

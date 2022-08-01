@@ -79,8 +79,8 @@
       <div class="rst-other-versions">
         <dl>
           <dt>Branches</dt>
-          <dd><a href="../../refactor/index.html">refactor</a></dd>
           <dd><a href="pygama.math.html">main</a></dd>
+          <dd><a href="../../refactor/index.html">refactor</a></dd>
           <dd><a href="../../releases/v0.9/index.html">releases/v0.9</a></dd>
         </dl>
       </div>
@@ -218,8 +218,11 @@ in fit and final uncertainties if provided.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>fwfm, dfwfm</strong> (<em>float, float</em>) -- fwfm: the full width at [fraction] of the maximum above bl
+<dd class="field-even"><p><strong>fwfm, dfwfm</strong> -- fwfm: the full width at [fraction] of the maximum above bl
 dfwfm: the uncertainty in fwfm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -441,12 +444,15 @@ many common functions. But not yet implemented.</p></li>
 Requires integer stats. You must use parameter bounds to make sure that
 func does not go negative over the x-range of the histogram.</p></li>
 <li><p><strong>integral</strong> -- DOCME</p></li>
-<li><p><strong>method</strong> -- options to pass to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize" title="(in SciPy v1.8.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code></a></p></li>
-<li><p><strong>bounds</strong> -- options to pass to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize" title="(in SciPy v1.8.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code></a></p></li>
+<li><p><strong>method</strong> -- options to pass to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize" title="(in SciPy v1.9.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code></a></p></li>
+<li><p><strong>bounds</strong> -- options to pass to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize" title="(in SciPy v1.9.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code></a></p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>coeff, cov_matrix</strong> (<em>tuple(array, matrix)</em>)</p>
+<dd class="field-even"><p><strong>coeff, cov_matrix</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>(array, matrix)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -500,8 +506,27 @@ args: n_sig mu, sigma for the signal and n_bkg,b,m for the background</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pygama.math.peak_fitting.gauss_mode">
+<span class="sig-prename descclassname"><span class="pre">pygama.math.peak_fitting.</span></span><span class="sig-name descname"><span class="pre">gauss_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.math.peak_fitting.gauss_mode" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for gauss_mode_max that just returns the mode (position) of a peak</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pygama.math.peak_fitting.gauss_mode_max" title="pygama.math.peak_fitting.gauss_mode_max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss_mode_max</span></code></a>, <a class="reference internal" href="#pygama.math.peak_fitting.gauss_mode_width_max" title="pygama.math.peak_fitting.gauss_mode_width_max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss_mode_width_max</span></code></a></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>mode</strong> (<em>the estimated x-position of the maximum</em>)</p></li>
+<li><p><strong>dmode</strong> (<em>the uncertainty in the mode</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pygama.math.peak_fitting.gauss_mode_max">
-<span class="sig-prename descclassname"><span class="pre">pygama.math.peak_fitting.</span></span><span class="sig-name descname"><span class="pre">gauss_mode_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poissonLL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inflate_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gof_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'var'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.math.peak_fitting.gauss_mode_max" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygama.math.peak_fitting.</span></span><span class="sig-name descname"><span class="pre">gauss_mode_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.math.peak_fitting.gauss_mode_max" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for gauss_mode_width_max that just returns the max and mode</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -510,19 +535,19 @@ args: n_sig mu, sigma for the signal and n_bkg,b,m for the background</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
-<li><p><strong>pars</strong> (<em>2-tuple with the parameters (mode, maximum) of the gaussian fit</em>) -- mode : the estimated x-position of the maximum
+<li><p><strong>pars</strong> (<em>ndarray with the parameters (mode, maximum) of the gaussian fit</em>) -- mode : the estimated x-position of the maximum
 maximum : the estimated maximum value of the peak</p></li>
-<li><p><strong>cov</strong> (<em>2x2 matrix of floats</em>) -- The covariance matrix for the 2 parameters in pars</p></li>
+<li><p><strong>cov</strong> (<em>2x2 ndarray of floats</em>) -- The covariance matrix for the 2 parameters in pars</p></li>
 </ul>
 </p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pygama.analysis.histograms</span> <span class="k">as</span> <span class="nn">pgh</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pygama.math.histogram</span> <span class="k">as</span> <span class="nn">pgh</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">normal</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pygama.analysis.peak_fitting</span> <span class="k">as</span> <span class="nn">pgf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pygama.math.peak_fitting</span> <span class="k">as</span> <span class="nn">pgf</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hist</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">pgh</span><span class="o">.</span><span class="n">get_hist</span><span class="p">(</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pgf</span><span class="o">.</span><span class="n">gauss_mode_max</span><span class="p">(</span><span class="n">hist</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pgf</span><span class="o">.</span><span class="n">gauss_mode_max</span><span class="p">(</span><span class="n">hist</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="n">var</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -564,7 +589,7 @@ if it is greater than 1</p></li>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>pars</strong> (<em>3-tuple containing the parameters (mode, sigma, maximum) of the</em>) -- gaussian fit</p>
+<li><p><strong>pars</strong> (<em>ndarray containing the parameters (mode, sigma, maximum) of the gaussian fit</em>) --</p>
 <ul>
 <li><p>mode : the estimated x-position of the maximum</p></li>
 <li><p>sigma : the estimated width of the peak. Equivalent to a gaussian
@@ -575,7 +600,7 @@ sigma^2</p></li>
 <li><p>maximum : the estimated maximum value of the peak</p></li>
 </ul>
 </li>
-<li><p><strong>cov</strong> (<em>3x3 matrix of floats</em>) -- The covariance matrix for the 3 parameters in pars</p></li>
+<li><p><strong>cov</strong> (<em>3x3 ndarray of floats</em>) -- The covariance matrix for the 3 parameters in pars</p></li>
 </ul>
 </p>
 </dd>
@@ -865,7 +890,10 @@ maximum : the estimated maximum value of the peak</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>scale, scale_var</strong> (<em>tuple (float, float)</em>) -- The scale parameter and its variance</p>
+<dd class="field-even"><p><strong>scale, scale_var</strong> -- The scale parameter and its variance</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -908,8 +936,11 @@ first argument. In pygamaland, those are the function's &quot;parameters.&quot;<
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>(m, b)</strong> (<em>tuple (float, float)</em>) -- The slope (m) and y-intercept (b) of the best fit (in the least-squares
+<dd class="field-even"><p><strong>(m, b)</strong> -- The slope (m) and y-intercept (b) of the best fit (in the least-squares
 sense) of the data to y = mx + b</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
 </dd>
 </dl>
 </dd></dl>
