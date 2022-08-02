@@ -49,6 +49,14 @@ pygama.io.fcdaq module
    :undoc-members:
    :show-inheritance:
 
+pygama.io.hit\_to\_evt module
+-----------------------------
+
+.. automodule:: pygama.io.hit_to_evt
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pygama.io.io\_base module
 -------------------------
 

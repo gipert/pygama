@@ -57,6 +57,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.compassdaq">pygama.io.compassdaq module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.daq_to_raw">pygama.io.daq_to_raw module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.fcdaq">pygama.io.fcdaq module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.hit_to_evt">pygama.io.hit_to_evt module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.io_base">pygama.io.io_base module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.lh5">pygama.io.lh5 module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-pygama.io.llamadaq">pygama.io.llamadaq module</a></li>
@@ -90,6 +91,7 @@
           <dd><a href="../../../main/index.html">main</a></dd>
           <dd><a href="../../../refactor/index.html">refactor</a></dd>
           <dd><a href="pygama.io.html">releases/v0.9</a></dd>
+          <dd><a href="../../v1.0/index.html">releases/v1.0</a></dd>
         </dl>
       </div>
     </div>
@@ -394,6 +396,81 @@ the constructor</p>
 and the FlashCam DataTaker to save the results and write to output.</p>
 <dl class="simple">
 <dt><cite>raw_files</cite> can be a string, or a dict with a label for each file:</dt><dd><p><cite>{'geds':'filename_geds.lh5', 'muvt':'filename_muvt.lh5}</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pygama.io.hit_to_evt">
+<span id="pygama-io-hit-to-evt-module"></span><h2>pygama.io.hit_to_evt module<a class="headerlink" href="#module-pygama.io.hit_to_evt" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.io.hit_to_evt.cluster_events">
+<span class="sig-prename descclassname"><span class="pre">pygama.io.hit_to_evt.</span></span><span class="sig-name descname"><span class="pre">cluster_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'channel'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'timestamp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coin_window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.io.hit_to_evt.cluster_events" title="Permalink to this definition"></a></dt>
+<dd><p>Create a time coincidence map (TCM), given a list of data tables from separate channels.
+Assume that all tables are from different channels in a SINGLE cycle file.
+Hopefully we won't need to extend this to event building across multiple cycles
+as in Majorana.
+- Sort events in DataFrames by strictly ascending timestamps
+- Group hits if the difference between times is less than <cite>coin_window</cite> (default length 4*us)
+- Don't allow events from the same channel into any event.
+- TODO: add a &quot;t_offset&quot; output column which is the time since the FIRST hit in the event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tb_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) -- A list of N tables containing 'channel' &amp; 'timestamp' columns.</p></li>
+<li><p><strong>ts_unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em> (</em><em>optional</em><em>)</em>) -- Conversion factor for timestamps in native units to SECONDS.</p></li>
+<li><p><strong>ch_col</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) -- Name of the common column to use as 'channel'.  Default is 'channel'.</p></li>
+<li><p><strong>ts_col</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) -- Name of the common column to use as 'timestamp'.  Default is 'timestamp'.</p></li>
+<li><p><strong>coin_window</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em> (</em><em>optional</em><em>)</em>) -- The default clustering time in seconds. (4e-6 sec is good for HPGe detectors)
+If events in other channels occur within the first window, extend the window
+by this amount and search again.</p></li>
+<li><p><strong>data_cols</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> (</em><em>optional</em><em>)</em>) -- Copy over additional columns (such as DSP parameters) when we sort events together
+by timestamps.  This is handy for event building DSP files with pandas, then
+optionally converting back to LH5 tables for file i/o.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tcm</strong> -- Return a table with NEW columns: ['ix_evt','ix_hit','tcm_sec','tcm_dt','idx_row_{ch}'].
+If data_cols is set, these columns will be added to the input tables,
+usually dsp data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.io.hit_to_evt.hit_to_evt">
+<span class="sig-prename descclassname"><span class="pre">pygama.io.hit_to_evt.</span></span><span class="sig-name descname"><span class="pre">hit_to_evt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_hit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_evt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lh5_tables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evt_tb_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.io.hit_to_evt.hit_to_evt" title="Permalink to this definition"></a></dt>
+<dd><p>Given an input file containing separate Tables for each active data taker,
+create an output Table which merges all channels together, sorting everything
+by ascending timestamp, and grouping coincident hits in each channel together
+as &quot;events&quot;.  The output table will contain columns ['ix_evt', 'ix_sub']
+denoting the event and sub-event (hit), in addition to any other columns
+we desire to copy over into the output file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_hit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- Input file containing multiple LH5 tables, one for each channel.
+Usually a RAW or DSP file.</p></li>
+<li><p><strong>f_evt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- Output file name.</p></li>
+<li><p><strong>lh5_tables</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> (</em><em>optional</em><em>)</em>) -- Specify the list of tables to analyze, instead of detecting them
+automatically by default.</p></li>
+<li><p><strong>copy_cols</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> (</em><em>optional</em><em>)</em>) -- Specify the list of columns to copy into the output file.  For a DSP
+file, it should be all columns by default, while for a RAW file, we
+probably do NOT want to copy the waveforms into the output file.</p></li>
+<li><p><strong>evt_tb_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) -- Specify the name of the output table instead of automatically setting it.</p></li>
+<li><p><strong>builder_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> (</em><em>optional</em><em>)</em>) -- Give a dict of kwargs for <cite>cluster_events</cite>, including coincidence window
+times, conversion to seconds, and names of timestamp and channel columns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tcm</strong> -- If f_evt is not set, don't write to LH5 file, and instead return a
+DataFrame.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.Dataframe (conditional!)</p>
 </dd>
 </dl>
 </dd></dl>

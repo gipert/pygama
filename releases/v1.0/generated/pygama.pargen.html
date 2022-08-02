@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pygama.pargen package &mdash; pygama  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pygama.raw package" href="pygama.raw.html" />
+    <link rel="prev" title="pygama.math package" href="pygama.math.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> pygama
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials (Jupyter notebooks)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Package API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pygama.html">pygama package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pygama.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pygama.dsp.html">pygama.dsp package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.evt.html">pygama.evt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.flow.html">pygama.flow package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.hit.html">pygama.hit package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.lgdo.html">pygama.lgdo package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.math.html">pygama.math package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pygama.pargen package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.raw.html">pygama.raw package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pygama.vis.html">pygama.vis package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygama.html#module-pygama.cli">pygama.cli module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer's guide</a></li>
+</ul>
+
+    <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+      <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: releases/v1.0
+        <span class="fa fa-caret-down"></span>
+      </span>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Branches</dt>
+          <dd><a href="../../../main/index.html">main</a></dd>
+          <dd><a href="../../../refactor/index.html">refactor</a></dd>
+          <dd><a href="../../v0.9/index.html">releases/v0.9</a></dd>
+          <dd><a href="pygama.pargen.html">releases/v1.0</a></dd>
+        </dl>
+      </div>
+    </div>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pygama</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">pygama</a> &raquo;</li>
+          <li><a href="pygama.html">pygama package</a> &raquo;</li>
+      <li>pygama.pargen package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/pygama.pargen.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pygama.pargen">
+<span id="pygama-pargen-package"></span><h1>pygama.pargen package<a class="headerlink" href="#module-pygama.pargen" title="Permalink to this heading"></a></h1>
+<p>Subpackage description</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-pygama.pargen.data_cleaning">
+<span id="pygama-pargen-data-cleaning-module"></span><h2>pygama.pargen.data_cleaning module<a class="headerlink" href="#module-pygama.pargen.data_cleaning" title="Permalink to this heading"></a></h2>
+<p>mainly pulser tagging
+- gaussian_cut (fits data to a gaussian, returns mean +/- cut_sigma values)
+- xtalball_cut (fits data to a crystalball, returns mean +/- cut_sigma values)
+- find_pulser_properties (find pulser by looking for which peak has a constant time between events)
+- tag_pulsers</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.data_cleaning.find_pulser_properties">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.data_cleaning.</span></span><span class="sig-name descname"><span class="pre">find_pulser_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'trap_max'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.data_cleaning.find_pulser_properties" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.data_cleaning.gaussian_cut">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.data_cleaning.</span></span><span class="sig-name descname"><span class="pre">gaussian_cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotAxis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.data_cleaning.gaussian_cut" title="Permalink to this definition"></a></dt>
+<dd><p>fits data to a gaussian, returns mean +/- cut_sigma values for a cut</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.data_cleaning.tag_pulsers">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.data_cleaning.</span></span><span class="sig-name descname"><span class="pre">tag_pulsers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chan_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.data_cleaning.tag_pulsers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.data_cleaning.xtalball_cut">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.data_cleaning.</span></span><span class="sig-name descname"><span class="pre">xtalball_cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotFigure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.data_cleaning.xtalball_cut" title="Permalink to this definition"></a></dt>
+<dd><p>fits data to a crystalball, returns mean +/- cut_sigma values for a cut</p>
+</dd></dl>
+
+</section>
+<section id="module-pygama.pargen.dsp_optimize">
+<span id="pygama-pargen-dsp-optimize-module"></span><h2>pygama.pargen.dsp_optimize module<a class="headerlink" href="#module-pygama.pargen.dsp_optimize" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.pargen.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">ParGrid</span></span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Parameter Grid class
+Each ParGrid entry corresponds to a dsp parameter to be varied.
+The ntuples must follow the pattern:
+( name parameter value_strs) : ( str, str, list of str)
+where name and parameter are the same as 'db.name.parameter' in the processing chain,
+value_strs is the array of strings to set the argument to.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.add_dimension">
+<span class="sig-name descname"><span class="pre">add_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_strs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.add_dimension" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_par</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.get_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.get_n_dimensions">
+<span class="sig-name descname"><span class="pre">get_n_dimensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.get_n_dimensions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.get_n_grid_points">
+<span class="sig-name descname"><span class="pre">get_n_grid_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.get_n_grid_points" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.get_n_points_of_dim">
+<span class="sig-name descname"><span class="pre">get_n_points_of_dim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.get_n_points_of_dim" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.get_par_meshgrid">
+<span class="sig-name descname"><span class="pre">get_par_meshgrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sparse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.get_par_meshgrid" title="Permalink to this definition"></a></dt>
+<dd><p>return a meshgrid of parameter values
+Always uses Matrix indexing (natural for par grid) so that
+mg[i1][i2][...] corresponds to index order in self.dims
+Note copy is False by default as opposed to numpy default of True</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.get_shape">
+<span class="sig-name descname"><span class="pre">get_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.get_shape" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.get_zero_indices">
+<span class="sig-name descname"><span class="pre">get_zero_indices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.get_zero_indices" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.iterate_indices">
+<span class="sig-name descname"><span class="pre">iterate_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.iterate_indices" title="Permalink to this definition"></a></dt>
+<dd><p>iterate given indices [i1, i2, ...] by one.
+For easier iteration. The convention here is arbitrary, but its the
+order the arrays would be traversed in a series of nested for loops in
+the order appearin in dims (first dimension is first for loop, etc):
+Return False when the grid runs out of indices. Otherwise returns True.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.print_data">
+<span class="sig-name descname"><span class="pre">print_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.print_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGrid.set_dsp_pars">
+<span class="sig-name descname"><span class="pre">set_dsp_pars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGrid.set_dsp_pars" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGridDimension">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygama.pargen.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">ParGridDimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_strs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGridDimension" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<p>Create new instance of ParGridDimension(name, parameter, value_strs)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGridDimension._asdict">
+<span class="sig-name descname"><span class="pre">_asdict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGridDimension._asdict" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new dict which maps field names to their values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGridDimension._field_defaults">
+<span class="sig-name descname"><span class="pre">_field_defaults</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGridDimension._field_defaults" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGridDimension._fields">
+<span class="sig-name descname"><span class="pre">_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('name',</span> <span class="pre">'parameter',</span> <span class="pre">'value_strs')</span></em><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGridDimension._fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGridDimension._make">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_make</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGridDimension._make" title="Permalink to this definition"></a></dt>
+<dd><p>Make a new ParGridDimension object from a sequence or iterable</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGridDimension._replace">
+<span class="sig-name descname"><span class="pre">_replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGridDimension._replace" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new ParGridDimension object replacing specified fields with new values</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGridDimension.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGridDimension.name" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGridDimension.parameter">
+<span class="sig-name descname"><span class="pre">parameter</span></span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGridDimension.parameter" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.ParGridDimension.value_strs">
+<span class="sig-name descname"><span class="pre">value_strs</span></span><a class="headerlink" href="#pygama.pargen.dsp_optimize.ParGridDimension.value_strs" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.get_grid_points">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">get_grid_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.get_grid_points" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a list of the indices of all possible grid points</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.run_grid">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">run_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fom_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.run_grid" title="Permalink to this definition"></a></dt>
+<dd><p>Extract a table of optimization values for a grid of DSP parameters
+The grid argument defines a list of parameters and values over which to run
+the DSP defined in dsp_config on tb_data. At each point, a scalar
+figure-of-merit is extracted.</p>
+<p>Returns a N-dimensional ndarray of figure-of-merit values, where the array
+axes are in the order they appear in grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tb_data</strong> (<em>lh5 Table</em>) -- An input table of lh5 data. Typically a selection is made prior to
+sending tb_data to this function: optimization typically doesn't have to
+run over all data</p></li>
+<li><p><strong>dsp_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) -- Specifies the DSP to be performed (see build_processing_chain()) and the
+list of output variables to appear in the output table for each grid point</p></li>
+<li><p><strong>grid</strong> (<a class="reference internal" href="#pygama.pargen.dsp_optimize.ParGrid" title="pygama.pargen.dsp_optimize.ParGrid"><em>ParGrid</em></a>) -- See ParGrid class for format</p></li>
+<li><p><strong>fom_function</strong> (<em>function</em>) -- When given the output lh5 table of this DSP iteration, the fom_function
+must return a scalar figure-of-merit. Should accept verbosity as a
+second keyword argument</p></li>
+<li><p><strong>db_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> (</em><em>optional</em><em>)</em>) -- DSP parameters database. See build_processing_chain for formatting info</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> (</em><em>optional</em><em>)</em>) -- verbosity for the processing chain and fom_function calls</p></li>
+<li><p><strong>**fom_kwargs</strong> -- Any keyword arguments for fom_function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>grid_values</strong> -- An N-dimensional numpy ndarray whose Mth axis corresponds to the Mth row
+of the grid argument</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.run_grid_multiprocess_parallel">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">run_grid_multiprocess_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.run_grid_multiprocess_parallel" title="Permalink to this definition"></a></dt>
+<dd><p>run one iteration of DSP on tb_data with multiprocessing, can handle
+multiple grids if they are the same dimensions</p>
+<p>Optionally returns a value for optimization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tb_data</strong> (<em>lh5 Table</em>) -- An input table of lh5 data. Typically a selection is made prior to
+sending tb_data to this function: optimization typically doesn't have to
+run over all data</p></li>
+<li><p><strong>dsp_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) -- Specifies the DSP to be performed for this iteration (see
+build_processing_chain()) and the list of output variables to appear in
+the output table</p></li>
+<li><p><strong>grid</strong> (<em>pargrid</em><em>, </em><em>list of pargrids</em>) -- Grids to run optimization on</p></li>
+<li><p><strong>db_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> (</em><em>optional</em><em>)</em>) -- DSP parameters database. See build_processing_chain for formatting info</p></li>
+<li><p><strong>fom_function</strong> (<em>function</em><em> or </em><em>None</em><em> (</em><em>optional</em><em>)</em>) -- When given the output lh5 table of this DSP iteration, the
+fom_function must return a scalar figure-of-merit value upon which the
+optimization will be based. Should accept verbosity as a second argument.
+If multiple grids provided can either pass one fom to have it run for each grid
+or a list of fom to run different fom on each grid.</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> (</em><em>optional</em><em>)</em>) -- verbosity for the processing chain and fom_function calls</p></li>
+<li><p><strong>processes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- DOCME</p></li>
+<li><p><strong>fom_kwargs</strong> -- any keyword arguments to pass to the fom,
+if multiple grids given will need to be a list of the fom_kwargs for each grid</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>figure_of_merit</strong> (<em>float</em>) -- If fom_function is not None, returns figure-of-merit value for the DSP iteration</p></li>
+<li><p><strong>tb_out</strong> (<em>lh5 Table</em>) -- If fom_function is None, returns the output lh5 table for the DSP iteration</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.run_grid_point">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">run_grid_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iii</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.run_grid_point" title="Permalink to this definition"></a></dt>
+<dd><p>Runs a single grid point for the index specified</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.dsp_optimize.run_one_dsp">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.dsp_optimize.</span></span><span class="sig-name descname"><span class="pre">run_one_dsp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dsp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fom_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.dsp_optimize.run_one_dsp" title="Permalink to this definition"></a></dt>
+<dd><p>run one iteration of DSP on tb_data</p>
+<p>Optionally returns a value for optimization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tb_data</strong> (<em>lh5 Table</em>) -- An input table of lh5 data. Typically a selection is made prior to
+sending tb_data to this function: optimization typically doesn't have to
+run over all data</p></li>
+<li><p><strong>dsp_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) -- Specifies the DSP to be performed for this iteration (see
+build_processing_chain()) and the list of output variables to appear in
+the output table</p></li>
+<li><p><strong>db_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> (</em><em>optional</em><em>)</em>) -- DSP parameters database. See build_processing_chain for formatting info</p></li>
+<li><p><strong>fom_function</strong> (<em>function</em><em> or </em><em>None</em><em> (</em><em>optional</em><em>)</em>) -- When given the output lh5 table of this DSP iteration, the
+fom_function must return a scalar figure-of-merit value upon which the
+optimization will be based. Should accept verbosity as a second argument</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> (</em><em>optional</em><em>)</em>) -- verbosity for the processing chain and fom_function calls</p></li>
+<li><p><strong>fom_kwargs</strong> -- any keyword arguments to pass to the fom</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>figure_of_merit</strong> (<em>float</em>) -- If fom_function is not None, returns figure-of-merit value for the DSP iteration</p></li>
+<li><p><strong>tb_out</strong> (<em>lh5 Table</em>) -- If fom_function is None, returns the output lh5 table for the DSP iteration</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pygama.pargen.ecal_th">
+<span id="pygama-pargen-ecal-th-module"></span><h2>pygama.pargen.ecal_th module<a class="headerlink" href="#module-pygama.pargen.ecal_th" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.ecal_th.energy_cal_th">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.ecal_th.</span></span><span class="sig-name descname"><span class="pre">energy_cal_th</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lh5_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.ecal_th.energy_cal_th" title="Permalink to this definition"></a></dt>
+<dd><p>This is an example script for calibrating Th data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.ecal_th.fwhm_slope">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.ecal_th.</span></span><span class="sig-name descname"><span class="pre">fwhm_slope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.ecal_th.fwhm_slope" title="Permalink to this definition"></a></dt>
+<dd><p>Fit the energy resolution curve</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.ecal_th.get_peak_label">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.ecal_th.</span></span><span class="sig-name descname"><span class="pre">get_peak_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peak</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.ecal_th.get_peak_label" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.ecal_th.get_peak_labels">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.ecal_th.</span></span><span class="sig-name descname"><span class="pre">get_peak_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.ecal_th.get_peak_labels" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-pygama.pargen.energy_cal">
+<span id="pygama-pargen-energy-cal-module"></span><h2>pygama.pargen.energy_cal module<a class="headerlink" href="#module-pygama.pargen.energy_cal" title="Permalink to this heading"></a></h2>
+<p>routines for automatic calibration.</p>
+<ul class="simple">
+<li><p>hpge_find_E_peaks (Find uncalibrated E peaks whose E spacing matches the pattern in peaks_keV)</p></li>
+<li><p>hpge_get_E_peaks (Get uncalibrated E peaks at the energies of peaks_keV)</p></li>
+<li><p>hpge_fit_E_peaks (fits the energy peals)</p></li>
+<li><p>hpge_E_calibration (main routine -- finds and fits peaks specified)</p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.calibrate_tl208">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">calibrate_tl208</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cal_peaks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotFigure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.calibrate_tl208" title="Permalink to this definition"></a></dt>
+<dd><p>energy_series: array of energies we want to calibrate
+cal_peaks: array of peaks to fit
+1.) we find the 2614 peak by looking for the tallest peak at &gt;0.1 the max adc value
+2.) fit that peak to get a rough guess at a calibration to find other peaks with
+3.) fit each peak in peak_energies
+4.) do a linear fit to the peak centroids to find a calibration</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.get_calibration_energies">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">get_calibration_energies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cal_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.get_calibration_energies" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.get_hpge_E_bounds">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">get_hpge_E_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.get_hpge_E_bounds" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.get_hpge_E_fixed">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">get_hpge_E_fixed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.get_hpge_E_fixed" title="Permalink to this definition"></a></dt>
+<dd><p>Returns: Sequence list of fixed indexes for fitting and mask for parameters</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.get_hpge_E_peak_par_guess">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">get_hpge_E_peak_par_guess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.get_hpge_E_peak_par_guess" title="Permalink to this definition"></a></dt>
+<dd><p>Get parameter guesses for func fit to peak in hist</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hist</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist(). Should be
+windowed around the peak.</p></li>
+<li><p><strong>bins</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist(). Should be
+windowed around the peak.</p></li>
+<li><p><strong>var</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist(). Should be
+windowed around the peak.</p></li>
+<li><p><strong>func</strong> (<em>function</em>) -- The function to be fit to the peak in the (windowed) hist</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.get_i_local_extrema">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">get_i_local_extrema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.get_i_local_extrema" title="Permalink to this definition"></a></dt>
+<dd><p>Get lists of indices of the local maxima and minima of data</p>
+<p>The &quot;local&quot; extrema are those maxima / minima that have heights / depths of
+at least delta.
+Converted from MATLAB script at: <a class="reference external" href="http://billauer.co.il/peakdet.html">http://billauer.co.il/peakdet.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>array-like</em>) -- the array of data within which extrema will be found</p></li>
+<li><p><strong>delta</strong> (<em>scalar</em>) -- the absolute level by which data must vary (in one direction) about an
+extremum in order for it to be tagged</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>imaxes, imins</strong> -- A 2-tuple containing arrays of variable length that hold the indices of
+the identified local maxima (first tuple element) and minima (second
+tuple element)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>2-tuple ( array, array )</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.get_i_local_maxima">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">get_i_local_maxima</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.get_i_local_maxima" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.get_i_local_minima">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">get_i_local_minima</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.get_i_local_minima" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.get_most_prominent_peaks">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">get_most_prominent_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energySeries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xhi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xpb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_num_peaks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.get_most_prominent_peaks" title="Permalink to this definition"></a></dt>
+<dd><p>find the most prominent peaks in a spectrum by looking for spikes in
+derivative of spectrum energySeries: array of measured energies
+max_num_peaks = maximum number of most prominent peaks to find return a
+histogram around the most prominent peak in a spectrum of a given
+percentage of width</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.hpge_E_calibration">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">hpge_E_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E_uncal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks_keV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guess_keV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deg=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncal_is_int=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_keV=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs=&lt;function</span> <span class="pre">gauss_step_cdf&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gof_funcs=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method='unbinned'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gof_func=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_events=15000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplex=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed_p_val=0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.hpge_E_calibration" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrate HPGe data to a set of known peaks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>E_uncal</strong> (<em>array</em>) -- unbinned energy data to be calibrated</p></li>
+<li><p><strong>peaks_keV</strong> (<em>array</em>) -- list of peak energies to be fit to. Each must be in the data</p></li>
+<li><p><strong>guess_keV</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- a rough initial guess at the conversion factor from E_uncal to keV. Must
+be positive</p></li>
+<li><p><strong>deg</strong> (<em>non-negative int</em>) -- degree of the polynomial for the E_cal function E_keV = poly(E_uncal).
+deg = 0 corresponds to a simple scaling E_keV = scale * E_uncal.
+Otherwise follows the convention in np.polyfit</p></li>
+<li><p><strong>uncal_is_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) -- if True, attempts will be made to avoid picket-fencing when binning
+E_uncal</p></li>
+<li><p><strong>range_keV</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><em>array of floats</em><em>, or </em><em>array of tuples of floats</em>) -- ranges around which the peak fitting is performed
+if tuple(s) are supplied, they provide the left and right ranges</p></li>
+<li><p><strong>funcs</strong> -- DOCME</p></li>
+<li><p><strong>gof_funcs</strong> (<em>function</em><em> or </em><em>array of functions</em>) -- functions to use for calculation goodness of fit if unspecified will use same func as fit</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- default is unbinned fit can specify to use binned fit method instead</p></li>
+<li><p><strong>gof_func</strong> -- DOCME</p></li>
+<li><p><strong>n_events</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- number of events to use for unbinned fit</p></li>
+<li><p><strong>simplex</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) -- DOCME</p></li>
+<li><p><strong>allowed_p_val</strong> -- lower limit on p_val of fit</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) -- print debug statements</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul>
+<li><p><strong>pars, cov</strong> (<em>array, 2D array</em>) -- array of calibration function parameters and their covariances. The form
+of the function is E_keV = poly(E_uncal). Assumes poly() is
+overwhelmingly dominated by the linear term. pars follows convention in
+np.polyfit unless deg=0, in which case it is the (lone) scale factor</p></li>
+<li><p><strong>results</strong> (<em>dict with the following elements</em>) --</p>
+<dl class="simple">
+<dt>'detected_peaks_locs', 'detected_peaks_keV'<span class="classifier">array, array</span></dt><dd><p>array of rough uncalibrated/calibrated energies at which the fit peaks were
+found in the initial peak search</p>
+</dd>
+<dt>'pt_pars', 'pt_cov'<span class="classifier">list of (array), list of (2D array)</span></dt><dd><p>arrays of gaussian parameters / covariances fit to the peak tops in
+the first refinement</p>
+</dd>
+<dt>'pt_cal_pars', 'pt_cal_cov'<span class="classifier">array, 2D array</span></dt><dd><p>array of calibraiton parameters E_uncal = poly(E_keV) for fit to
+means of gausses fit to tops of each peak</p>
+</dd>
+<dt>'pk_pars', 'pk_cov', 'pk_binws', 'pk_ranges'<span class="classifier">list of (array), list of (2D array), list, list of (array)</span></dt><dd><p>the best fit parameters, covariances, bin width and energy range for the local fit to each peak</p>
+</dd>
+<dt>'pk_cal_pars', 'pk_cal_cov'<span class="classifier">array, 2D array</span></dt><dd><p>array of calibraiton parameters E_uncal = poly(E_keV) for fit to
+means from full peak fits</p>
+</dd>
+<dt>'fwhms', 'dfwhms'<span class="classifier">array, array</span></dt><dd><p>the numeric fwhms and their uncertainties for each peak.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.hpge_find_E_peaks">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">hpge_find_E_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks_keV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Etol_keV</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.hpge_find_E_peaks" title="Permalink to this definition"></a></dt>
+<dd><p>Find uncalibrated E peaks whose E spacing matches the pattern in peaks_keV
+Note: the specialization here to units &quot;keV&quot; in peaks and Etol is
+unnecessary. However it is kept so that the default value for Etol_keV has
+an unambiguous interpretation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hist</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist()
+var cannot contain any zero entries.</p></li>
+<li><p><strong>bins</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist()
+var cannot contain any zero entries.</p></li>
+<li><p><strong>var</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist()
+var cannot contain any zero entries.</p></li>
+<li><p><strong>peaks_keV</strong> (<em>array</em>) -- Energies of peaks to search for (in keV)</p></li>
+<li><p><strong>n_sigma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- Threshold for detecting a peak in sigma (i.e. sqrt(var))</p></li>
+<li><p><strong>deg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- deg arg to pass to poly_match</p></li>
+<li><p><strong>Etol_keV</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- absolute tolerance in energy for matching peaks</p></li>
+<li><p><strong>var_zero</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- number used to replace zeros of var to avoid divide-by-zero in
+hist/sqrt(var). Default value is 1. Usually when var = 0 its because
+hist = 0, and any value here is fine.</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) -- print debug messages</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>detected_peak_locations</strong> (<em>list</em>) -- list of uncalibrated energies of detected peaks</p></li>
+<li><p><strong>detected_peak_energies</strong> (<em>list</em>) -- list of calibrated energies of detected peaks</p></li>
+<li><p><strong>pars</strong> (<em>list of floats</em>) -- the parameters for poly(peaks_uncal) = peaks_keV (polyfit convention)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.hpge_fit_E_cal_func">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">hpge_fit_E_cal_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_vars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Es_keV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E_scale_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.hpge_fit_E_cal_func" title="Permalink to this definition"></a></dt>
+<dd><p>Find best fit of E = poly(mus +/- sqrt(mu_vars))
+This is an inversion of hpge_fit_E_scale.
+E uncertainties are computed from mu_vars / dmu/dE where mu = poly(E) is the
+E_scale function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mus</strong> (<em>array</em>) -- uncalibrated energies</p></li>
+<li><p><strong>mu_vars</strong> (<em>array</em>) -- variances in the mus</p></li>
+<li><p><strong>Es_keV</strong> (<em>array</em>) -- energies to fit to, in keV</p></li>
+<li><p><strong>E_scale_pars</strong> (<em>array</em>) -- <p>???</p>
+</p></li>
+<li><p><strong>deg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- degree for energy scale fit. deg=0 corresponds to a simple scaling
+mu = scale * E. Otherwise deg follows the definition in np.polyfit</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pars</strong> (<em>array</em>) -- parameters of the best fit. Follows the convention in np.polyfit</p></li>
+<li><p><strong>cov</strong> (<em>2D array</em>) -- covariance matrix for the best fit parameters.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.hpge_fit_E_peak_tops">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">hpge_fit_E_peak_tops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_locs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_to_fit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Least</span> <span class="pre">Squares'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inflate_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gof_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'var'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.hpge_fit_E_peak_tops" title="Permalink to this definition"></a></dt>
+<dd><p>Fit gaussians to the tops of peaks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hist</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist()</p></li>
+<li><p><strong>bins</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist()</p></li>
+<li><p><strong>var</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist()</p></li>
+<li><p><strong>peak_locs</strong> (<em>array</em>) -- locations of peaks in hist. Must be accurate two within +/- 2*n_to_fit</p></li>
+<li><p><strong>n_to_fit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- number of hist bins near the peak top to include in the gaussian fit</p></li>
+<li><p><strong>cost_func</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em> (</em><em>optional</em><em>)</em>) -- Flag passed to gauss_mode_width_max()</p></li>
+<li><p><strong>inflate_errors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em> (</em><em>optional</em><em>)</em>) -- Flag passed to gauss_mode_width_max()</p></li>
+<li><p><strong>gof_method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> (</em><em>optional</em><em>)</em>) -- method flag passed to gauss_mode_width_max()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pars_list</strong> (<em>list of array</em>) -- a list of best-fit parameters (mode, sigma, max) for each peak-top fit</p></li>
+<li><p><strong>cov_list</strong> (<em>list of 2D arrays</em>) -- a list of covariance matrices for each pars</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.hpge_fit_E_peaks">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">hpge_fit_E_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E_uncal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_guesses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wwidths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins=50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs=&lt;function</span> <span class="pre">gauss_step_cdf&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method='unbinned'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gof_funcs=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_events=15000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed_p_val=0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncal_is_int=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplex=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.hpge_fit_E_peaks" title="Permalink to this definition"></a></dt>
+<dd><p>Fit the Energy peaks specified using the function given</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>E_uncal</strong> (<em>array</em>) -- unbinned energy data to be fit</p></li>
+<li><p><strong>mode_guesses</strong> (<em>array</em>) -- array of guesses for modes of each peak</p></li>
+<li><p><strong>wwidths</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em> or </em><em>array of float</em>) -- array of widths to use for the fit windows (in units of E_uncal),
+typically on the order of 10 sigma where sigma is the peak width</p></li>
+<li><p><strong>n_bins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>array of ints</em>) -- array of number of bins to use for the fit window histogramming</p></li>
+<li><p><strong>funcs</strong> (<em>function</em><em> or </em><em>array of functions</em>) -- funcs to be used to fit each region</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) -- default is unbinned fit can specify to use binned fit method instead</p></li>
+<li><p><strong>gof_funcs</strong> (<em>function</em><em> or </em><em>array of functions</em>) -- functions to use for calculation goodness of fit if unspecified will use same func as fit</p></li>
+<li><p><strong>uncal_is_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) -- if True, attempts will be made to avoid picket-fencing when binning
+E_uncal</p></li>
+<li><p><strong>simplex</strong> (<em>bool determining whether to do a round of simpson minimisation before gradient minimisation</em>) -- </p></li>
+<li><p><strong>n_events</strong> (<em>int number of events to use for unbinned fit</em>) -- </p></li>
+<li><p><strong>allowed_p_val</strong> (<em>lower limit on p_val of fit</em>) -- </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pars</strong> (<em>list of array</em>) -- a list of best-fit parameters for each peak fit</p></li>
+<li><p><strong>covs</strong> (<em>list of 2D arrays</em>) -- a list of covariance matrices for each pars</p></li>
+<li><p><strong>binwidths</strong> (<em>list</em>) -- a list of bin widths used for each peak fit</p></li>
+<li><p><strong>ranges</strong> (<em>list of array</em>) -- a list of [Euc_min, Euc_max] used for each peak fit</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.hpge_fit_E_scale">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">hpge_fit_E_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_vars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Es_keV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.hpge_fit_E_scale" title="Permalink to this definition"></a></dt>
+<dd><p>Find best fit of poly(E) = mus +/- sqrt(mu_vars)
+Compare to hpge_fit_E_cal_func which fits for E = poly(mu)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mus</strong> (<em>array</em>) -- uncalibrated energies</p></li>
+<li><p><strong>mu_vars</strong> (<em>array</em>) -- variances in the mus</p></li>
+<li><p><strong>Es_keV</strong> (<em>array</em>) -- energies to fit to, in keV</p></li>
+<li><p><strong>deg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- degree for energy scale fit. deg=0 corresponds to a simple scaling
+mu = scale * E. Otherwise deg follows the definition in np.polyfit</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pars</strong> (<em>array</em>) -- parameters of the best fit. Follows the convention in np.polyfit</p></li>
+<li><p><strong>cov</strong> (<em>2D array</em>) -- covariance matrix for the best fit parameters.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.hpge_get_E_peaks">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">hpge_get_E_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cal_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks_keV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Etol_keV</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.hpge_get_E_peaks" title="Permalink to this definition"></a></dt>
+<dd><p>Get uncalibrated E peaks at the energies of peaks_keV</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hist</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist()
+var cannot contain any zero entries.</p></li>
+<li><p><strong>bins</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist()
+var cannot contain any zero entries.</p></li>
+<li><p><strong>var</strong> (<em>array</em><em>, </em><em>array</em><em>, </em><em>array</em>) -- Histogram of uncalibrated energies, see pgh.get_hist()
+var cannot contain any zero entries.</p></li>
+<li><p><strong>cal_pars</strong> (<em>array</em>) -- Estimated energy calibration parameters used to search for peaks</p></li>
+<li><p><strong>peaks_keV</strong> (<em>array</em>) -- Energies of peaks to search for (in keV)</p></li>
+<li><p><strong>n_sigma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- Threshold for detecting a peak in sigma (i.e. sqrt(var))</p></li>
+<li><p><strong>Etol_keV</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- absolute tolerance in energy for matching peaks</p></li>
+<li><p><strong>var_zero</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- number used to replace zeros of var to avoid divide-by-zero in
+hist/sqrt(var). Default value is 1. Usually when var = 0 its because
+hist = 0, and any value here is fine.</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) -- print debug messages</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>got_peak_locations</strong> (<em>list</em>) -- list of uncalibrated energies of found peaks</p></li>
+<li><p><strong>got_peak_energies</strong> (<em>list</em>) -- list of calibrated energies of found peaks</p></li>
+<li><p><strong>pars</strong> (<em>list of floats</em>) -- the parameters for poly(peaks_uncal) = peaks_keV (polyfit convention)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.match_peaks">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">match_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_pks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cal_pks</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.match_peaks" title="Permalink to this definition"></a></dt>
+<dd><p>Match uncalibrated peaks with literature energy values.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.energy_cal.poly_match">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.energy_cal.</span></span><span class="sig-name descname"><span class="pre">poly_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.energy_cal.poly_match" title="Permalink to this definition"></a></dt>
+<dd><p>Find the polynomial function best matching pol(xx) = yy</p>
+<p>Finds the poly fit of xx to yy that obtains the most matches between pol(xx)
+and yy in the np.isclose() sense. If multiple fits give the same number of
+matches, the fit with the best gof is used, where gof is computed only among
+the matches.
+Assumes that the relationship between xx and yy is monotonic</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xx</strong> (<em>array-like</em>) -- domain data array. Must be sorted from least to largest. Must satisfy
+len(xx) &gt;= len(yy)</p></li>
+<li><p><strong>yy</strong> (<em>array-like</em>) -- range data array: the values to which pol(xx) will be compared. Must be
+sorted from least to largest. Must satisfy len(yy) &gt; max(2, deg+2)</p></li>
+<li><p><strong>deg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- degree of the polynomial to be used. If deg = 0, will fit for a simple
+scaling: scale * xx = yy. If deg = -1, fits to a simple shift in the
+data: xx + shift = yy. Otherwise, deg is equivalent to the deg argument
+of np.polyfit()</p></li>
+<li><p><strong>rtol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- the relative tolerance to be sent to np.isclose()</p></li>
+<li><p><strong>atol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- the absolute tolerance to be sent to np.isclose(). Has the same units
+as yy.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pars</strong> (<em>None or array of floats</em>) -- The parameters of the best fit of poly(xx) = yy.  Follows the convention
+used for the return value &quot;p&quot; of polyfit. Returns None when the inputs
+are bad.</p></li>
+<li><p><strong>i_matches</strong> (<em>list of int</em>) -- list of indices in xx for the matched values in the best match</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pygama.pargen.mse_psd">
+<span id="pygama-pargen-mse-psd-module"></span><h2>pygama.pargen.mse_psd module<a class="headerlink" href="#module-pygama.pargen.mse_psd" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>get_avse_cut (does AvsE)</p></li>
+<li><p>get_ae_cut (does A/E)</p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.mse_psd.get_ae_cut">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.mse_psd.</span></span><span class="sig-name descname"><span class="pre">get_ae_cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e_cal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotFigure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.mse_psd.get_ae_cut" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygama.pargen.mse_psd.get_avse_cut">
+<span class="sig-prename descclassname"><span class="pre">pygama.pargen.mse_psd.</span></span><span class="sig-name descname"><span class="pre">get_avse_cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e_cal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotFigure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygama.pargen.mse_psd.get_avse_cut" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pygama.math.html" class="btn btn-neutral float-left" title="pygama.math package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pygama.raw.html" class="btn btn-neutral float-right" title="pygama.raw package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, the LEGEND Collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
