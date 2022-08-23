@@ -1,4 +1,4 @@
-name: pygama
+name: tests
 
 on:
   push:
